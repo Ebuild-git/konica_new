@@ -11,7 +11,7 @@ $produit = DB::table('produits')->get();
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Ben Mahmoud Martket</title>
+    <title> Shopping</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -184,13 +184,7 @@ $produit = DB::table('produits')->get();
                 <div class=" header-main-nav">
                     <nav class="mainmenu-nav">
                         <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
-                        {{-- <div class="mobile-nav-brand header-brand">
-                               
-                                    <a href="{{ route('home') }}" class="logo">
-                        <img src="{{ Storage::url($config->logo) }}" width="100" height="200" alt="Site Logo">
-                        </a>
-
-                </div> --}}
+                  
 
                 <div class="mobile-nav-brand header-brands">
                     <a href="{{ route('home') }}" class="logo logo-dark">
@@ -291,7 +285,7 @@ $produit = DB::table('produits')->get();
               
 
                 </li class="menu-item">
-                <li><a href="{{ route('about') }}">  {{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</a></li>
+                <li><a href="{{ route('about') }}">  {{ \App\Helpers\TranslationHelper::TranslateText('A propos') }}</a></li>
 
 
 
@@ -318,20 +312,6 @@ $produit = DB::table('produits')->get();
                     </li>
 
 
-                    {{--
-                    <li class="axil-search d-xl-block d-none w-2">
-                        <input type="search" class="placeholder product-search-input small-input" name="search2" id="search2" value="" maxlength="128" placeholder="Rechercher un produit......" autocomplete="off">
-                        <button type="submit" class="icon wooc-btn-search">
-                            <i class="flaticon-magnifying-glass"></i>
-                        </button>
-                       
-                    </li> --}}
-                    {{--
-                    <li class="axil-search d-none-desktop w-2">
-                        <a href="javascript:void(0)" class="header-search-icon" title="Search">
-                            <i class="far fa-search"></i>
-                        </a>
-                    </li>  --}}
                     <li class="axil-search d-md-none w-2" style="transition: background-color 0.3s;">
                         <a href="javascript:void(0)" class="header-search-icon" title="Search">
                             <i class="far fa-search"></i>
@@ -405,6 +385,94 @@ $produit = DB::table('produits')->get();
                             </div>
                             @endif
 
+                        </div>
+                        
+
+                        <style>
+                                  .dropbtn img {
+                            margin-right: 8px;
+                        }
+
+                        .dropdown-content {
+                            display: none;
+                            position: absolute;
+                            background-color: #ffffff;
+                            min-width: 150px;
+                            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+                            z-index: 1;
+                            border: 1px solid #ccc;
+                            border-radius: 5px;
+                        }
+
+                        .dropdown-content .dropdown-item {
+                            display: flex;
+                            align-items: center;
+                            padding: 10px 15px;
+                            background-color: transparent;
+                            border: none;
+                            width: 100%;
+                            text-align: left;
+                            cursor: pointer;
+                            margin: 2px 0;
+                        }
+
+
+                        .dropdown-content .dropdown-item img {
+                            margin-right: 8px;
+                        }
+
+                        .dropdown-content .dropdown-item:hover {
+                            background-color: #f0f0f0;
+                        }
+
+                        .dropdown:hover .dropdown-content {
+                            display: block;
+                        }
+
+                        .top-bar__navigation .active {
+                            font-weight: bold;
+                        }
+
+                        .large-text {
+                            font-size: 24px;
+                            /* Ajustez selon vos besoins */
+                        }
+                        </style>
+
+
+                    </li>
+                    <li>
+                        
+                        <div class="custom-dropdown">
+                            <form action="{{ route('locale.change') }}" method="POST">
+                                @csrf
+                                <div class="dropdown">
+                                    <button class="dropbtn">
+                                        @if (app()->getLocale() == 'fr')
+                                            <img src="https://img.icons8.com/color/20/france-circular.png"
+                                                alt="fr">
+                                        @else
+                                            <img src="https://img.icons8.com/color/20/great-britain-circular.png"
+                                                alt="en">
+                                        @endif
+                                        {{ app()->getLocale() == 'fr' ? 'Français' : 'English' }}
+                                    </button>
+                                    <div class="dropdown-content">
+                                        <button type="submit" name="locale" value="fr"
+                                            class="dropdown-item">
+                                            <img src="https://img.icons8.com/color/20/france-circular.png"
+                                                alt="fr">
+                                            Français
+                                        </button>
+                                        <button type="submit" name="locale" value="en"
+                                            class="dropdown-item">
+                                            <img src="https://img.icons8.com/color/20/great-britain-circular.png"
+                                                alt="en">
+                                            English
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </li>
                     <li class="axil-mobile-toggle">
