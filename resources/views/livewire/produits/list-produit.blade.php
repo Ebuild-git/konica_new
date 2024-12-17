@@ -37,7 +37,8 @@
                     <th>Prix vente</th>
                     <th>Prix achat</th>
                     <th>Sell</th>
-                    <th>Vues</th>
+                   {{--  <th>Vues</th> --}}
+                    <th>Type Produit</th>
                     <th>création</th>
                     <th style="text-align: right;">
                         <span wire:loading>
@@ -70,33 +71,42 @@
                         </td>
                        
                         <td class="cusor">
+
+                           
+                                 @if ($produit->sur_devis == false)
+                                    <b onclick="url('{{ route('produits.historique', ['id' => $produit->id]) }}')">
+                                        {{ $produit->stock }} U.
+                                    </b>
+                                @else
+                                    <b>------</b>
+                                @endif 
+    
+                          
                             {{--   <span class="badge {{ $produit->stock > 0 ? 'bg-success' : 'bg-danger' }}">
                                 {{ $produit->stock > 0 ? 'En stock' : 'Rupture' }}
                             </span> --}}
 
-                            @if ($produit->stock > 20)
-                                <!-- Icône pour en stock -->
+                          {{--    @if ($produit->stock > 0 && $produit->sur_devis == false)
+                              
                                 <span class="text-success" title="En Stock">
                                     <i class="fas fa-check-circle"></i>
                                     <span class="badge badge-success">En Stock</span>
-                                    {{ $produit->stock }} U.
+                                   <b onclick="url('{{ route('produits.historique', ['id' => $produit->id]) }}')">
+                                        {{ $produit->stock }} U.
+                                    </b>
                                 </span>
                             @endif
 
-                            @if ($produit->stock < 20 && $produit->stock > 0)
-                                <!-- Seuil pour l'alerte -->
-                                {{ $produit->stock }} U.
-                                <span class="badge badge-yellow" title="{{ $produit->stock }} Produit(s) en stock pour le moment"  style="background-color: rgb(222, 222, 19) ;  color: rgb(252, 253, 251);">Alerte Stock Bas</span>
-                            @endif
+                           
 
 
-                            @if ($produit->stock == 0)
-                                <!-- Icône pour rupture de stock -->
+                            @if ($produit->stock == 0 && $produit->sur_devis == false)
+                              
                                 <span class="text-danger" title="Rupture de Stock">
                                     <i class="fas fa-times-circle"></i>
-                                    <span class="badge badge-danger">Rupture</span>
+                                    <span class="badge badge-danger">Pas de stock</span>
                                 </span>
-                            @endif
+                            @endif  --}}
                         </td>
 
 
@@ -104,32 +114,57 @@
 
 
                         <td>
-                            @if ($produit->inPromotion())
-                                <span class=" small">
-                                    - {{ $produit->inPromotion()->pourcentage }} %
-                                </span>
-                                <b class="text-success">
-                                    {{ $produit->getPrice() }} DT
-                                </b>
-                                <br>
-                                <strike>
-                                    <span class="text-danger small">
-                                        {{ $produit->prix }} DT
-                                    </span>
-                                </strike>
-                            @else
+                            @if ($produit->inPromotion()   && $produit->sur_devis == false)
+                            <span class=" small">
+                                - {{ $produit->inPromotion()->pourcentage }} %
+                            </span>
+                            <b class="text-success">
                                 {{ $produit->getPrice() }} DT
-                            @endif
+                            </b>
+                            <br>
+                            <strike>
+                                <span class="text-danger small">
+                                    {{ $produit->prix }} DT
+                                </span>
+                            </strike>
+                            @elseif ($produit->sur_devis==false)
+                            {{ $produit->getPrice() }}DT
+                            @else
+                            <b>------</b>
+                        
+                        @endif
 
                         </td>
-                        <td>{{ $produit->prix_achat }} DT</td>
+                        <td>{{-- {{ $produit->prix_achat }} --}}
+                            @if($produit->sur_devis==false)
+                            {{ $produit->prix_achat }} DT
+                            @else
+                            <b>------</b>
+                            @endif
+                            </td>
                         <td>
                             <i class="ri-wallet-2-line vert"></i>
                             {{ $produit->vendus->count() }}
                         </td>
-                        <td>
+                       {{--  <td>
                             <i class="ri-bar-chart-box-line vert"></i>
                             {{ $produit->vues->count() }}
+                        </td> --}}
+                        <td>
+                            @if ($produit->sur_devis == false)
+                                <div class="progress-bar bg-primary progress" style="width: 80%" aria-valuenow="10"
+                                    aria-valuemin="0" aria-valuemax="100">
+                                    <b>Produit simple</b>
+                                    {{--    {{ $produit->sur_devis }}  --}}
+                                </div>
+                            @else
+                                <div class="progress-bar bg-info" style="width: 80%" aria-valuenow="30"
+                                    aria-valuemin="0" aria-valuemax="100">
+                                    <b>Produit sur devis</b>
+                                    {{--     {{ $produit->sur_devis }}  --}}
+                                </div>
+                            @endif
+                            {{--  {{ $produit->sur_devis }} --}}
                         </td>
                         <td>{{ $produit->created_at->format('d/m/Y') }} </td>
                         <td style="text-align: right;">

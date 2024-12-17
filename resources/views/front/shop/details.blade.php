@@ -147,7 +147,7 @@
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Stock disponible') }}</label>
                                         @else
                                             <label class="badge bg-danger">
-                                                {{ \App\Helpers\TranslationHelper::TranslateText('Stock non disponible') }}</label>
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Stock en cours d\'approvisionnement') }}</label>
                                         @endif
                                         <br><br>
 
@@ -254,17 +254,17 @@
                                             }
                                         </style>
                                     </ul>
-                                    <!-- End Product Action  -->
+                                  
 
                                 </div>
-                                <!-- End Product Action Wrapper  -->
+                              
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- End .single-product-thumb -->
+      
 
         <div class="woocommerce-tabs wc-tabs-wrapper bg-vista-white">
             <div class="container">
@@ -290,26 +290,21 @@
                                         </p>
                                     </div>
                                 </div>
-                                <!-- End .col-lg-6 -->
+                              
 
-                                <!-- End .col-lg-6 -->
+                               
                             </div>
-                            <!-- End .row -->
-
-                            <!-- End .row -->
+                        
                         </div>
-                        <!-- End .product-desc-wrapper -->
+                       
                     </div>
 
                 </div>
             </div>
         </div>
-        <!-- woocommerce-tabs -->
-
+       
         </div>
-        <!-- End Shop Area  -->
-
-        <!-- Start Recently Viewed Product Area  -->
+       
         <div class="axil-product-area bg-color-white axil-section-gap pb--50 pb_sm--30">
             <div class="container">
                 <div class="section-title-wrapper">

@@ -460,10 +460,11 @@
                                             </span>
                                             <ul class="product-meta">
                                                 @if ($produit->stock > 0)
-                                                <label class="badge btn-bg-primary2"> Stock disponible</label>
+                                                <label class="badge btn-bg-primary2">      {{ \App\Helpers\TranslationHelper::TranslateText('Stock disponible') }}</label>
+                                            </label>
                                                 @else
-                                                <label class="badge bg-danger"> Stock non
-                                                    disponible</label>
+                                                <label class="badge bg-danger">      {{ \App\Helpers\TranslationHelper::TranslateText('Stock en cours d\'approvisionnement') }}</label>
+                                            </label>
                                                 @endif
 
                                                 <li>Categorie:<span>
@@ -645,7 +646,8 @@
                                                 @if ($produit->stock > 0)
                                                 <label class="badge btn-bg-primary2"> {{ \App\Helpers\TranslationHelper::TranslateText('Stock disponible') }}</label>
                                                 @else
-                                                <label class="badge bg-danger"> {{ \App\Helpers\TranslationHelper::TranslateText('Stock non disponible') }}</label>
+                                                <label class="badge bg-danger">      {{ \App\Helpers\TranslationHelper::TranslateText('Stock en cours d\'approvisionnement') }}</label>
+                                            </label>
                                                 @endif
 
 

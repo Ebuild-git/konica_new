@@ -1,8 +1,8 @@
 @include('sweetalert::alert')
 @php
-$config = DB::table('configs')->first();
-$service = DB::table('services')->get();
-$produit = DB::table('produits')->get();
+    $config = DB::table('configs')->first();
+    $service = DB::table('services')->get();
+    $produit = DB::table('produits')->get();
 @endphp
 
 <!doctype html>
@@ -55,7 +55,7 @@ $produit = DB::table('produits')->get();
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="header-top-text">
-                            <p><i class="fas fa-star"></i> 
+                            <p><i class="fas fa-star"></i>
                                 {{ \App\Helpers\TranslationHelper::TranslateText('Livraison gratuite pour les commandes de plus de 1000 DT') }}
                             </p>
                         </div>
@@ -65,61 +65,68 @@ $produit = DB::table('produits')->get();
                             <ul class="quick-link">
                                 <div class="header-top-dropdown">
                                     <div class="dropdown">
-                                       {{--  <form action="{{ route('locale.change') }}" method="POST">
-                                            @csrf
-                                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                {{ app()->getLocale() == 'fr' ? 'Français' : 'English' }}
+                                        {{-- <form action="{{ route('locale.change') }}" method="POST">
+                                        @csrf
+                                        <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            {{ app()->getLocale() == 'fr' ? 'Français' : 'English' }}
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <button type="submit" name="locale" value="fr" class="dropdown-item">
+                                                <img src="https://img.icons8.com/color/20/france-circular.png" alt="fr">
+                                                Français
                                             </button>
-                                            <ul class="dropdown-menu">
-                                                <button type="submit" name="locale" value="fr" class="dropdown-item">
-                                                    <img src="https://img.icons8.com/color/20/france-circular.png" alt="fr">
-                                                    Français
-                                                </button>
-                                                <button type="submit" name="locale" value="en" class="dropdown-item">
-                                                    <img src="https://img.icons8.com/color/20/great-britain-circular.png" alt="en">
-                                                    English
-                                                </button>
+                                            <button type="submit" name="locale" value="en" class="dropdown-item">
+                                                <img src="https://img.icons8.com/color/20/great-britain-circular.png" alt="en">
+                                                English
+                                            </button>
 
-                                             
-                                                    <button  type="submit" name="locale" value="en"class="dropdown-item" >
-                                                        <img src="https://img.icons8.com/color/20/saudi-arabia-circular.png" alt="ar">
-                                                        Arabe
-                                                    </button>
-                                             
-        
-                                            </ul>
+
+                                            <button type="submit" name="locale" value="en" class="dropdown-item">
+                                                <img src="https://img.icons8.com/color/20/saudi-arabia-circular.png" alt="ar">
+                                                Arabe
+                                            </button>
+
+
+                                        </ul>
                                         </form> --}}
 
                                         <form action="{{ route('locale.change') }}" method="POST">
                                             @csrf
-                                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
                                                 {{ app()->getLocale() == 'fr' ? 'Français' : (app()->getLocale() == 'en' ? 'English' : 'العربية') }}
                                             </button>
                                             <ul class="dropdown-menu">
                                                 <li>
-                                                    <button type="submit" name="locale" value="fr" class="dropdown-item">
-                                                        <img src="https://img.icons8.com/color/20/france-circular.png" alt="fr">
+                                                    <button type="submit" name="locale" value="fr"
+                                                        class="dropdown-item">
+                                                        <img src="https://img.icons8.com/color/20/france-circular.png"
+                                                            alt="fr">
                                                         Français
                                                     </button>
                                                 </li>
                                                 <li>
-                                                    <button type="submit" name="locale" value="en" class="dropdown-item">
-                                                        <img src="https://img.icons8.com/color/20/great-britain-circular.png" alt="en">
+                                                    <button type="submit" name="locale" value="en"
+                                                        class="dropdown-item">
+                                                        <img src="https://img.icons8.com/color/20/great-britain-circular.png"
+                                                            alt="en">
                                                         English
                                                     </button>
                                                 </li>
                                                 <li>
-                                                    <button type="submit" name="locale" value="ar" class="dropdown-item">
-                                                        <img src="https://img.icons8.com/color/20/saudi-arabia-circular.png" alt="ar">
+                                                    <button type="submit" name="locale" value="ar"
+                                                        class="dropdown-item">
+                                                        <img src="https://img.icons8.com/color/20/saudi-arabia-circular.png"
+                                                            alt="ar">
                                                         العربية
                                                     </button>
                                                 </li>
                                             </ul>
                                         </form>
-                                        
+
                                     </div>
                                     <div class="dropdown">
-                                     
+
                                     </div>
                                 </div>
 
@@ -136,7 +143,7 @@ $produit = DB::table('produits')->get();
                 <div class="header-navbar">
 
                     <div class="header-brands">
-                        <a href="{{ route('home') }}" class="logo logo-dark">
+                        <a href="{{ route('home') }}" class="logo logo-dark site-logo">
                             <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
                         </a>
                         <a href="{{ route('home') }}" class="logo logo-light">
@@ -144,6 +151,58 @@ $produit = DB::table('produits')->get();
                         </a>
 
                         <style>
+
+.site-logo {
+                            display: flex;
+                            align-items: center;
+                            text-decoration: none;
+                            padding: 0px;
+                        }
+
+
+                        .top-bar__logo {
+                            position: relative;
+                            margin-left: 2px;
+                            z-index: 6
+                        }
+
+                        .top-bar__logo img {
+                            height: 90px
+                        }
+
+
+                        .site-logo img {
+                            height: 150px;
+                            width: 100px;
+                            object-fit: contain;
+                            transition: transform 0.3s ease;
+                            margin-top: -21px;
+                        }
+
+                        @media (max-width: 768px) {
+                            .site-logo img {
+                                height: 200px;
+                                width: 200px;
+                                margin-top: 30;
+                                padding: 10;
+                                margin-left: 20px;
+
+
+
+                            }
+                        }
+
+                     
+
+                        .site-logo {
+                            padding: 5px;
+                        }
+
+                        .site-logo img {
+                            max-height: 60px;
+                            width: 200px;
+                        }
+
                             .header-brands img {
 
                                 object-fit: contain;
@@ -151,11 +210,10 @@ $produit = DB::table('produits')->get();
                                 margin-top: 50px;
                             }
 
-
+/* 
                             .header-brands:hover img {
                                 transform: scale(1.5);
-                            }
-
+                            } */
                         </style>
                     </div>
                     {{-- <div class=" header-brand nav-brand">
@@ -181,309 +239,311 @@ $produit = DB::table('produits')->get();
 
                     </style>
                 </div> --}}
-                <div class=" header-main-nav">
-                    <nav class="mainmenu-nav">
-                        <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
-                  
+                    <div class=" header-main-nav">
+                        <nav class="mainmenu-nav">
+                            <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
 
-                <div class="mobile-nav-brand header-brands">
-                    <a href="{{ route('home') }}" class="logo logo-dark">
-                        <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
-                    </a>
-                    <a href="{{ route('home') }}" class="logo logo-light">
-                        <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
-                    </a>
-                </div>
 
-                <ul class="mainmenu">
-
-                    <style>
-                        #dropdown-header-menu {
-                            color: #ffffff;
-                            /* Text color */
-                            background-color: #5EA13C;
-                            /* Background color */
-                            border: 1px solid #5EA13C;
-                            /* Border color */
-                            padding: 8px 12px;
-                            /* Padding for a better look */
-                            border-radius: 4px;
-                            /* Rounded corners */
-                        }
-
-                        /* Change styles when the dropdown is open */
-                        #dropdown-header-menu[aria-expanded="true"] {
-                            background-color: #5EA13C;
-                            /* Darker background when active */
-                            color: #ffffff;
-                            /* Text color when active */
-                            border-color: #EFB121;
-                            /* Darker border when active */
-                        }
-
-                        /* Optional: Style the icon specifically */
-                        #dropdown-header-menu .fa-th-large {
-                            font-size: 20px;
-                            /* Icon size */
-                            margin-right: 5px;
-                            /* Spacing between icon and text */
-                        }
-
-                        /* Hover effect */
-                        #dropdown-header-menu:hover {
-                            background-color: #5EA13C;
-                            /* Slightly different color on hover */
-                            color: #ffffff;
-                            /* Hover text color */
-                            border-color: #5EA13C;
-                            /* Hover border color */
-                        }
-
-                    </style>
-
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdown-header-menu" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="far fa-th-large"></i>   {{ \App\Helpers\TranslationHelper::TranslateText('Categories') }}
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdown-header-menu">
-                            @foreach ($categories as $category)
-                            <li>
-
-                                <a class="dropdown-item1 @class(['selected' => isset($current_category) && $current_category->id === $category->id])" href="/category/{{ $category->id }}" style="color: {{ isset($current_category) && $current_category->id === $category->id ? '#EFB121' : '#000000' }};">
-                                    {{ $category->nom ?? ' ' }}
+                            <div class="mobile-nav-brand header-brands">
+                                <a href="{{ route('home') }}" class="logo logo-dark">
+                                    <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
                                 </a>
+                                <a href="{{ route('home') }}" class="logo logo-light">
+                                    <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
+                                </a>
+                            </div>
 
-                                {{-- <a class="dropdown-item1 {{ isset($current_category) && $current_category->id === $category->id ? 'selected' : '' }}"
-                                href="/category/{{ $category->id }}">
-                                {{ $category->nom ?? ' ' }}
-                                </a> --}}
-                            </li>
-                            @endforeach
-                        </ul>
-                    </li>
+                            <ul class="mainmenu">
 
-                    {{-- <li class="dropdown">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdown-header-menu" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="far fa-th-large"></i> Categories
-                        </a>
+                                <style>
+                                    #dropdown-header-menu {
+                                        color: #ffffff;
+                                        /* Text color */
+                                        background-color: #5EA13C;
+                                        /* Background color */
+                                        border: 1px solid #5EA13C;
+                                        /* Border color */
+                                        padding: 8px 12px;
+                                        /* Padding for a better look */
+                                        border-radius: 4px;
+                                        /* Rounded corners */
+                                    }
 
-            
-                        <ul class="dropdown-menu" aria-labelledby="dropdown-header-menu">
-                            @foreach ($categories as $category)
-                            <li><a class="dropdown-item" href="/category/{{ $category->id }}" class="{{ isset($current_category) && $current_category->id === $category->id ? 'selected' : '' }}">{{ $category->nom ?? ' ' }}</a>
-                    </li>
-                    @endforeach
+                                    /* Change styles when the dropdown is open */
+                                    #dropdown-header-menu[aria-expanded="true"] {
+                                        background-color: #5EA13C;
+                                        /* Darker background when active */
+                                        color: #ffffff;
+                                        /* Text color when active */
+                                        border-color: #EFB121;
+                                        /* Darker border when active */
+                                    }
 
+                                    /* Optional: Style the icon specifically */
+                                    #dropdown-header-menu .fa-th-large {
+                                        font-size: 20px;
+                                        /* Icon size */
+                                        margin-right: 5px;
+                                        /* Spacing between icon and text */
+                                    }
 
-                </ul>
-                </li> --}}
+                                    /* Hover effect */
+                                    #dropdown-header-menu:hover {
+                                        background-color: #5EA13C;
+                                        /* Slightly different color on hover */
+                                        color: #ffffff;
+                                        /* Hover text color */
+                                        border-color: #5EA13C;
+                                        /* Hover border color */
+                                    }
+                                </style>
 
-                
-                <li  class="menu-item"><a href="{{ route('home') }}">{{ __('accueil') }}</a>
-
-                </li>
-              
-
-                </li class="menu-item">
-                <li><a href="{{ route('about') }}">  {{ \App\Helpers\TranslationHelper::TranslateText('A propos') }}</a></li>
-
-
-
-                <li class="menu-item">
-                    <a href="{{ route('shop') }}">{{ __('boutique') }}</a>
-                </li>
-
-
-                <li class="menu-item"><a href="{{ route('contact') }}">  {{ \App\Helpers\TranslationHelper::TranslateText('Contact') }}</a></li>
-
-
-
-                </ul>
-                </nav>
-            </div>
-            <div class="header-action">
-                <ul class="action-list">
-
-                    <li class="axil-search d-xl-block d-none w-2">
-                        <input type="search" class="placeholder product-search-input small-input" name="search2" id="search2" maxlength="128" placeholder="  {{ \App\Helpers\TranslationHelper::TranslateText('Rechercher un produit') }}" autocomplete="off" style="width: 250px;">
-                        <button type="submit" class="icon wooc-btn-search">
-                            <i class="flaticon-magnifying-glass"></i>
-                        </button>
-                    </li>
-
-
-                    <li class="axil-search d-md-none w-2" style="transition: background-color 0.3s;">
-                        <a href="javascript:void(0)" class="header-search-icon" title="Search">
-                            <i class="far fa-search"></i>
-                        </a>
-                    </li>
-
-                    <style>
-                        .axil-search:hover {
-                            background-color: #f0f0f0;
-                            /* Remplacez par la couleur souhaitée */
-                        }
-
-                    </style>
-
-
-                    <li class="shopping-cart">
-                        <a href="#" class="cart-dropdown-btn">
-                            <span class="cart-count" id="count-panier-span">00</span>
-                            <i class="far fa-shopping-cart"></i>
-                        </a>
-                    </li>
-                    <li class="wishlist">
-                        <a href="{{ route('favories') }}">
-                            <i class="far fa-heart"></i>
-                        </a>
-                    </li>
-                    <li class="my-account">
-                        <a href="javascript:void(0)">
-                            <i class="far fa-user"></i>
-                        </a>
-                        <div class="my-account-dropdown">
-
-                            @if (Auth()->user())
-                            <ul>
-                                @if (auth()->user()->role != 'client')
-                                <li><a href="{{ url('dashboard') }}">Dashboard</a>
-                                </li>
-                                @endif
-                                <li>
-                                    <a href="{{ route('account') }}">
-                                        {{ \App\Helpers\TranslationHelper::TranslateText('Mon compte') }}
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#" role="button"
+                                        id="dropdown-header-menu" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="far fa-th-large"></i>
+                                        {{ \App\Helpers\TranslationHelper::TranslateText('Categories') }}
                                     </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdown-header-menu">
+                                        @foreach ($categories as $category)
+                                            <li>
+
+                                                <a class="dropdown-item1 @class([
+                                                    'selected' =>
+                                                        isset($current_category) && $current_category->id === $category->id,
+                                                ])"
+                                                    href="/category/{{ $category->id }}"
+                                                    style="color: {{ isset($current_category) && $current_category->id === $category->id ? '#EFB121' : '#000000' }};">
+                                                    {{ $category->nom ?? ' ' }}
+                                                </a>
+
+                                                {{-- <a class="dropdown-item1 {{ isset($current_category) && $current_category->id === $category->id ? 'selected' : '' }}"
+                                        href="/category/{{ $category->id }}">
+                                        {{ $category->nom ?? ' ' }}
+                                        </a> --}}
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </li>
-                                <li>
-                                    <a href="{{ route('favories') }}">  {{ \App\Helpers\TranslationHelper::TranslateText('Mes favoris') }}</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('cart') }}">  {{ \App\Helpers\TranslationHelper::TranslateText('Mon panier') }}</a>
-                                </li>
-                                <li>
 
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();   document.getElementById('logout-form').submit();">
-                                        {{ \App\Helpers\TranslationHelper::TranslateText('Déconnexion') }}
-                                    </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+
+                                <li class="menu-item"><a href="{{ route('home') }}">{{ __('accueil') }}</a>
+
+                                </li>
+
+
+                                </li class="menu-item">
+                                <a href="{{ route('about') }}">
+                                    {{ \App\Helpers\TranslationHelper::TranslateText('A propos') }}</a>
                                 </li>
 
 
 
+                                <li class="menu-item">
+                                    <a href="{{ route('shop') }}">{{ __('boutique') }}</a>
+                                </li>
+
+
+                                <li class="menu-item"><a href="{{ route('contact') }}">
+                                        {{ \App\Helpers\TranslationHelper::TranslateText('Contact') }}</a></li>
 
                             </ul>
-                            @else
-                            <div class="login-btn">
-                                <a href="{{ url('login') }}" class="axil-btn btn-bg-primary2">  {{ \App\Helpers\TranslationHelper::TranslateText('Connexion') }}</a>
-                            </div>
+                        </nav>
+                    </div>
+                    <div class="header-action">
+                        <ul class="action-list">
 
-                            <div class="reg-footer text-center">  {{ \App\Helpers\TranslationHelper::TranslateText('Pas de compte') }}? <a href="{{ url('register') }}" class="btn-link">  {{ \App\Helpers\TranslationHelper::TranslateText('Inscrivez vous ici') }}.</a>
-                            </div>
-                            @endif
-
-                        </div>
-                        
-
-                        <style>
-                                  .dropbtn img {
-                            margin-right: 8px;
-                        }
-
-                        .dropdown-content {
-                            display: none;
-                            position: absolute;
-                            background-color: #ffffff;
-                            min-width: 150px;
-                            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-                            z-index: 1;
-                            border: 1px solid #ccc;
-                            border-radius: 5px;
-                        }
-
-                        .dropdown-content .dropdown-item {
-                            display: flex;
-                            align-items: center;
-                            padding: 10px 15px;
-                            background-color: transparent;
-                            border: none;
-                            width: 100%;
-                            text-align: left;
-                            cursor: pointer;
-                            margin: 2px 0;
-                        }
+                            <li class="axil-search d-xl-block d-none w-4">
+                                <input type="search" class="placeholder product-search-input small-input"
+                                    name="search2" id="search2" maxlength="128"
+                                    placeholder="  {{ \App\Helpers\TranslationHelper::TranslateText('Rechercher un produit') }}"
+                                    autocomplete="off" style="width: 250px;">
+                                <button type="submit" class="icon wooc-btn-search">
+                                    <i class="flaticon-magnifying-glass"></i>
+                                </button>
+                            </li>
 
 
-                        .dropdown-content .dropdown-item img {
-                            margin-right: 8px;
-                        }
+                            <li class="axil-search d-md-none w-4" style="transition: background-color 0.3s;">
+                                <a href="javascript:void(0)" class="header-search-icon" title="Search">
+                                    <i class="far fa-search"></i>
+                                </a>
+                            </li>
 
-                        .dropdown-content .dropdown-item:hover {
-                            background-color: #f0f0f0;
-                        }
+                            <style>
+                                .axil-search:hover {
+                                    background-color: #f0f0f0;
 
-                        .dropdown:hover .dropdown-content {
-                            display: block;
-                        }
-
-                        .top-bar__navigation .active {
-                            font-weight: bold;
-                        }
-
-                        .large-text {
-                            font-size: 24px;
-                            /* Ajustez selon vos besoins */
-                        }
-                        </style>
+                                }
+                            </style>
 
 
-                    </li>
-                    <li>
-                        
-                        <div class="custom-dropdown">
-                            <form action="{{ route('locale.change') }}" method="POST">
-                                @csrf
-                                <div class="dropdown">
-                                    <button class="dropbtn">
-                                        @if (app()->getLocale() == 'fr')
-                                            <img src="https://img.icons8.com/color/20/france-circular.png"
-                                                alt="fr">
-                                        @else
-                                            <img src="https://img.icons8.com/color/20/great-britain-circular.png"
-                                                alt="en">
-                                        @endif
-                                        {{ app()->getLocale() == 'fr' ? 'Français' : 'English' }}
-                                    </button>
-                                    <div class="dropdown-content">
-                                        <button type="submit" name="locale" value="fr"
-                                            class="dropdown-item">
-                                            <img src="https://img.icons8.com/color/20/france-circular.png"
-                                                alt="fr">
-                                            Français
-                                        </button>
-                                        <button type="submit" name="locale" value="en"
-                                            class="dropdown-item">
-                                            <img src="https://img.icons8.com/color/20/great-britain-circular.png"
-                                                alt="en">
-                                            English
-                                        </button>
-                                    </div>
+                            <li class="shopping-cart">
+                                <a href="#" class="cart-dropdown-btn">
+                                    <span class="cart-count" id="count-panier-span">00</span>
+                                    <i class="far fa-shopping-cart"></i>
+                                </a>
+                            </li>
+                            <li class="wishlist">
+                                <a href="{{ route('favories') }}">
+                                    <i class="far fa-heart"></i>
+                                </a>
+                            </li>
+                            <li class="my-account">
+                                <a href="javascript:void(0)">
+                                    <i class="far fa-user"></i>
+                                </a>
+                                <div class="my-account-dropdown">
+
+                                    @if (Auth()->user())
+                                        <ul>
+                                            @if (auth()->user()->role != 'client')
+                                                <li><a href="{{ url('dashboard') }}">Dashboard</a>
+                                                </li>
+                                            @endif
+                                            <li>
+                                                <a href="{{ route('account') }}">
+                                                    {{ \App\Helpers\TranslationHelper::TranslateText('Mon compte') }}
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('favories') }}">
+                                                    {{ \App\Helpers\TranslationHelper::TranslateText('Mes favoris') }}</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('cart') }}">
+                                                    {{ \App\Helpers\TranslationHelper::TranslateText('Mon panier') }}</a>
+                                            </li>
+                                            <li>
+
+                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();   document.getElementById('logout-form').submit();">
+                                                    {{ \App\Helpers\TranslationHelper::TranslateText('Déconnexion') }}
+                                                </a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </li>
+
+
+
+
+                                        </ul>
+                                    @else
+                                        <div class="login-btn">
+                                            <a href="{{ url('login') }}" class="axil-btn btn-bg-primary2">
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Connexion') }}</a>
+                                        </div>
+
+                                        <div class="reg-footer text-center">
+                                            {{ \App\Helpers\TranslationHelper::TranslateText('Pas de compte') }}? <a
+                                                href="{{ url('register') }}" class="btn-link">
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Inscrivez vous ici') }}.</a>
+                                        </div>
+                                    @endif
+
                                 </div>
-                            </form>
-                        </div>
-                    </li>
-                    <li class="axil-mobile-toggle">
-                        <button class="menu-btn mobile-nav-toggler">
-                            <i class="flaticon-menu-2"></i>
-                        </button>
-                    </li>
-                </ul>
+
+
+                                <style>
+                                    .dropbtn img {
+                                        margin-right: 8px;
+                                    }
+
+                                    .dropdown-content {
+                                        display: none;
+                                        position: absolute;
+                                        background-color: #ffffff;
+                                        min-width: 150px;
+                                        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+                                        z-index: 1;
+                                        border: 1px solid #ccc;
+                                        border-radius: 5px;
+                                    }
+
+                                    .dropdown-content .dropdown-item {
+                                        display: flex;
+                                        align-items: center;
+                                        padding: 10px 15px;
+                                        background-color: transparent;
+                                        border: none;
+                                        width: 100%;
+                                        text-align: left;
+                                        cursor: pointer;
+                                        margin: 2px 0;
+                                    }
+
+
+                                    .dropdown-content .dropdown-item img {
+                                        margin-right: 8px;
+                                    }
+
+                                    .dropdown-content .dropdown-item:hover {
+                                        background-color: #f0f0f0;
+                                    }
+
+                                    .dropdown:hover .dropdown-content {
+                                        display: block;
+                                    }
+
+                                    .top-bar__navigation .active {
+                                        font-weight: bold;
+                                    }
+
+                                    .large-text {
+                                        font-size: 24px;
+                                        /* Ajustez selon vos besoins */
+                                    }
+                                </style>
+
+
+                            </li>
+                          {{--   <li>
+
+                                <div class="custom-dropdown">
+                                    <form action="{{ route('locale.change') }}" method="POST">
+                                        @csrf
+                                        <div class="dropdown">
+                                            <button class="dropbtn">
+                                                @if (app()->getLocale() == 'fr')
+                                                    <img src="https://img.icons8.com/color/20/france-circular.png"
+                                                        alt="fr">
+                                                @else
+                                                    <img src="https://img.icons8.com/color/20/great-britain-circular.png"
+                                                        alt="en">
+                                                @endif
+                                                {{ app()->getLocale() == 'fr' ? 'Français' : 'English' }}
+                                            </button>
+                                            <div class="dropdown-content">
+                                                <button type="submit" name="locale" value="fr"
+                                                    class="dropdown-item">
+                                                    <img src="https://img.icons8.com/color/20/france-circular.png"
+                                                        alt="fr">
+                                                    Français
+                                                </button>
+                                                <button type="submit" name="locale" value="en"
+                                                    class="dropdown-item">
+                                                    <img src="https://img.icons8.com/color/20/great-britain-circular.png"
+                                                        alt="en">
+                                                    English
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li> --}}
+                            <li class="axil-mobile-toggle">
+                                <button class="menu-btn mobile-nav-toggler">
+                                    <i class="flaticon-menu-2"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-        </div>
         </div>
         <!-- End Mainmenu Area -->
     </header>
@@ -517,16 +577,16 @@ $produit = DB::table('produits')->get();
                                     top: -30px;
                                     /* Déplace le logo de 30px vers le haut */
                                 }
-
                             </style>
                             <div class="logo mb--30">
                                 <a href="{{ route('home') }}">
-                                    <img class="light-logo" src="{{ Storage::url($config->logofooter ?? ' ') }}" alt="Logo" height="200" width="200">
+                                    <img class="light-logo" src="{{ Storage::url($config->logofooter ?? ' ') }}"
+                                        alt="Logo" height="200" width="200">
                                 </a>
                             </div>
 
                             <p class="logo" style="font-size: 18px; line-height: 1.6; text-align: justify;">
-                             
+
                                 {!! \App\Helpers\TranslationHelper::TranslateText($config->description) !!}
                             </p>
 
@@ -537,13 +597,20 @@ $produit = DB::table('produits')->get();
                     <!-- Start Single Widget  -->
                     <div class="col-lg-3 col-sm-6">
                         <div class="axil-footer-widget">
-                            <h5 class="widget-title">  {{ \App\Helpers\TranslationHelper::TranslateText('Mon compte') }}</h5>
+                            <h5 class="widget-title">
+                                {{ \App\Helpers\TranslationHelper::TranslateText('Mon compte') }}</h5>
                             <div class="inner">
                                 <ul>
                                     @if (Auth()->user())
-                                    <li><a href="{{ route('profile') }}">  {{ \App\Helpers\TranslationHelper::TranslateText('Paramètres') }}</a></li>
-                                    <li><a href="{{ route('favories') }}">  {{ \App\Helpers\TranslationHelper::TranslateText('Mes favoris') }}</a></li>
-                                    <li><a href="{{ route('cart') }}">  {{ \App\Helpers\TranslationHelper::TranslateText('Mon panier') }}</a></li>
+                                        <li><a href="{{ route('profile') }}">
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Paramètres') }}</a>
+                                        </li>
+                                        <li><a href="{{ route('favories') }}">
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Mes favoris') }}</a>
+                                        </li>
+                                        <li><a href="{{ route('cart') }}">
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Mon panier') }}</a>
+                                        </li>
                                     @endif
                                 </ul>
                             </div>
@@ -553,14 +620,20 @@ $produit = DB::table('produits')->get();
                     <!-- Start Single Widget  -->
                     <div class="col-lg-3 col-sm-6">
                         <div class="axil-footer-widget">
-                            <h5 class="widget-title">  {{ \App\Helpers\TranslationHelper::TranslateText(' Pages') }}</h5>
+                            <h5 class="widget-title"> {{ \App\Helpers\TranslationHelper::TranslateText(' Pages') }}
+                            </h5>
                             <div class="inner">
                                 <ul>
-                                    <li><a href="{{ route('home') }}">  {{ \App\Helpers\TranslationHelper::TranslateText('Accueil') }}</a></li>
-                                    <li><a href="{{ route('about') }}">  {{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</a></li>
+                                    <li><a href="{{ route('home') }}">
+                                            {{ \App\Helpers\TranslationHelper::TranslateText('Accueil') }}</a></li>
+                                    <li><a href="{{ route('about') }}">
+                                            {{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</a>
+                                    </li>
 
-                                    <li><a href="{{ route('shop') }}">   {{ \App\Helpers\TranslationHelper::TranslateText('Produits') }}</a></li>
-                                    <li><a href="{{ route('contact') }}">  {{ \App\Helpers\TranslationHelper::TranslateText('Contact') }}</a></li>
+                                    <li><a href="{{ route('shop') }}">
+                                            {{ \App\Helpers\TranslationHelper::TranslateText('Produits') }}</a></li>
+                                    <li><a href="{{ route('contact') }}">
+                                            {{ \App\Helpers\TranslationHelper::TranslateText('Contact') }}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -579,9 +652,11 @@ $produit = DB::table('produits')->get();
                                     <div class="inner">
 
                                         <ul class="support-list-item">
-                                            <li><a href="mailto:example@domain.com"><i class="fal fa-envelope-open"></i>
+                                            <li><a href="mailto:example@domain.com"><i
+                                                        class="fal fa-envelope-open"></i>
                                                     {{ $config->email ?? ' ' }}</a></li>
-                                            <li><a href="tel:(+01)850-315-5862"><i class="fal fa-phone-alt"></i>{{ $config->telephone ?? ' ' }}</a>
+                                            <li><a href="tel:(+01)850-315-5862"><i
+                                                        class="fal fa-phone-alt"></i>{{ $config->telephone ?? ' ' }}</a>
                                             </li>
                                             <li><i class="fal fa-map-marker-alt"></i>{{ $config->addresse ?? ' ' }}
                                             </li>
@@ -606,14 +681,16 @@ $produit = DB::table('produits')->get();
                     <div class="col-xl-4 col-lg-12">
                         <div class="copyright-left d-flex flex-wrap justify-content-center">
                             <ul class="quick-link">
-                                <li>©{{ date('Y') }} Ben Mahmoud Market | Design By<a href="https://www.e-build.tn" style="color: #c71f17;">
+                                <li>©{{ date('Y') }} Ben Mahmoud Market | Design By<a
+                                        href="https://www.e-build.tn" style="color: #c71f17;">
                                         <b> E-build </b>
                                     </a>.</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-12">
-                        <div class="copyright-right d-flex flex-wrap justify-content-xl-end justify-content-center align-items-center">
+                        <div
+                            class="copyright-right d-flex flex-wrap justify-content-xl-end justify-content-center align-items-center">
 
                         </div>
                     </div>
@@ -633,7 +710,8 @@ $produit = DB::table('produits')->get();
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times"></i></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="far fa-times"></i></button>
                 </div>
                 <div class="modal-body">
                     <div class="single-product-thumb">
@@ -641,36 +719,43 @@ $produit = DB::table('produits')->get();
                             <div class="col-lg-7 mb--40">
                                 <div class="row">
                                     <div class="col-lg-10 order-lg-2">
-                                        <div class="single-product-thumbnail product-large-thumbnail axil-product thumbnail-badge zoom-gallery">
+                                        <div
+                                            class="single-product-thumbnail product-large-thumbnail axil-product thumbnail-badge zoom-gallery">
                                             <div class="thumbnail">
-                                                <img src="assets/images/product/product-big-01.png" alt="Product Images">
+                                                <img src="assets/images/product/product-big-01.png"
+                                                    alt="Product Images">
                                                 <div class="label-block label-right">
                                                     <div class="product-badget">20% OFF</div>
                                                 </div>
                                                 <div class="product-quick-view position-view">
-                                                    <a href="assets/images/product/product-big-01.png" class="popup-zoom">
+                                                    <a href="assets/images/product/product-big-01.png"
+                                                        class="popup-zoom">
                                                         <i class="far fa-search-plus"></i>
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="thumbnail">
-                                                <img src="assets/images/product/product-big-02.png" alt="Product Images">
+                                                <img src="assets/images/product/product-big-02.png"
+                                                    alt="Product Images">
                                                 <div class="label-block label-right">
                                                     <div class="product-badget">20% OFF</div>
                                                 </div>
                                                 <div class="product-quick-view position-view">
-                                                    <a href="assets/images/product/product-big-02.png" class="popup-zoom">
+                                                    <a href="assets/images/product/product-big-02.png"
+                                                        class="popup-zoom">
                                                         <i class="far fa-search-plus"></i>
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="thumbnail">
-                                                <img src="assets/images/product/product-big-03.png" alt="Product Images">
+                                                <img src="assets/images/product/product-big-03.png"
+                                                    alt="Product Images">
                                                 <div class="label-block label-right">
                                                     <div class="product-badget">20% OFF</div>
                                                 </div>
                                                 <div class="product-quick-view position-view">
-                                                    <a href="assets/images/product/product-big-03.png" class="popup-zoom">
+                                                    <a href="assets/images/product/product-big-03.png"
+                                                        class="popup-zoom">
                                                         <i class="far fa-search-plus"></i>
                                                     </a>
                                                 </div>
@@ -680,13 +765,16 @@ $produit = DB::table('produits')->get();
                                     <div class="col-lg-2 order-lg-1">
                                         <div class="product-small-thumb small-thumb-wrapper">
                                             <div class="small-thumb-img">
-                                                <img src="assets/images/product/product-thumb/thumb-08.png" alt="thumb image">
+                                                <img src="assets/images/product/product-thumb/thumb-08.png"
+                                                    alt="thumb image">
                                             </div>
                                             <div class="small-thumb-img">
-                                                <img src="assets/images/product/product-thumb/thumb-07.png" alt="thumb image">
+                                                <img src="assets/images/product/product-thumb/thumb-07.png"
+                                                    alt="thumb image">
                                             </div>
                                             <div class="small-thumb-img">
-                                                <img src="assets/images/product/product-thumb/thumb-09.png" alt="thumb image">
+                                                <img src="assets/images/product/product-thumb/thumb-09.png"
+                                                    alt="thumb image">
                                             </div>
                                         </div>
                                     </div>
@@ -721,11 +809,14 @@ $produit = DB::table('produits')->get();
                                                 <h6 class="title">Colors:</h6>
                                                 <div class="color-variant-wrapper">
                                                     <ul class="color-variant mt--0">
-                                                        <li class="color-extra-01 active"><span><span class="color"></span></span>
+                                                        <li class="color-extra-01 active"><span><span
+                                                                    class="color"></span></span>
                                                         </li>
-                                                        <li class="color-extra-02"><span><span class="color"></span></span>
+                                                        <li class="color-extra-02"><span><span
+                                                                    class="color"></span></span>
                                                         </li>
-                                                        <li class="color-extra-03"><span><span class="color"></span></span>
+                                                        <li class="color-extra-03"><span><span
+                                                                    class="color"></span></span>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -755,8 +846,10 @@ $produit = DB::table('produits')->get();
 
                                             <!-- Start Product Action  -->
                                             <ul class="product-action d-flex-center mb--0">
-                                                <li class="add-to-cart"><a href="cart.html" class="axil-btn btn-bg-primary2">Add to Cart</a></li>
-                                                <li class="wishlist"><a href="wishlist.html" class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a>
+                                                <li class="add-to-cart"><a href="cart.html"
+                                                        class="axil-btn btn-bg-primary2">Add to Cart</a></li>
+                                                <li class="wishlist"><a href="wishlist.html"
+                                                        class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a>
                                                 </li>
                                             </ul>
                                             <!-- End Product Action  -->
@@ -781,7 +874,9 @@ $produit = DB::table('produits')->get();
             <div class="card-header">
                 <form role="search" action="{{ url('search') }}" method="get">
                     <div class="input-group">
-                        <input value="{{ $nom ?? '' }}" class="form-control" id="search" type="search" name="search" placeholder="  {{ \App\Helpers\TranslationHelper::TranslateText('Rechercher produit') }}">
+                        <input value="{{ $nom ?? '' }}" class="form-control" id="search" type="search"
+                            name="search"
+                            placeholder="  {{ \App\Helpers\TranslationHelper::TranslateText('Rechercher produit') }}">
 
                         <button type="submit" class="axil-btn btn-bg-primary"><i class="far fa-search"></i></button>
                     </div>
@@ -796,56 +891,64 @@ $produit = DB::table('produits')->get();
                 </div>
                 <div class="psearch-results">
                     @if (isset($searchproducts))
-                    @foreach ($searchproducts as $produit)
-                    <div class="axil-product-list">
-                        <div class="thumbnail">
-                            <a href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
-                                <img width="100" height="100" src="{{ Storage::url($produit->photo) }}" alt="Yantiti Leather Bags">
-                            </a>
-                        </div>
-                        <div class="product-content">
-                            <div class="product-rating">
-                            
-                            </div>
-                            <h6 class="product-title"><a href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
-                                {!! \App\Helpers\TranslationHelper::TranslateText($produit->nom ?? '') !!}
-                              </a>
-                            </h6>
+                        @foreach ($searchproducts as $produit)
+                            <div class="axil-product-list">
+                                <div class="thumbnail">
+                                    <a
+                                        href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
+                                        <img width="100" height="100" src="{{ Storage::url($produit->photo) }}"
+                                            alt="Yantiti Leather Bags">
+                                    </a>
+                                </div>
+                                <div class="product-content">
+                                    <div class="product-rating">
 
-                            <div class="product-price-variant">
-                                @if ($produit->inPromotion() && $produit->sur_devis == false)
-                                <span class="price current-price"><b class="text-success" style="color: #4169E1">
-                                        {{ $produit->getPrice() }} DT
-                                    </b></span>
-                                <span class="price old-price">
-                                    <span class="price old-price" style="position: relative; font-size: 1.2rem; color: #dc3545; font-weight: bold;">
-                                        {{ $produit->prix }} DT
-                                        <span style="position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background-color: black;"></span>
-                                    </span>
-                                </span>
-                                @elseif($produit->sur_devis == false)
-                                {{ $produit->getPrice() }}DT
-                                @endif
+                                    </div>
+                                    <h6 class="product-title"><a
+                                            href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
+                                            {!! \App\Helpers\TranslationHelper::TranslateText($produit->nom ?? '') !!}
+                                        </a>
+                                    </h6>
 
+                                    <div class="product-price-variant">
+                                        @if ($produit->inPromotion() && $produit->sur_devis == false)
+                                            <span class="price current-price"><b class="text-success"
+                                                    style="color: #4169E1">
+                                                    {{ $produit->getPrice() }} DT
+                                                </b></span>
+                                            <span class="price old-price">
+                                                <span class="price old-price"
+                                                    style="position: relative; font-size: 1.2rem; color: #dc3545; font-weight: bold;">
+                                                    {{ $produit->prix }} DT
+                                                    <span
+                                                        style="position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background-color: black;"></span>
+                                                </span>
+                                            </span>
+                                        @elseif($produit->sur_devis == false)
+                                            {{ $produit->getPrice() }}DT
+                                        @endif
+
+                                    </div>
+                                    <div class="product-cart">
+                                        @if ($produit->sur_devis == false)
+                                            <a onclick="AddToCart( {{ $produit->id }} )" class="cart-btn"><i
+                                                    class="fal fa-shopping-cart"></i></a>
+                                        @else
+                                            {{-- <li class="axil-btn  btn-bg-primary2 "> --}}
+                                            <a class="axil-btn  btn-bg-primary2 "
+                                                href="{{ url('devis', $produit->id) }}">
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
+                                            </a>
+                                            {{-- </li> --}}
+                                        @endif
+                                        @if (Auth()->user())
+                                            <a onclick="AddFavoris({{ $produit->id }})" class="cart-btn"><i
+                                                    class="fal fa-heart"></i></a>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
-                            <div class="product-cart">
-                                @if($produit->sur_devis == false)
-                               
-                                <a onclick="AddToCart( {{ $produit->id }} )" class="cart-btn"><i class="fal fa-shopping-cart"></i></a>
-                              @else
-                            {{--   <li class="axil-btn  btn-bg-primary2 "> --}}
-                              <a class="axil-btn  btn-bg-primary2 " href="{{ url('devis', $produit->id) }}">
-                                {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
-                            </a>
-                             {{--  </li> --}}
-                                @endif
-                                @if (Auth()->user())
-                                <a onclick="AddFavoris({{ $produit->id }})" class="cart-btn"><i class="fal fa-heart"></i></a>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
+                        @endforeach
                     @endif
 
                 </div>
@@ -860,7 +963,7 @@ $produit = DB::table('produits')->get();
     <div class="cart-dropdown" id="cart-dropdown">
         <div class="cart-content-wrap">
             <div class="cart-header">
-                <h2 class="header-title">  {{ \App\Helpers\TranslationHelper::TranslateText('Mon panier') }}</h2>
+                <h2 class="header-title"> {{ \App\Helpers\TranslationHelper::TranslateText('Mon panier') }}</h2>
                 <button class="cart-close sidebar-close"><i class="fas fa-times"></i></button>
             </div>
             <div class="cart-body">
@@ -884,7 +987,7 @@ $produit = DB::table('produits')->get();
                     </a>
                     <a href="{{ url('/commander') }}" class="axil-btn btn-bg-secondary2 checkout-btn">
                         {{ \App\Helpers\TranslationHelper::TranslateText('Passer commande') }}
-                        </a>
+                    </a>
                 </div>
             </div>
         </div>
@@ -913,7 +1016,6 @@ $produit = DB::table('produits')->get();
             text-decoration: none;
             /* Supprime le soulignement */
         }
-
     </style>
     <!-- JS
 ============================================ -->
