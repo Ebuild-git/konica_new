@@ -164,7 +164,7 @@
                         </ul>
                     </li>
                 @endcan
-
+{{-- 
                 <li>
                     <a href="{{ route('transports') }}">
                         <div class="parent-icon icon-color-3"> <i class="ri-boxing-fill"></i>
@@ -173,7 +173,7 @@
                             Les frais de transport
                         </div>
                     </a>
-                </li>
+                </li> --}}
 
                 <li>
                     <a href="javascript:;" class="has-arrow">

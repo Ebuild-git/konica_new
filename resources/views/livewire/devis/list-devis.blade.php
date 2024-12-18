@@ -61,7 +61,7 @@
                     <td></td>
                     <th>ID</th>
                     <th>Nom</th>
-                    <th>Image devis</th>
+                    {{-- <th>Image devis</th> --}}
                     <th>Téléphone</th>
                     <th>Gouvernorat</th>
                   {{--   <th>Montant</th> --}}
@@ -82,7 +82,7 @@
 
             <tbody>
                 @forelse ($commandes as $commande)
-                    @if ($commande->message || $commande->photo || $commande->sur_devis)
+                    @if (  $commande->sur_devis || $commande->quantite)
                         <tr>
                             <td>
                                 <input type="checkbox" wire:click="toggleCommandeSelection({{ $commande->id }})">
@@ -123,23 +123,15 @@
                                     <i class="ri-message-2-fill" title="Une note a été ajouté"></i>
                                 @endif
                             </td>
-                            <td>
-                                {{-- 
-                                <img src="{{ Storage::url($commande->photo) }}" width="40" height="40" class="rounded shadow" alt="Image de la commande">
-     --}}
-                                <button class="btn btn-sm btn-light" type="button" title="Voir l'image"
+                        {{--     <td>
+                           <button class="btn btn-sm btn-light" type="button" title="Voir l'image"
                                     data-bs-toggle="modal" data-bs-target="#view-image-{{ $commande->id }}">
-                                    {{--  <i class="ri-eye-line"></i> --}}
+                                  
                                     <img src="{{ Storage::url($commande->photo) }}" width="40" height="40"
                                         class="rounded shadow" alt="Image de la commande">
 
                                 </button>
-                                <!-- Download Image Button -->
-                                {{--  <a href="{{ Storage::url($commande->photo) }}" class="btn btn-sm btn-success" download title="Télécharger l'image">
-                                    <i class="ri-download-line"></i>
-                                </a>  --}}
-
-                                <!-- Modal pour Voir l'Image -->
+                            
                                 <div class="modal fade" id="view-image-{{ $commande->id }}" tabindex="-1"
                                     role="dialog" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
@@ -163,7 +155,7 @@
                                 </div>
 
 
-                            </td>
+                            </td> --}}
                             <td>{{ $commande->phone }}</td>
                             <td>
                                 {{ $commande->gouvernorat ?? 'N/A' }}
@@ -250,10 +242,10 @@
                             <td style="text-align: right;">
 
                                 <div class="btn-group">
-                                    <a href="{{ Storage::url($commande->photo) }}" class="btn btn-sm btn-success"
+                                  {{--   <a href="{{ Storage::url($commande->photo) }}" class="btn btn-sm btn-success"
                                         download title="Télécharger l'image">
                                         <i class="ri-download-line"></i>
-                                    </a>
+                                    </a> --}}
                                     @can('order_edit')
                                         @if ($commande->modifiable())
                                             <button class="btn btn-sm btn-warning"

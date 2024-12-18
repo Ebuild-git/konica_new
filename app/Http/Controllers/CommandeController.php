@@ -120,7 +120,7 @@ class CommandeController extends Controller
      
         'phone' => 'required',
      'frais' => 'nullable',
-     'quantite'=>'nullable',
+     'quantite'=>'required',
     ///'id_produit' => '|exists:produits,id',
     //'product_id' => 'required|exists:produits,id',
 

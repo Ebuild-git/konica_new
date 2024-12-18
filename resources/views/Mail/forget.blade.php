@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {{ \App\Helpers\TranslationHelper::TranslateText('Vérification de votre compte Ben Mahmoud Market') }}</title>
+    <title> {{ \App\Helpers\TranslationHelper::TranslateText('Vérification de votre compte ') }}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -64,7 +64,7 @@
             </h1>
             <p>Bonjour
                 {{ \App\Helpers\TranslationHelper::TranslateText('Bonjour') }} {{ $user->nom  }} ,</p>
-            <p>{{ \App\Helpers\TranslationHelper::TranslateText('Merci de vous être inscrit sur Ben Mahmoud Market. Pour finaliser votre inscription et vérifier votre compte, veuillez utiliser le code de vérification ci-dessous
+            <p>{{ \App\Helpers\TranslationHelper::TranslateText('Merci de vous être inscrit sur KONICA. Pour finaliser votre inscription et vérifier votre compte, veuillez utiliser le code de vérification ci-dessous
                 ') }} :</p>
             <span class="code">{{$code }}</span>
             <p>
@@ -72,7 +72,7 @@
         </div>
         <div class="footer">
             <p>&copy; {{ date('Y') }} 
-                {{ \App\Helpers\TranslationHelper::TranslateText('Ben Mahmoud Market. Tous droits réservés') }}.</p>
+                {{ \App\Helpers\TranslationHelper::TranslateText('KONICA. Tous droits réservés') }}.</p>
         </div>
     </div>
 </body>

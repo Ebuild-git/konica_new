@@ -74,15 +74,15 @@
                                     </select>
                                 </div>
 
-                                <div >
+                             {{--    <div >
                                 
                                         <label>Votre image </label>
                                         
                                         <input  type="file" name="photo" id="photo"
                                             placeholder="Inserez votre maquette" w-100 required />
                                   
-                                </div>
-                                <br><br>
+                                </div> --}}
+                               
 
                                 <div class="form-group">
                                   
@@ -95,7 +95,7 @@
                                
                                 <div class="form-group">
                                     <label>
-                                        {{ \App\Helpers\TranslationHelper::TranslateText('Messge(optionnel)') }}
+                                        {{ \App\Helpers\TranslationHelper::TranslateText('Note(optionnel)') }}
                                     </label>
                                     <textarea id="note" name="note" rows="2" placeholder=" {{ \App\Helpers\TranslationHelper::TranslateText('Note sur votre commande(Optionnel)') }}"></textarea>
                                 </div>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        {{ \App\Helpers\TranslationHelper::TranslateText('Bienvenue chez Ben Madmoud Market !') }}
+        {{ \App\Helpers\TranslationHelper::TranslateText('Bienvenue chez KONICA !') }}
     </title>
     <style>
         body {
@@ -61,9 +61,9 @@
           {{--   <img src="https://agrihub.online/icons/logo%20png.png" alt="AGRIHUB Logo"> --}}
         </div>
         <div class="content">
-            <h1> {{ \App\Helpers\TranslationHelper::TranslateText('Bienvenue chez Ben Madmoud Market !') }}</h1>
+            <h1> {{ \App\Helpers\TranslationHelper::TranslateText('Bienvenue chez KONICA !') }}</h1>
             <p> {{ \App\Helpers\TranslationHelper::TranslateText('Bonjour') }} {{ $user->nom }} ,</p>
-            <p>{{ \App\Helpers\TranslationHelper::TranslateText('Nous sommes ravis de vous compter parmi nos nouveaux membres. Chez Ben Madmoud Market, nous nous engageons à vous fournir des produits  originaux   pour répondre à tous vos besoins.
+            <p>{{ \App\Helpers\TranslationHelper::TranslateText('Nous sommes ravis de vous compter parmi nos nouveaux membres. Chez KONICA, nous nous engageons à vous fournir des produits  originaux   pour répondre à tous vos besoins.
                 ') }}
             </p>
             <p>{{ \App\Helpers\TranslationHelper::TranslateText('Votre inscription a été réalisée avec succès. Vous pouvez dès à présent explorer notre large gamme de produits et profiter de nos offres exclusives réservées aux membres.

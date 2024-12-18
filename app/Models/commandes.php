@@ -33,6 +33,7 @@ class commandes extends Model
         'adresses',
         'adresse_supp1',
         'adresse_supp2',
+        'quantite',
 
         
     ];

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        {{ \App\Helpers\TranslationHelper::TranslateText('Bienvenue chez Ben Mahmoud Market') }}
+        {{ \App\Helpers\TranslationHelper::TranslateText('Bienvenue chez KONICA') }}
     </title>
     <style>
         body {
@@ -62,14 +62,14 @@
         </div> --}}
         <div class="content">
             <h1>
-                {{ \App\Helpers\TranslationHelper::TranslateText('Bienvenue chez Ben Madmoud Market !') }}
+                {{ \App\Helpers\TranslationHelper::TranslateText('Bienvenue chez KONICA !') }}
             </h1>
             <p> {{ \App\Helpers\TranslationHelper::TranslateText('Bonjour') }}{{ $user->nom }} ,</p>
             <p> {{ \App\Helpers\TranslationHelper::TranslateText('Votre email est') }} : {{ $user->email }} ,</p>
             <p> {{ \App\Helpers\TranslationHelper::TranslateText('Votre mot de passe est') }} : {{ $user->phone }} ,</p>
 
             <p>
-                {{ \App\Helpers\TranslationHelper::TranslateText('Nous sommes ravis de vous compter parmi nos nouveaux membres. Chez Ben Mahmoud Market, nous nous engageons à vous fournir le meilleur  pour répondre à tous vos besoins.
+                {{ \App\Helpers\TranslationHelper::TranslateText('Nous sommes ravis de vous compter parmi nos nouveaux membres. Chez KONICA, nous nous engageons à vous fournir le meilleur  pour répondre à tous vos besoins.
                ') }} 
             </p>
             <p>

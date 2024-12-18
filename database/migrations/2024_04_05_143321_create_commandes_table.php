@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string("email")->nullable();
             $table->string("pays")->nullable();
             $table->string("gouvernorat")->nullable();
+            $table->integer("quantite")->nullable();
             $table->decimal("frais", 10,3)->nullable();
             $table->unsignedBigInteger('user_id')->nullable()->default(null);
 

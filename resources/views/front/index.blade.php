@@ -207,8 +207,10 @@
                             @foreach ($produits as $produit)
                             @if ($produit)
                             <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
-                                <div class="axil-product product-style-one">
-                                    <div class="thumbnail">
+                                <div class="axil-product product-style-one" style="border: 2px solid #0162b1; border-radius: 8px; overflow: hidden;">
+   
+                               {{--  <div class="axil-product product-style-one">
+                                 --}}    <div class="thumbnail">
                                         <a href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
                                             <img data-sal="zoom-out" data-sal-delay="200" data-sal-duration="800" loading="lazy" class="main-img" border-radius="8px" src="{{ Storage::url($produit->photo) }}" alt="Product Images">
                                             <img class="hover-img" border-radius="8px" src="{{ Storage::url($produit->photo) }}" alt="Product Images">
@@ -219,12 +221,12 @@
                                                 position: absolute;
                                                 top: 8px;
                                                 right: 18px;
-                                                color: #EFB121;
+                                                color: #0162b1;
                                             }
 
                                         </style>
 
-                                        <div class="top-left" style="background-color: #EFB121;color: white;">
+                                        <div class="top-left" style="background-color: #e01010;color: white;">
                                             <span>
                                                 @if ($produit->sur_devis == false)
                                                 @if ($produit->inPromotion())
@@ -236,9 +238,7 @@
                                         </div>
                                         <div class="product-hover-action">
                                             <ul class="cart-action">
-                                                {{-- <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                                                    data-bs-target="#{{ $produit->id }}"><i class="far fa-eye"></i></a></li> --}}
-                                                                    @if ($produit->sur_devis == false)
+                                                                   @if ($produit->sur_devis == false)
                                                                     <li class="select-option2">
                                                     <a onclick="AddToCart( {{ $produit->id }} )">
                                                         {{ \App\Helpers\TranslationHelper::TranslateText('Ajouter au panier') }}
@@ -246,7 +246,7 @@
                                                 </li>
                                                 @else
                                                 <li class="select-option2">
-                                                <a href="{{ url('devis', $produit->id) }}"
+                                                <a href="{{ url('devis', $produit->id) }}"  style="font-size: 1.7rem; color: white;"
                                                     >
                                                     {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
                                                 </a>
@@ -274,7 +274,7 @@
 
                                                 <style>
                                                     .select-option2 {
-                                                        background-color: #5EA13C;
+                                                        background-color: #0162b1;
                                                         color: #ffffff;
                                                         border: none;
                                                         padding: 10px 20px;
@@ -284,7 +284,7 @@
 
                                                     .favori-actif {
                                                         color: red;
-                                                        /* Changez la couleur selon votre besoin */
+                                                        
                                                     }
 
                                                 </style>
@@ -627,7 +627,7 @@
 
                                             </style>
 
-                                            <div class="top-left" style="background-color:#EFB121;color: white;">
+                                            <div class="top-left" style="background-color:#0162b1;color: white;">
                                                 <span>
 
                                                     @if ($produit->inPromotion() )
@@ -644,7 +644,7 @@
                                         <div class=" col-sm-12 inner">
                                             <div class="top-right">
                                                 @if ($produit->stock > 0)
-                                                <label class="badge btn-bg-primary2"> {{ \App\Helpers\TranslationHelper::TranslateText('Stock disponible') }}</label>
+                                                <label class="badge btn-bg-primary2"> {{ \App\Helpers\TranslationHelper::TranslateText('Produit en stock') }}</label>
                                                 @else
                                                 <label class="badge bg-danger">      {{ \App\Helpers\TranslationHelper::TranslateText('Stock en cours d\'approvisionnement') }}</label>
                                             </label>
@@ -658,15 +658,15 @@
                                             <div class="color-variant-wrapper">
 
                                             </div>
-                                            <h5 class="title"><a href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
-                                                    {{ \App\Helpers\TranslationHelper::TranslateText( Str::limit($produit->description, 20)) }}
+                                            <h3 class="title"><a href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
+                                                    {{ \App\Helpers\TranslationHelper::TranslateText( Str::limit($produit->meta_description, 20)) }}
 
-                                                </a></h5>
+                                                </a></h3>
                                             <div class="product-rating">
 
                                             </div>
                                             <div class="product-price-variant">
-                                                <span class="price-text"> {!! \App\Helpers\TranslationHelper::TranslateText("Coût") !!}:</span>
+                                                <span class="price-text"> {!! \App\Helpers\TranslationHelper::TranslateText("Prix") !!}:</span>
                                                 <span class="price current-price"> <b class="text-success" style="color: #4169E1">
                                                         {{ $produit->getPrice() }} DT
                                                     </b></span>
@@ -894,7 +894,7 @@
 
         <style>
             .btn-bg-primary2 {
-                background-color: #5EA13C;
+                background-color: #0162b1;
                 color: #ffffff;
                 border: none;
                 padding: 10px 20px;

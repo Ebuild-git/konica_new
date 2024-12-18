@@ -146,7 +146,7 @@
 
                                         @foreach ($produits as $key => $produit)
                                             <div class="col-xl-4 col-sm-6">
-                                                <div class="axil-product product-style-one mb--30">
+                                                <div class="axil-product product-style-one mb--30" style="border: 1px solid #0162b1; border-radius: 8px; overflow: hidden;">
                                                     <div class="thumbnail">
                                                         <a
                                                             href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
@@ -155,21 +155,42 @@
                                                                 style="max-width: 300px; max-height: 300px;">
 
                                                         </a>
+
                                                         <style>
                                                             .top-left {
                                                                 position: absolute;
                                                                 top: 8px;
                                                                 right: 18px;
-                                                                color: #EFB121;
+                                                                color: #0162b1;
+                                                            }
+                
+                                                        </style>
+                
+                                                        <div class="top-left" style="background-color: #e01010;color: white;">
+                                                            <span>
+                                                                @if ($produit->sur_devis == false)
+                                                                @if ($produit->inPromotion())
+                                                                <span>
+                                                                    -{{ $produit->inPromotion()->pourcentage }}%</span>
+                                                                @endif
+                                                                @endif
+                                                            </span>
+                                                        </div>
+                                                    {{--     <style>
+                                                            .top-left {
+                                                                position: absolute;
+                                                                top: 8px;
+                                                                right: 18px;
+                                                                color: #da0e0e;
                                                             }
                                                         </style>
                                                         @if ($produit->inPromotion() && $produit->sur_devis === false)
                                                             <div class="top-left"
-                                                                style="background-color:#EFB121;color: white;">
+                                                                style="background-color:#0162b1;color: white;">
                                                                 <div class="product-badget">
                                                                     -{{ $produit->inPromotion()->pourcentage }}%</div>
                                                             </div>
-                                                        @endif
+                                                        @endif --}}
                                                         <div class="product-hover-action">
                                                             <ul class="cart-action">
                                                                 @if (Auth()->user())
@@ -197,7 +218,7 @@
                                                                         <a onclick="AddToCart( {{ $produit->id }} )">
                                                                             {{ \App\Helpers\TranslationHelper::TranslateText('Ajouter au panier') }}</a>
                                                                     @else
-                                                                        <a href="{{ url('devis', $produit->id) }}">
+                                                                        <a href="{{ url('devis', $produit->id) }}"style="font-size: 1.7rem; color: white;">
                                                                             {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
                                                                         </a>
                                                                     @endif
@@ -206,7 +227,7 @@
 
                                                                 <style>
                                                                     .select-option2 {
-                                                                        background-color: #5EA13C;
+                                                                        background-color: #0162b1;
                                                                         color: #ffffff;
                                                                         border: none;
                                                                         padding: 10px 20px;
@@ -235,7 +256,7 @@
 
                                                                                 <b class="text-success"
                                                                                     style="color: #4169E1">
-                                                                                    {{ $produit->getPrice() }} DT
+                                                                                  <br>  {{ $produit->getPrice() }} DT
                                                                                 </b>
                                                                             </div>
 

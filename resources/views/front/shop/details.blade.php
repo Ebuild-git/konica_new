@@ -210,7 +210,7 @@
                                         </li>
                                         @else
                                         <li class="select-option2">
-                                        <a href="{{ url('devis', $produit->id) }}"
+                                        <a href="{{ url('devis', $produit->id) }}"  style="font-size: 1.7rem; color: white;"
                                             >
                                             {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
                                         </a>
@@ -219,7 +219,7 @@
                                         @endif
                                         <style>
                                             .select-option2 {
-                                                background-color: #5EA13C;
+                                                background-color: #0162b1;
                                                 color: #ffffff;
                                                 border: none;
                                                 padding: 10px 20px;
@@ -245,7 +245,7 @@
 
                                         <style>
                                             .btn-bg-primary2 {
-                                                background-color: #5EA13C;
+                                                background-color: #0162b1;
                                                 color: #ffffff;
                                                 border: none;
                                                 padding: 10px 20px;
@@ -272,7 +272,7 @@
                     <li class="nav-item" role="presentation">
                         <a class="active" id="description-tab" data-bs-toggle="tab" href="#description"
                             role="tab" aria-controls="description" aria-selected="true"><span
-                                style="color: #EFB121">
+                                style="color: #0162b1">
                                 {{ \App\Helpers\TranslationHelper::TranslateText('Description') }}</span></a>
                     </li>
 
@@ -341,7 +341,7 @@
                                                 }
                                             </style>
 
-                                            <div class="top-left" style="background-color:#EFB121;color: white;">
+                                            <div class="top-left" style="background-color:#f71212;color: white;">
                                                 <span>
                                                    
                                                     @if ($produit->inPromotion() && $produit->sur_devis === false)
@@ -351,7 +351,22 @@
                                                 </span>
                                             </div>
                                         </a>
+                                        <style>
+                                            .select-option2 {
+                                                background-color: #0162b1;
+                                              
+                                                border: none;
+                                                padding: 10px 20px;
+                                                border-radius: 5px;
+                                                text-decoration: none;
+                                            }
 
+                                            .favori-actif {
+                                                color: red;
+                                                
+                                            }
+
+                                        </style>
                                         <div class="product-hover-action">
                                             <ul class="cart-action">
                                                 @if (Auth()->user())
@@ -359,19 +374,34 @@
                                                             onclick="AddFavoris({{ $produit->id }})"><i
                                                                 class="far fa-heart"></i></a></li>
                                                 @endif
-                                                <li class="axil-btn  btn-bg-primary2 ">
-                                                    
+                                              
+
+                                                    @if ($produit->sur_devis == false)
+                                                    <li class="select-option2">
+                                    <a onclick="AddToCart( {{ $produit->id }} )">
+                                        {{ \App\Helpers\TranslationHelper::TranslateText('Ajouter au panier') }}
+                                    </a>
+                                </li>
+                                @else
+                                <li class="select-option2">
+                                <a href="{{ url('devis', $produit->id) }}"  style="font-size: 1.7rem; color: white;"
+                                    >
+                                    {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
+                                </a>
+                                </li>
+                                @endif
+                                                    {{-- 
                                                     @if ($produit->sur_devis == false)
                                                     <a onclick="AddToCart( {{ $produit->id }} )">
                                                         {{ \App\Helpers\TranslationHelper::TranslateText('Ajouter au panier') }}</a>
                                                 @else
-                                                    <a href="{{ url('devis', $produit->id) }}">
+                                                    <a href="{{ url('devis', $produit->id) }}" style="font-size: 1.7rem; color: white;">
                                                         {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
                                                     </a>
-                                                @endif
+                                                @endif --}}
 
                                                 
-                                                </li>
+                                               
                                                 {{-- <li class="quickview"><a href="#" data-bs-toggle="modal"
                                                         data-bs-target="#quick-view-modal"><i
                                                             class="far fa-eye"></i></a></li> --}}
@@ -439,20 +469,20 @@
             <style>
                 .axil-breadcrumb-item1 {
                     font-size: 14px;
-                    color: #EFB121;
+                    color: #0162b1;
                     /* Default breadcrumb color */
                 }
 
                 .axil-breadcrumb-item.active {
                     font-weight: bold;
-                    color: #EFB121;
+                    color: #0162b1;
                     /* Distinct color for active item */
                 }
 
                 .axil-breadcrumb-item:not(.active)::after {
                     content: " / ";
                     /* Adds a separator after non-active items */
-                    color: #EFB121;
+                    color: #0162b1;
                 }
             </style>
             <!-- End Axil Newsletter Area  -->

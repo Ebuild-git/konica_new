@@ -259,9 +259,9 @@
                                     #dropdown-header-menu {
                                         color: #ffffff;
                                         /* Text color */
-                                        background-color: #5EA13C;
+                                        background-color: #0162b1;
                                         /* Background color */
-                                        border: 1px solid #5EA13C;
+                                        border: 1px solid #0162b1;
                                         /* Border color */
                                         padding: 8px 12px;
                                         /* Padding for a better look */
@@ -271,7 +271,7 @@
 
                                     /* Change styles when the dropdown is open */
                                     #dropdown-header-menu[aria-expanded="true"] {
-                                        background-color: #5EA13C;
+                                        background-color: #0162b1;
                                         /* Darker background when active */
                                         color: #ffffff;
                                         /* Text color when active */
@@ -289,11 +289,11 @@
 
                                     /* Hover effect */
                                     #dropdown-header-menu:hover {
-                                        background-color: #5EA13C;
+                                        background-color: #0162b1;
                                         /* Slightly different color on hover */
                                         color: #ffffff;
                                         /* Hover text color */
-                                        border-color: #5EA13C;
+                                        border-color: #0162b1;
                                         /* Hover border color */
                                     }
                                 </style>
@@ -611,6 +611,12 @@
                                         <li><a href="{{ route('cart') }}">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Mon panier') }}</a>
                                         </li>
+                                        @else
+                                        <li><a href="{{ route('login') }}">
+                                            {{ \App\Helpers\TranslationHelper::TranslateText('Se connecter') }}</a></li>
+                                        <li><a href="{{ route('register') }}">
+                                            {{ \App\Helpers\TranslationHelper::TranslateText('S\'  inscrire' ) }}</a></li>
+
                                     @endif
                                 </ul>
                             </div>
@@ -995,7 +1001,7 @@
 
     <style>
         .btn-bg-primary2 {
-            background-color: #5EA13C;
+            background-color: #0162b1;
             color: #ffffff;
             border: none;
             padding: 10px 20px;
