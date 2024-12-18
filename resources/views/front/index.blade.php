@@ -207,7 +207,7 @@
                             @foreach ($produits as $produit)
                             @if ($produit)
                             <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
-                                <div class="axil-product product-style-one" style="border: 2px solid #0162b1; border-radius: 8px; overflow: hidden;">
+                                <div class="axil-product product-style-one" style="border: 1px solid #0162b1; border-radius: 8px; overflow: hidden;">
 
                                     {{-- <div class="axil-product product-style-one">
                                  --}}
