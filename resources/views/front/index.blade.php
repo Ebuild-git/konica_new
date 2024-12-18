@@ -699,7 +699,7 @@
 
                                             </div>
 
-                                            <div class="product-cate"><a href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}"> {{ \App\Helpers\TranslationHelper::TranslateText($produit->nom) }}</a>
+                                            <div class="product-cate"  style="font-size: 20px; font-weight: bold;"><a href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}"> {{ \App\Helpers\TranslationHelper::TranslateText($produit->nom) }}</a>
                                             </div>
                                             <div class="color-variant-wrapper">
 
