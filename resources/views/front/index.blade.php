@@ -208,9 +208,10 @@
                             @if ($produit)
                             <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                                 <div class="axil-product product-style-one" style="border: 2px solid #0162b1; border-radius: 8px; overflow: hidden;">
-   
-                               {{--  <div class="axil-product product-style-one">
-                                 --}}    <div class="thumbnail">
+
+                                    {{-- <div class="axil-product product-style-one">
+                                 --}}
+                                    <div class="thumbnail">
                                         <a href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
                                             <img data-sal="zoom-out" data-sal-delay="200" data-sal-duration="800" loading="lazy" class="main-img" border-radius="8px" src="{{ Storage::url($produit->photo) }}" alt="Product Images">
                                             <img class="hover-img" border-radius="8px" src="{{ Storage::url($produit->photo) }}" alt="Product Images">
@@ -238,18 +239,17 @@
                                         </div>
                                         <div class="product-hover-action">
                                             <ul class="cart-action">
-                                                                   @if ($produit->sur_devis == false)
-                                                                    <li class="select-option2">
+                                                @if ($produit->sur_devis == false)
+                                                <li class="select-option2">
                                                     <a onclick="AddToCart( {{ $produit->id }} )">
                                                         {{ \App\Helpers\TranslationHelper::TranslateText('Ajouter au panier') }}
                                                     </a>
                                                 </li>
                                                 @else
                                                 <li class="select-option2">
-                                                <a href="{{ url('devis', $produit->id) }}"  style="font-size: 1.7rem; color: white;"
-                                                    >
-                                                    {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
-                                                </a>
+                                                    <a href="{{ url('devis', $produit->id) }}" style="font-size: 1.7rem; color: white;">
+                                                        {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
+                                                    </a>
                                                 </li>
                                                 @endif
 
@@ -284,7 +284,7 @@
 
                                                     .favori-actif {
                                                         color: red;
-                                                        
+
                                                     }
 
                                                 </style>
@@ -299,7 +299,7 @@
                                             </div>
 
                                             <div class="">
-                                                <h5 class="title"><a href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
+                                                <h5 class="title text-center "><a href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
                                                         {{ \App\Helpers\TranslationHelper::TranslateText( Str::limit($produit->nom, 15)) }}
 
                                                     </a>
@@ -309,8 +309,14 @@
                                                 <h6 class="product-price--main">
 
 
+                                                    <style>
+                                                        .text-centered {
+                                                            text-align: center;
+                                                        }
+
+                                                    </style>
                                                     @if ($produit->inPromotion() && $produit->sur_devis === false)
-                                                    <div class="row">
+                                                    <div class="row text-center">
                                                         <div class="col-sm-6 col-6">
 
                                                             <b class="text-success" style="color: #4169E1">
@@ -329,16 +335,54 @@
 
                                                             </strike>
                                                         </div>
-                                                        
+
                                                         @elseif ($produit->sur_devis == false)
                                                         {{-- {{ $produit->getPrice() }}DT --}}
 
 
-                                                        <span class="price current-price" style="font-size: 1.7rem;">
-                                                            {{ $produit->getPrice() }} <x-devise></x-devise>
-                                                            </b></span>
+                                                        <div class="text-center">
+                                                            <span class="price current-price" style="font-size: 1.7rem;">
+                                                                {{ $produit->getPrice() }}
+                                                                <x-devise></x-devise>
+                                                            </span>
+                                                        </div>
                                                         @endif
 
+
+
+                                                        {{--
+                                                    @if ($produit->inPromotion() && $produit->sur_devis === false)
+                                                    <div class="row">
+                                                        <div class="col-sm-6 col-6">
+
+                                                            <b class="text-success" style="color: #4169E1">
+                                                                {{ $produit->getPrice() }} DT
+                                                        </b>
+                                                    </div>
+
+                                                    <div class="col-sm-6 col-6 text-end">
+                                                        <strike>
+
+
+                                                            <span style="font-size: 1.7rem; color: #dc3545; font-weight: bold;">
+                                                                {{ $produit->prix }} DT
+                                                            </span>
+
+
+                                                        </strike>
+                                                    </div>
+
+                                                    @elseif ($produit->sur_devis == false)
+
+
+
+                                                    <span class="price current-price" style="font-size: 1.7rem;">
+                                                        {{ $produit->getPrice() }}
+                                                        <x-devise></x-devise>
+                                                        </b>
+                                                    </span>
+                                                    @endif
+                                                    --}}
 
                                                 </h6>
                                             </div>
@@ -453,18 +497,18 @@
                                                     {{ $produit->prix }} DT
                                                     <span style="position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background-color: black;"></span>
                                                 </span>
-                                            
+
                                                 @elseif ($produit->sur_devis == false)
                                                 {{ $produit->getPrice() }}DT
                                                 @endif
                                             </span>
                                             <ul class="product-meta">
                                                 @if ($produit->stock > 0)
-                                                <label class="badge btn-bg-primary2">      {{ \App\Helpers\TranslationHelper::TranslateText('Stock disponible') }}</label>
-                                            </label>
+                                                <label class="badge btn-bg-primary2"> {{ \App\Helpers\TranslationHelper::TranslateText('Stock disponible') }}</label>
+                                                </label>
                                                 @else
-                                                <label class="badge bg-danger">      {{ \App\Helpers\TranslationHelper::TranslateText('Stock en cours d\'approvisionnement') }}</label>
-                                            </label>
+                                                <label class="badge bg-danger"> {{ \App\Helpers\TranslationHelper::TranslateText('Stock en cours d\'approvisionnement') }}</label>
+                                                </label>
                                                 @endif
 
                                                 <li>Categorie:<span>
@@ -489,14 +533,14 @@
                                                 </div>
 
                                                 <ul class="product-action d-flex-center mb--0">
-                                                @if($produit->sur_devis === false)
-                                                    <li class="add-to-cart"><a onclick="AddToCart( {{ $produit->id }} )" class="axil-btn btn-bg-primary2">  {{ \App\Helpers\TranslationHelper::TranslateText('Ajouter au panier') }}</a></li>
-                                                          
+                                                    @if($produit->sur_devis === false)
+                                                    <li class="add-to-cart"><a onclick="AddToCart( {{ $produit->id }} )" class="axil-btn btn-bg-primary2"> {{ \App\Helpers\TranslationHelper::TranslateText('Ajouter au panier') }}</a></li>
+
                                                     @else
                                                     <li class="add-to-cart">
-                                                    <a href="{{ url('devis', $produit->id) }}">
-                                                        {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
-                                                    </a>
+                                                        <a href="{{ url('devis', $produit->id) }}">
+                                                            {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
+                                                        </a>
                                                     </li>
                                                     @endif
 
@@ -537,12 +581,14 @@
                                 }
 
                                 .text-justify {
-    text-align: justify;
-    text-justify: inter-word; /* Réduit l'espace entre les mots */
-    white-space: normal; /* Élimine les espaces blancs multiples */
-    word-spacing: -1px; /* Ajuste l'espacement entre les mots */
-}
-
+                                    text-align: justify;
+                                    text-justify: inter-word;
+                                    /* Réduit l'espace entre les mots */
+                                    white-space: normal;
+                                    /* Élimine les espaces blancs multiples */
+                                    word-spacing: -1px;
+                                    /* Ajuste l'espacement entre les mots */
+                                }
 
                             </style>
 
@@ -564,7 +610,7 @@
                                 <img src="{{ Storage::url($config->icone_annee ?? ' ')  }}" height="100" width="100" alt="Shape">
                             </div>
                             <div class="content">
-                                <h5 class="title" style="text-align: justify">{{-- {{ $config->annee ?? ' ' }}  --}}{!! \App\Helpers\TranslationHelper::TranslateText($config->titre_annee ?? '') !!}.</h5>
+                                <h5 class="title" style="text-align: justify">{{-- {{ $config->annee ?? ' ' }} --}}{!! \App\Helpers\TranslationHelper::TranslateText($config->titre_annee ?? '') !!}.</h5>
                                 <p style="text-align: justify">
                                     {!! \App\Helpers\TranslationHelper::TranslateText($config->des_annee ?? ' ') !!}
                                 </p>
@@ -646,8 +692,8 @@
                                                 @if ($produit->stock > 0)
                                                 <label class="badge btn-bg-primary2"> {{ \App\Helpers\TranslationHelper::TranslateText('Produit en stock') }}</label>
                                                 @else
-                                                <label class="badge bg-danger">      {{ \App\Helpers\TranslationHelper::TranslateText('Stock en cours d\'approvisionnement') }}</label>
-                                            </label>
+                                                <label class="badge bg-danger"> {{ \App\Helpers\TranslationHelper::TranslateText('Stock en cours d\'approvisionnement') }}</label>
+                                                </label>
                                                 @endif
 
 

@@ -240,7 +240,7 @@
                                                     </div>
                                                     <div class="product-content">
                                                         <div class="inner">
-                                                            <h5 class="title"><a
+                                                            <h5 class="title text-center"><a
                                                                     href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
                                                                     {{ \App\Helpers\TranslationHelper::TranslateText(Str::limit($produit->nom, 15)) }}
                                                                 </a>
@@ -249,7 +249,46 @@
                                                             <div class="product-price-variant">
                                                                 <h6 class="product-price--main">
 
+<style>
+    .text-centered {
+    text-align: center;
+}
 
+</style>
+                                                                    @if ($produit->inPromotion() && $produit->sur_devis === false)
+                                                                    <div class="row text-center">
+                                                                        <div class="col-sm-6 col-6">
+                
+                                                                            <b class="text-success" style="color: #4169E1">
+                                                                                {{ $produit->getPrice() }} DT
+                                                                            </b>
+                                                                        </div>
+                
+                                                                        <div class="col-sm-6 col-6 text-end">
+                                                                            <strike>
+                
+                
+                                                                                <span style="font-size: 1.7rem; color: #dc3545; font-weight: bold;">
+                                                                                    {{ $produit->prix }} DT
+                                                                                </span>
+                
+                
+                                                                            </strike>
+                                                                        </div>
+                                                                        
+                                                                        @elseif ($produit->sur_devis == false)
+                                                                        {{-- {{ $produit->getPrice() }}DT --}}
+                
+                
+                                                                        <div class="text-center">
+                                                                            <span class="price current-price" style="font-size: 1.7rem;">
+                                                                                {{ $produit->getPrice() }} <x-devise></x-devise>
+                                                                            </span>
+                                                                        </div>
+                                                                        @endif
+                
+
+{{-- 
                                                                     @if ($produit->inPromotion() && $produit->sur_devis === false)
                                                                         <div class="row">
                                                                             <div class="col-sm-6 col-6">
@@ -278,7 +317,7 @@
                                                                         @elseif($produit->sur_devis == false)
 
                                                                             {{ $produit->getPrice() }}DT
-                                                                    @endif
+                                                                    @endif --}}
 
 
 
