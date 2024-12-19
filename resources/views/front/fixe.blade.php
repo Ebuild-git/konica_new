@@ -172,8 +172,8 @@
 
 
                         .site-logo img {
-                            height: 150px;
-                            width: 100px;
+                            height: 250px;
+                            width: 150px;
                             object-fit: contain;
                             transition: transform 0.3s ease;
                             margin-top: -21px;

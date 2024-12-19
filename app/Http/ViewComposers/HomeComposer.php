@@ -22,6 +22,7 @@ class HomeComposer
             'brands' =>Marque::has('produits')->get(), // Pour le  sop page
           // 'categorie'=>Category::all(),
             'configs' => config::all(),
+            'config' => config::all(),
             'services'=>Service::all(),
             'favoris'=>Favoris::where('id_produit', '!=', null)
             ->where('id_user', auth()->id() )->get(),
