@@ -8,11 +8,7 @@
     $produit = DB::table('produits')->get();
     @endphp
 
-    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
- --}}
+   
     <style>
         .axil-breadcrumb-item1 {
             font-size: 14px;
@@ -32,7 +28,60 @@
             color: #EFB121;
         }
 
-    </style>
+    
+            .carousel-inner img {
+                width: 80%;
+                height: auto;
+            }
+
+           
+            @media (max-width: 768px) {
+
+                .carousel-caption p,
+                .carousel-caption h1 {
+                    font-size: 1rem;
+                   
+                }
+
+                .carousel-caption .btn {
+                    font-size: 0.875rem;
+                   
+                }
+            }
+
+           
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 5%;
+              
+                height: 100%;
+            }
+
+       
+           
+                                            .top-left {
+                                                position: absolute;
+                                                top: 8px;
+                                                right: 18px;
+                                                color: #0162b1;
+                                            }
+
+                                          
+                                                    .select-option2 {
+                                                        background-color: #0162b1;
+                                                        color: #ffffff;
+                                                        border: none;
+                                                        padding: 10px 20px;
+                                                        border-radius: 5px;
+                                                        text-decoration: none;
+                                                    }
+
+                                                    .favori-actif {
+                                                        color: red;
+
+                                                    }
+
+                                                </style>
     <main class="main-wrapper">
 
         <div class="container-fluid px-0 mb-5">
@@ -83,83 +132,8 @@
                 </button>
             </div>
         </div>
-        <style>
-            /* Assurez-vous que les images du carrousel sont responsives */
-            .carousel-inner img {
-                width: 80%;
-                height: auto;
-            }
+     
 
-            /* Ajustez la taille du texte du carrousel pour les petits écrans */
-            @media (max-width: 768px) {
-
-                .carousel-caption p,
-                .carousel-caption h1 {
-                    font-size: 1rem;
-                    /* Ajustez la taille selon vos besoins */
-                }
-
-                .carousel-caption .btn {
-                    font-size: 0.875rem;
-                    /* Ajustez la taille du bouton selon vos besoins */
-                }
-            }
-
-            /* Assurez-vous que les contrôles du carrousel sont adaptés pour les petits écrans */
-            .carousel-control-prev,
-            .carousel-control-next {
-                width: 5%;
-                /* Ajustez la largeur des contrôles */
-                height: 100%;
-            }
-
-        </style>
-
-        {{-- <div id="carouselExample" class="carousel slide  carousel-inner" data-ride="carousel" data-interval="3000">
-            <div class="carousel-inner">
-                @foreach ($banners as $key => $banner)
-                <div class="carousel-item {{ $key === 0 ? 'active' : '' }}"
-        style="background-image: url('{{ Storage::url($banner->image) }}'); background-size: cover; background-position: center; height: 100vh;">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-sm-8">
-                    <div class="main-slider-content">
-                        <span class="subtitle"><i class="fas fa-fire"></i>
-                            {{ $banner->titre ?? '' }}</span>
-                        <p style="font-size: 1.5rem;   color: #ffffff;  margin-top: 10px; ">
-                            {{ $banner->sous_titre ?? '' }}</p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-        <div class="shop-btn d-flex justify-content-center">
-            <a href="{{ route('shop') }}" class="axil-btn btn-bg-secondary right-icon">
-                Voir boutique <i class="fal fa-long-arrow-right"></i>
-            </a>
-        </div>
-        </div>
-        @endforeach
-        </div>
-        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-        </div>
-        --}}
-
-
-
-        <!-- End Slider Area -->
-        <!-- Start Categorie Area  -->
-        <!-- Start Categorie Area  -->
         <div class="axil-categorie-area bg-color-white axil-section-gapcommon">
             <div class="container">
                 <div class="section-title-wrapper">
@@ -181,7 +155,7 @@
                                 </h6>
                             </a>
                         </div>
-                        <!-- End .categrie-product -->
+                       
                     </div>
                     @endforeach
 
@@ -205,27 +179,17 @@
                     <div class="slick-single-layout">
                         <div class="row row--15">
                             @foreach ($produits as $produit)
-                            @if ($produit)
+                           
                             <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
                                 <div class="axil-product product-style-one" style="border: 1px solid #0162b1; border-radius: 8px; overflow: hidden;">
 
-                                    {{-- <div class="axil-product product-style-one">
-                                 --}}
+                                
                                     <div class="thumbnail">
                                         <a href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
                                             <img data-sal="zoom-out" data-sal-delay="200" data-sal-duration="800" loading="lazy" class="main-img" border-radius="8px" src="{{ Storage::url($produit->photo) }}" alt="Product Images">
                                             <img class="hover-img" border-radius="8px" src="{{ Storage::url($produit->photo) }}" alt="Product Images">
                                         </a>
 
-                                        <style>
-                                            .top-left {
-                                                position: absolute;
-                                                top: 8px;
-                                                right: 18px;
-                                                color: #0162b1;
-                                            }
-
-                                        </style>
 
                                         <div class="top-left" style="background-color: #e01010;color: white;">
                                             <span>
@@ -272,22 +236,7 @@
 
 
 
-                                                <style>
-                                                    .select-option2 {
-                                                        background-color: #0162b1;
-                                                        color: #ffffff;
-                                                        border: none;
-                                                        padding: 10px 20px;
-                                                        border-radius: 5px;
-                                                        text-decoration: none;
-                                                    }
-
-                                                    .favori-actif {
-                                                        color: red;
-
-                                                    }
-
-                                                </style>
+                                            
 
                                             </ul>
                                         </div>
@@ -337,7 +286,7 @@
                                                         </div>
 
                                                         @elseif ($produit->sur_devis == false)
-                                                        {{-- {{ $produit->getPrice() }}DT --}}
+                                                      
 
 
                                                         <div class="text-center">
@@ -350,47 +299,13 @@
 
 
 
-                                                        {{--
-                                                    @if ($produit->inPromotion() && $produit->sur_devis === false)
-                                                    <div class="row">
-                                                        <div class="col-sm-6 col-6">
-
-                                                            <b class="text-success" style="color: #4169E1">
-                                                                {{ $produit->getPrice() }} DT
-                                                        </b>
-                                                    </div>
-
-                                                    <div class="col-sm-6 col-6 text-end">
-                                                        <strike>
-
-
-                                                            <span style="font-size: 1.7rem; color: #dc3545; font-weight: bold;">
-                                                                {{ $produit->prix }} DT
-                                                            </span>
-
-
-                                                        </strike>
-                                                    </div>
-
-                                                    @elseif ($produit->sur_devis == false)
-
-
-
-                                                    <span class="price current-price" style="font-size: 1.7rem;">
-                                                        {{ $produit->getPrice() }}
-                                                        <x-devise></x-devise>
-                                                        </b>
-                                                    </span>
-                                                    @endif
-                                                    --}}
-
                                                 </h6>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            @endif
+                         
                             @endforeach
 
                         </div>
@@ -411,8 +326,7 @@
 
 
 
-        <!-- Product Quick View Modal Start -->
-        @if ($produits)
+    
         @foreach ($produits as $key => $produit)
         <div class="modal fade quick-view-product" id="{{ $produit->id }}" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -548,10 +462,10 @@
                                                     <li class="wishlist"><a onclick="AddFavoris({{ $produit->id }})"><i class="far fa-heart"></i></a></li>
                                                     @endif
                                                 </ul>
-                                                <!-- End Product Action  -->
+                                               
 
                                             </div>
-                                            <!-- End Product Action Wrapper  -->
+                                          
                                         </div>
                                     </div>
                                 </div>
@@ -562,7 +476,7 @@
             </div>
         </div>
         @endforeach
-        @endif
+     
         <br><br>
 
         <!-- Start About Area  -->
@@ -583,11 +497,11 @@
                                 .text-justify {
                                     text-align: justify;
                                     text-justify: inter-word;
-                                    /* Réduit l'espace entre les mots */
+                                    
                                     white-space: normal;
-                                    /* Élimine les espaces blancs multiples */
+                                
                                     word-spacing: -1px;
-                                    /* Ajuste l'espacement entre les mots */
+                                 
                                 }
 
                             </style>
@@ -623,7 +537,7 @@
                                 <img src="{{ Storage::url($config->icone_prix ?? ' ') }}" height="100" width="100" alt="Shape">
                             </div>
                             <div class="content">
-                                <h5 class="title" style="text-align: justify">{{-- {{ $config->prix ?? ' ' }} --}} {!! \App\Helpers\TranslationHelper::TranslateText($config->titre_prix ?? ' ') !!}.</h5>
+                                <h5 class="title" style="text-align: justify"> {!! \App\Helpers\TranslationHelper::TranslateText($config->titre_prix ?? ' ') !!}.</h5>
                                 <p style="text-align: justify">
                                     {!! \App\Helpers\TranslationHelper::TranslateText($config->des_prix ?? '') !!}.
                                 </p>
@@ -647,7 +561,7 @@
                 <div class="popular-product-activation slick-layout-wrapper slick-layout-wrapper--15 axil-slick-angle angle-top-slide">
                     <div class="slick-single-layout">
                         <div class="row">
-                            @if ($produits)
+                         
                             @foreach ($produits as $key => $produit)
                             @if ($produit->inPromotion() && $produit->sur_devis == false)
                             <div class="col-md-6 col-12">
@@ -724,17 +638,14 @@
                             </div>
                             @endif
                             @endforeach
-                            @endif
-
+                          
                         </div>
                     </div>
 
                 </div>
             </div>
         </div>
-        <!-- End Expolre Product Area  -->
-
-        <!-- Start Testimonila Area  -->
+     
         <div class="axil-testimoial-area axil-section-gap bg-vista-white">
             <div class="container">
                 <div class="section-title-wrapper">
@@ -768,7 +679,7 @@
                             </div>
                             <div class="media-body">
                                 <span class="designation">{{ $testimonial->name }}</span>
-                                {{-- <h6 class="title">James C. Anderson</h6> --}}
+                             
                             </div>
                         </div>
                         <!-- End .thumbnail -->
@@ -906,15 +817,15 @@
         <script>
             $(document).ready(function() {
                 $('#testimonialForm').on('submit', function(e) {
-                    e.preventDefault(); // Empêcher l'envoi classique du formulaire
+                    e.preventDefault(); 
 
                     $.ajax({
                         url: $(this).attr('action')
                         , method: $(this).attr('method')
                         , data: $(this).serialize()
                         , success: function(response) {
-                            // Afficher le message de succès
-                            $('#testimonialModal').modal('hide'); // Fermer le modal
+                            
+                            $('#testimonialModal').modal('hide'); 
 
                             $('#successMessage').text(
                                 'Témoignage créé avec succès! Il sera valide après confirmation des administrateurs'
@@ -926,9 +837,9 @@
                             }, 5000);
                         }
                         , error: function(response) {
-                            // Afficher un message d'erreur si nécessaire
+                            
                             $('#errorMessage').text('Une erreur est survenue.')
-                                .show(); // Afficher le message d'erreur
+                                .show(); 
                         }
                     });
                 });

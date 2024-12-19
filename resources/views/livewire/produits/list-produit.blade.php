@@ -105,50 +105,7 @@
                                
                             @endif
                         </td>
-                       
-                       {{--  <td class="cusor">
-
-                           
-                                 @if ($produit->sur_devis == false)
-                                    <b onclick="url('{{ route('produits.historique', ['id' => $produit->id]) }}')">
-                                        {{ $produit->stock }} U.
-                                    </b>
-                                @else
-                                    <b>------</b>
-                                @endif  --}}
-    
-                          
-                            {{--   <span class="badge {{ $produit->stock > 0 ? 'bg-success' : 'bg-danger' }}">
-                                {{ $produit->stock > 0 ? 'En stock' : 'Rupture' }}
-                            </span> --}}
-
-                          {{--    @if ($produit->stock > 0 && $produit->sur_devis == false)
-                              
-                                <span class="text-success" title="En Stock">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span class="badge badge-success">En Stock</span>
-                                   <b onclick="url('{{ route('produits.historique', ['id' => $produit->id]) }}')">
-                                        {{ $produit->stock }} U.
-                                    </b>
-                                </span>
-                            @endif
-
-                           
-
-
-                            @if ($produit->stock == 0 && $produit->sur_devis == false)
-                              
-                                <span class="text-danger" title="Rupture de Stock">
-                                    <i class="fas fa-times-circle"></i>
-                                    <span class="badge badge-danger">Pas de stock</span>
-                                </span>
-                            @endif  --}}
-                      {{--   </td> --}}
-
-
-
-
-
+                    
                         <td>
                             @if ($produit->inPromotion()   && $produit->sur_devis == false)
                             <span class=" small">
@@ -171,7 +128,7 @@
                         @endif
 
                         </td>
-                        <td>{{-- {{ $produit->prix_achat }} --}}
+                        <td>
                             @if($produit->sur_devis==false)
                             {{ $produit->prix_achat }} DT
                             @else
@@ -182,36 +139,29 @@
                             <i class="ri-wallet-2-line vert"></i>
                             {{ $produit->vendus->count() }}
                         </td>
-                       {{--  <td>
-                            <i class="ri-bar-chart-box-line vert"></i>
-                            {{ $produit->vues->count() }}
-                        </td> --}}
+                    
                         <td>
                             @if ($produit->sur_devis == false)
                                 <div class="progress-bar bg-primary progress" style="width: 80%" aria-valuenow="10"
                                     aria-valuemin="0" aria-valuemax="100">
                                     <b>Produit simple</b>
-                                    {{--    {{ $produit->sur_devis }}  --}}
+                                    
                                 </div>
                             @else
                                 <div class="progress-bar bg-info" style="width: 80%" aria-valuenow="30"
                                     aria-valuemin="0" aria-valuemax="100">
                                     <b>Produit sur devis</b>
-                                    {{--     {{ $produit->sur_devis }}  --}}
+                                   
                                 </div>
                             @endif
-                            {{--  {{ $produit->sur_devis }} --}}
+                         
                         </td>
                         <td>{{ $produit->created_at->format('d/m/Y') }} </td>
                         <td style="text-align: right;">
                             <div class="btn-group">
 
                                 @if ($produit->stock < 20)
-                    {{--                 <b title="Historique"
-                                        onclick="window.location.href='{{ route('produits.historique', ['id' => $produit->id]) }}'">
-
-                                        <i class="fas fa-history"></i>
-                                    </b --}}
+                   
                               
                                     <button class="btn btn-primary btn-sm" title="Ajouter Stock"
                                         wire:click="openModal({{ $produit->id }})">
@@ -229,9 +179,7 @@
                                         <i class="ri-discount-percent-fill"></i>
                                     </button>
                                 @endcan
-                              {{--   <button class="btn btn-sm btn-info">
-                                    <i class="ri-links-line"></i>
-                                </button> --}}
+                           
                                 @can('product_delete')
                                     <button class="btn btn-sm btn-danger"
                                         onclick="toggle_confirmation({{ $produit->id }})">
@@ -286,8 +234,7 @@
                                             </table>
                                             <br>
                                             <div class="text-center p-2">
-                                                {{-- {!! QrCode::size(100)->generate(route('produit2', ['id' => $produit->id])) !!} --}}
-                                            </div>
+                                                       </div>
                                         </div>
                                     </div><!-- /.modal-content -->
                                 </div><!-- /.modal-dialog -->

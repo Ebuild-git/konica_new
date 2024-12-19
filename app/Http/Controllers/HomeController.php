@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 //require './vendor/autoload.php';
 
 
-use App\Models\{commandes,config, User,produits, Category, Service,Marque, Testimonial};
+use App\Models\{commandes, User,produits, Category, Service,Marque, Testimonial};
 use App\Models\Banners;
 use App\Models\templates;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -41,7 +41,7 @@ class HomeController extends Controller
        ->where('category_id', 'category_id')
        ->get();
  
-       $configs= config::all();
+   
        $banners = Banners::select("titre","sous_titre","image")->get();
 
        $testimonials = Testimonial::orderBy('created_at', 'desc')
@@ -49,15 +49,15 @@ class HomeController extends Controller
        ->limit(10)->get();
 
        $services = Service::all();
-      return view('front.index', compact('rescentesproduits','searchproducts','produits','configs','banners','services','key','testimonials', 'categoryProducts'));
+      return view('front.index', compact('rescentesproduits','searchproducts','produits','banners','services','key','testimonials', 'categoryProducts'));
 
     }
      
       public function detailsServices($id, $slug){
         $service =Service:: findOrFail($id);
-        $configs= config::all();
+      
         $services = Service::all();
-        return view('front.services.details', compact('service','services','configs'));
+        return view('front.services.details', compact('service','services'));
       }
 
 
@@ -96,16 +96,12 @@ class HomeController extends Controller
         
         $total_produit = produits::count();
         $max_prix = produits::max('prix');
-      // $categories = Category::with('produits')->get();
+   
       $categories =Category::has('produits')->get();
 
-    //  $lastproduits = produits::latest()->take(5)->get();
-
-      
-    
    
-        $configs= config::all();
-        return view('front.shop.index',compact('produits', 'categories', 'configs','key','total_produit','max_prix','ordre_affichage'));
+       
+        return view('front.shop.index',compact('produits', 'categories','key','total_produit','max_prix','ordre_affichage'));
     }
 
     public function search_products(Request $request)
@@ -131,12 +127,12 @@ class HomeController extends Controller
        $categories =Category::has('produits')->get();
     
    
-       $configs= config::all();
+     
         $total_produit = produits::count();
         $max_prix = produits::max('prix');
       // $categories = Category::with('produits')->get();
       $categories =Category::has('produits')->get();
-        return view('front.shop.index',compact('produits','categories', 'configs'))->render();
+        return view('front.shop.index',compact('produits','categories'))->render();
 
     }
 
@@ -147,8 +143,8 @@ class HomeController extends Controller
         ->paginate(24);;
       //  $categories = Category::with('produits')->get();
       $categories =Category::has('produits')->get();
-        $configs= config::all();
-        return view('front.shop.index',compact('produits', 'categories','configs'));
+      
+        return view('front.shop.index',compact('produits', 'categories'));
     }
 
 
@@ -158,8 +154,8 @@ class HomeController extends Controller
         ->paginate(24);;
       //  $categories = Category::with('produits')->get();
       $categories =Category::has('produits')->get();
-        $configs= config::all();
-        return view('front.shop.index',compact('produits', 'categories','configs'));
+      
+        return view('front.shop.index',compact('produits', 'categories'));
     }
     
 
@@ -196,16 +192,15 @@ class HomeController extends Controller
 
     public function details($id){
         $produit =produits:: findOrFail($id);
-        $configs= config::all();
-        return view('front.shop.details', compact('produit','configs'));
+   
+        return view('front.shop.details', compact('produit'));
     }
     
     public function products($id)
     {
         $categories = Category::with('produits')->get();
         $current_category = Category::with('produits')->findOrFail($id);
-       // $produits = $current_category->produits;
-       // $produits = $produits()->paginate(16);
+   ;
        $produits = $current_category->produits()->paginate(24);
         $users = User::all();  
         return view('front.shop.index', compact('current_category', 'users', 'categories', 'produits'));

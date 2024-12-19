@@ -1,10 +1,6 @@
 @extends('front.fixe')
 @section('titre', $produit->nom)
 @section('body')
-    @php
-
-        $config = DB::table('configs')->first();
-    @endphp
 
     <head>
     @section('header')
@@ -33,6 +29,50 @@
 
 
 <main>
+
+    <style>
+        .axil-breadcrumb-item1 {
+            font-size: 14px;
+            color: #0162b1;
+            /* Default breadcrumb color */
+        }
+
+        .axil-breadcrumb-item.active {
+            font-weight: bold;
+            color: #0162b1;
+            /* Distinct color for active item */
+        }
+
+        .axil-breadcrumb-item:not(.active)::after {
+            content: " / ";
+            /* Adds a separator after non-active items */
+            color: #0162b1;
+        }
+
+        .select-option2 {
+            background-color: #0162b1;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+
+        .top-left {
+            position: absolute;
+            top: 8px;
+            left: 16px;
+            color: red;
+        }
+
+
+
+        .favori-actif {
+            color: red;
+
+        }
+    </style>
 
     <main class="main-wrapper">
         <!-- Start Shop Area  -->
@@ -130,12 +170,11 @@
 
 
                                                 </div>
-                                            
+
                                                 <span class="price current-price">
                                                 @elseif ($produit->sur_devis == false)
                                                     {{ $produit->getPrice() }} DT
                                                     </b></span>
-
                                         @endif
                                     </span>
                                     <div class="product-rating">
@@ -156,11 +195,13 @@
                                             <span style="color: #5EA13C">
 
                                                 {{ \App\Helpers\TranslationHelper::TranslateText(Str::limit($produit->categories->nom, 30)) }}
-                                            </span></li>
+                                            </span>
+                                        </li>
                                         <br>
                                         <li> <span style="color: #EFB121">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Reference') }}:</span>
-                                            <span style="color: #5EA13C">{{ $produit->reference }}</span></li>
+                                            <span style="color: #5EA13C">{{ $produit->reference }}</span>
+                                        </li>
                                     </ul>
                                     <p class="description">
 
@@ -195,7 +236,6 @@
                                                     autocomplete="off">
                                                 <span class="quantity-control plus"></i></span>
                                             </div>
-
                                     @endif
 
 
@@ -204,31 +244,20 @@
 
                                     <!-- Start Product Action  -->
                                     <ul class="product-action d-flex-center mb--0">
-                                    @if ($produit->sur_devis == false)
-                                        <li class="select-option2"><a onclick="AddToCart( {{ $produit->id }} )">
-                                                {{ \App\Helpers\TranslationHelper::TranslateText('Ajouter au panier') }}</a>
-                                        </li>
+                                        @if ($produit->sur_devis == false)
+                                            <li class="select-option2"><a onclick="AddToCart( {{ $produit->id }} )">
+                                                    {{ \App\Helpers\TranslationHelper::TranslateText('Ajouter au panier') }}</a>
+                                            </li>
                                         @else
-                                        <li class="select-option2">
-                                        <a href="{{ url('devis', $produit->id) }}"  style="font-size: 1.7rem; color: white;"
-                                            >
-                                            {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
-                                        </a>
-                                        </li>
-
+                                            <li class="select-option2">
+                                                <a href="{{ url('devis', $produit->id) }}"
+                                                    style="font-size: 1.7rem; color: white;">
+                                                    {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
+                                                </a>
+                                            </li>
                                         @endif
-                                        <style>
-                                            .select-option2 {
-                                                background-color: #0162b1;
-                                                color: #ffffff;
-                                                border: none;
-                                                padding: 10px 20px;
-                                                border-radius: 5px;
-                                                text-decoration: none;
-                                            }
-                                        </style>
-                                        @if (Auth()->user())
 
+                                        @if (Auth()->user())
                                             @php
 
                                                 $count = DB::table('favoris')
@@ -243,28 +272,19 @@
                                             </li>
                                         @endif
 
-                                        <style>
-                                            .btn-bg-primary2 {
-                                                background-color: #0162b1;
-                                                color: #ffffff;
-                                                border: none;
-                                                padding: 10px 20px;
-                                                border-radius: 5px;
-                                                text-decoration: none;
-                                            }
-                                        </style>
+
                                     </ul>
-                                  
+
 
                                 </div>
-                              
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-      
+
 
         <div class="woocommerce-tabs wc-tabs-wrapper bg-vista-white">
             <div class="container">
@@ -290,21 +310,21 @@
                                         </p>
                                     </div>
                                 </div>
-                              
 
-                               
+
+
                             </div>
-                        
+
                         </div>
-                       
+
                     </div>
 
                 </div>
             </div>
         </div>
-       
+
         </div>
-       
+
         <div class="axil-product-area bg-color-white axil-section-gap pb--50 pb_sm--30">
             <div class="container">
                 <div class="section-title-wrapper">
@@ -332,18 +352,11 @@
                                             href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
                                             <img src="{{ Storage::url($produit->photo) }}" alt="Product Images">
 
-                                            <style>
-                                                .top-left {
-                                                    position: absolute;
-                                                    top: 8px;
-                                                    left: 16px;
-                                                    color: red;
-                                                }
-                                            </style>
+
 
                                             <div class="top-left" style="background-color:#f71212;color: white;">
                                                 <span>
-                                                   
+
                                                     @if ($produit->inPromotion() && $produit->sur_devis === false)
                                                         <span>
                                                             -{{ $produit->inPromotion()->pourcentage }}%</span>
@@ -351,22 +364,7 @@
                                                 </span>
                                             </div>
                                         </a>
-                                        <style>
-                                            .select-option2 {
-                                                background-color: #0162b1;
-                                              
-                                                border: none;
-                                                padding: 10px 20px;
-                                                border-radius: 5px;
-                                                text-decoration: none;
-                                            }
 
-                                            .favori-actif {
-                                                color: red;
-                                                
-                                            }
-
-                                        </style>
                                         <div class="product-hover-action">
                                             <ul class="cart-action">
                                                 @if (Auth()->user())
@@ -374,37 +372,23 @@
                                                             onclick="AddFavoris({{ $produit->id }})"><i
                                                                 class="far fa-heart"></i></a></li>
                                                 @endif
-                                              
 
-                                                    @if ($produit->sur_devis == false)
+
+                                                @if ($produit->sur_devis == false)
                                                     <li class="select-option2">
-                                    <a onclick="AddToCart( {{ $produit->id }} )">
-                                        {{ \App\Helpers\TranslationHelper::TranslateText('Ajouter au panier') }}
-                                    </a>
-                                </li>
-                                @else
-                                <li class="select-option2">
-                                <a href="{{ url('devis', $produit->id) }}"  style="font-size: 1.7rem; color: white;"
-                                    >
-                                    {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
-                                </a>
-                                </li>
-                                @endif
-                                                    {{-- 
-                                                    @if ($produit->sur_devis == false)
-                                                    <a onclick="AddToCart( {{ $produit->id }} )">
-                                                        {{ \App\Helpers\TranslationHelper::TranslateText('Ajouter au panier') }}</a>
+                                                        <a onclick="AddToCart( {{ $produit->id }} )">
+                                                            {{ \App\Helpers\TranslationHelper::TranslateText('Ajouter au panier') }}
+                                                        </a>
+                                                    </li>
                                                 @else
-                                                    <a href="{{ url('devis', $produit->id) }}" style="font-size: 1.7rem; color: white;">
-                                                        {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
-                                                    </a>
-                                                @endif --}}
+                                                    <li class="select-option2">
+                                                        <a href="{{ url('devis', $produit->id) }}"
+                                                            style="font-size: 1.7rem; color: white;">
+                                                            {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
+                                                        </a>
+                                                    </li>
+                                                @endif
 
-                                                
-                                               
-                                                {{-- <li class="quickview"><a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#quick-view-modal"><i
-                                                            class="far fa-eye"></i></a></li> --}}
 
                                             </ul>
                                         </div>
@@ -432,9 +416,6 @@
 
 
 
-                                                                {{-- <span style="font-size: 1.2rem; color: #dc3545; font-weight: bold;">
-                                                            {{ $produit->prix }} DT
-                                                    </span> --}}
                                                                 <span class="price old-price"
                                                                     style="position: relative; font-size: 1.2rem; color: #dc3545; font-weight: bold;">
                                                                     {{ $produit->prix }} DT
@@ -466,25 +447,7 @@
 
                 </div>
             </div>
-            <style>
-                .axil-breadcrumb-item1 {
-                    font-size: 14px;
-                    color: #0162b1;
-                    /* Default breadcrumb color */
-                }
 
-                .axil-breadcrumb-item.active {
-                    font-weight: bold;
-                    color: #0162b1;
-                    /* Distinct color for active item */
-                }
-
-                .axil-breadcrumb-item:not(.active)::after {
-                    content: " / ";
-                    /* Adds a separator after non-active items */
-                    color: #0162b1;
-                }
-            </style>
             <!-- End Axil Newsletter Area  -->
     </main>
 

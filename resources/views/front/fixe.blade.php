@@ -11,15 +11,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> Shopping</title>
+    <title>KONICA</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ Storage::url($config->icon ?? ' ') }}">
 
-    <!-- CSS
-    ============================================ -->
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/css/vendor/bootstrap.min.css">
@@ -43,10 +41,34 @@
 </head>
 
 
+<style>
+    .btn-bg-primary2 {
+        background-color: #0162b1;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .btn-bg-secondary2 {
+        background-color: #EFB121;
+        
+        color: #ffffff;
+        
+        border: none;
+        padding: 10px 20px;
+        
+        border-radius: 5px;
+        
+        text-decoration: none;
+        
+    }
+</style>
+
+
 <body class="sticky-header overflow-md-visible">
-    <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-<![endif]-->
+ 
     <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
     <!-- Start Header -->
     <header class="header axil-header header-style-7">
@@ -65,30 +87,7 @@
                             <ul class="quick-link">
                                 <div class="header-top-dropdown">
                                     <div class="dropdown">
-                                        {{-- <form action="{{ route('locale.change') }}" method="POST">
-                                        @csrf
-                                        <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            {{ app()->getLocale() == 'fr' ? 'Français' : 'English' }}
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <button type="submit" name="locale" value="fr" class="dropdown-item">
-                                                <img src="https://img.icons8.com/color/20/france-circular.png" alt="fr">
-                                                Français
-                                            </button>
-                                            <button type="submit" name="locale" value="en" class="dropdown-item">
-                                                <img src="https://img.icons8.com/color/20/great-britain-circular.png" alt="en">
-                                                English
-                                            </button>
-
-
-                                            <button type="submit" name="locale" value="en" class="dropdown-item">
-                                                <img src="https://img.icons8.com/color/20/saudi-arabia-circular.png" alt="ar">
-                                                Arabe
-                                            </button>
-
-
-                                        </ul>
-                                        </form> --}}
+                                     
 
                                         <form action="{{ route('locale.change') }}" method="POST">
                                             @csrf
@@ -136,7 +135,7 @@
                 </div>
             </div>
         </div>
-        <!-- Start Mainmenu Area  -->
+     
         <div id="axil-sticky-placeholder"></div>
         <div class="axil-mainmenu">
             <div class="container-fluid">
@@ -210,35 +209,10 @@
                                 margin-top: 50px;
                             }
 
-/* 
-                            .header-brands:hover img {
-                                transform: scale(1.5);
-                            } */
+
                         </style>
                     </div>
-                    {{-- <div class=" header-brand nav-brand">
-                         <a href="{{ route('home') }}" class="logo logo-dark">
-                    <img src="{{ Storage::url($config->logo) }}" alt="Site Logo">
-                    </a>
-                    <a href="{{ route('home') }}" class="logo logo-light">
-                        <img src="{{ Storage::url($config->logo) }}" alt="Site Logo">
-                    </a>
-
-                    <style>
-                        .nav-brand img {
-
-                            object-fit: contain;
-                            transition: transform 0.3s ease;
-                            margin-top: 35px;
-                        }
-
-
-                        .nav-brand:hover img {
-                            transform: scale(1.1);
-                        }
-
-                    </style>
-                </div> --}}
+                 
                     <div class=" header-main-nav">
                         <nav class="mainmenu-nav">
                             <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
@@ -258,43 +232,43 @@
                                 <style>
                                     #dropdown-header-menu {
                                         color: #ffffff;
-                                        /* Text color */
+                                      
                                         background-color: #0162b1;
-                                        /* Background color */
+                                       
                                         border: 1px solid #0162b1;
-                                        /* Border color */
+                                    
                                         padding: 8px 12px;
-                                        /* Padding for a better look */
+                                      
                                         border-radius: 4px;
-                                        /* Rounded corners */
+                                      
                                     }
 
-                                    /* Change styles when the dropdown is open */
+                             
                                     #dropdown-header-menu[aria-expanded="true"] {
                                         background-color: #0162b1;
-                                        /* Darker background when active */
+                                        
                                         color: #ffffff;
-                                        /* Text color when active */
+                                        
                                         border-color: #EFB121;
-                                        /* Darker border when active */
+                                       
                                     }
 
-                                    /* Optional: Style the icon specifically */
+                                 
                                     #dropdown-header-menu .fa-th-large {
                                         font-size: 20px;
-                                        /* Icon size */
+                                    
                                         margin-right: 5px;
-                                        /* Spacing between icon and text */
+                                        
                                     }
 
-                                    /* Hover effect */
+                                 
                                     #dropdown-header-menu:hover {
                                         background-color: #0162b1;
-                                        /* Slightly different color on hover */
+                                    
                                         color: #ffffff;
-                                        /* Hover text color */
+                                      
                                         border-color: #0162b1;
-                                        /* Hover border color */
+                                      
                                     }
                                 </style>
 
@@ -317,10 +291,6 @@
                                                     {{ $category->nom ?? ' ' }}
                                                 </a>
 
-                                                {{-- <a class="dropdown-item1 {{ isset($current_category) && $current_category->id === $category->id ? 'selected' : '' }}"
-                                        href="/category/{{ $category->id }}">
-                                        {{ $category->nom ?? ' ' }}
-                                        </a> --}}
                                             </li>
                                         @endforeach
                                     </ul>
@@ -495,46 +465,13 @@
 
                                     .large-text {
                                         font-size: 24px;
-                                        /* Ajustez selon vos besoins */
+                                       
                                     }
                                 </style>
 
 
                             </li>
-                          {{--   <li>
-
-                                <div class="custom-dropdown">
-                                    <form action="{{ route('locale.change') }}" method="POST">
-                                        @csrf
-                                        <div class="dropdown">
-                                            <button class="dropbtn">
-                                                @if (app()->getLocale() == 'fr')
-                                                    <img src="https://img.icons8.com/color/20/france-circular.png"
-                                                        alt="fr">
-                                                @else
-                                                    <img src="https://img.icons8.com/color/20/great-britain-circular.png"
-                                                        alt="en">
-                                                @endif
-                                                {{ app()->getLocale() == 'fr' ? 'Français' : 'English' }}
-                                            </button>
-                                            <div class="dropdown-content">
-                                                <button type="submit" name="locale" value="fr"
-                                                    class="dropdown-item">
-                                                    <img src="https://img.icons8.com/color/20/france-circular.png"
-                                                        alt="fr">
-                                                    Français
-                                                </button>
-                                                <button type="submit" name="locale" value="en"
-                                                    class="dropdown-item">
-                                                    <img src="https://img.icons8.com/color/20/great-britain-circular.png"
-                                                        alt="en">
-                                                    English
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li> --}}
+                    
                             <li class="axil-mobile-toggle">
                                 <button class="menu-btn mobile-nav-toggler">
                                     <i class="flaticon-menu-2"></i>
@@ -575,7 +512,7 @@
                                 .logo {
                                     position: relative;
                                     top: -30px;
-                                    /* Déplace le logo de 30px vers le haut */
+                                    
                                 }
                             </style>
                             <div class="logo mb--30">
@@ -593,8 +530,7 @@
 
                         </div>
                     </div>
-                    <!-- End Single Widget  -->
-                    <!-- Start Single Widget  -->
+                
                     <div class="col-lg-3 col-sm-6">
                         <div class="axil-footer-widget">
                             <h5 class="widget-title">
@@ -622,8 +558,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End Single Widget  -->
-                    <!-- Start Single Widget  -->
+                 
                     <div class="col-lg-3 col-sm-6">
                         <div class="axil-footer-widget">
                             <h5 class="widget-title"> {{ \App\Helpers\TranslationHelper::TranslateText(' Pages') }}
@@ -644,15 +579,14 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End Single Widget  -->
-                    <!-- Start Single Widget  -->
+                 
                     <div class="col-lg-3 col-sm-6">
                         <div class="axil-footer-widget">
                             <h5 class="widget-title">
                                 {{ \App\Helpers\TranslationHelper::TranslateText('Contact info') }}
                             </h5>
                             <div class="inner">
-                                {{-- <span>Save $3 With App & New User only</span> --}}
+                             
                                 <div class="download-btn-group">
 
                                     <div class="inner">
@@ -672,12 +606,11 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End Single Widget  -->
+                  
                 </div>
             </div>
         </div>
-        <!-- End Footer Top Area  -->
-        <!-- Start Copyright Area  -->
+  
         <div class="copyright-area copyright-default separator-top">
             <div class="container">
                 <div class="row align-items-center">
@@ -687,7 +620,7 @@
                     <div class="col-xl-4 col-lg-12">
                         <div class="copyright-left d-flex flex-wrap justify-content-center">
                             <ul class="quick-link">
-                                <li>©{{ date('Y') }} Ben Mahmoud Market | Design By<a
+                                <li>©{{ date('Y') }} KONICA | Design By<a
                                         href="https://www.e-build.tn" style="color: #c71f17;">
                                         <b> E-build </b>
                                     </a>.</li>
@@ -840,17 +773,15 @@
                                                     <li>xl</li>
                                                 </ul>
                                             </div>
-                                            <!-- End Product Variation  -->
+                                         
 
                                         </div>
 
-                                        <!-- Start Product Action Wrapper  -->
+                                     
                                         <div class="product-action-wrapper d-flex-center">
-                                            <!-- Start Quentity Action  -->
+                                           
                                             <div class="pro-qty"><input type="text" value="1"></div>
-                                            <!-- End Quentity Action  -->
-
-                                            <!-- Start Product Action  -->
+                                         
                                             <ul class="product-action d-flex-center mb--0">
                                                 <li class="add-to-cart"><a href="cart.html"
                                                         class="axil-btn btn-bg-primary2">Add to Cart</a></li>
@@ -858,10 +789,10 @@
                                                         class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a>
                                                 </li>
                                             </ul>
-                                            <!-- End Product Action  -->
+                                
 
                                         </div>
-                                        <!-- End Product Action Wrapper  -->
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -871,9 +802,7 @@
             </div>
         </div>
     </div>
-    <!-- Product Quick View Modal End -->
 
-    <!-- Header Search Modal End -->
     <div class="header-search-modal" id="header-search-modal">
         <button class="card-close sidebar-close"><i class="fas fa-times"></i></button>
         <div class="header-search-wrap">
@@ -940,12 +869,12 @@
                                             <a onclick="AddToCart( {{ $produit->id }} )" class="cart-btn"><i
                                                     class="fal fa-shopping-cart"></i></a>
                                         @else
-                                            {{-- <li class="axil-btn  btn-bg-primary2 "> --}}
+                                          
                                             <a class="axil-btn  btn-bg-primary2 "
                                                 href="{{ url('devis', $produit->id) }}">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
                                             </a>
-                                            {{-- </li> --}}
+                                          
                                         @endif
                                         @if (Auth()->user())
                                             <a onclick="AddFavoris({{ $produit->id }})" class="cart-btn"><i
@@ -961,7 +890,7 @@
             </div>
         </div>
     </div>
-    <!-- Header Search Modal End -->
+  
 
 
 
@@ -975,9 +904,7 @@
             <div class="cart-body">
                 <ul class="cart-item-list" id="list_content_panier">
 
-                    {{-- <div class="cart-item row" id="list_content_panier">
-
-                    </div> --}}
+                 
 
 
                 </ul>
@@ -999,30 +926,7 @@
         </div>
     </div>
 
-    <style>
-        .btn-bg-primary2 {
-            background-color: #0162b1;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-
-        .btn-bg-secondary2 {
-            background-color: #EFB121;
-            /* Couleur de fond, bleu dans cet exemple */
-            color: #ffffff;
-            /* Couleur du texte, blanc dans cet exemple */
-            border: none;
-            padding: 10px 20px;
-            /* Optionnel, ajuste la taille */
-            border-radius: 5px;
-            /* Optionnel, arrondit les coins */
-            text-decoration: none;
-            /* Supprime le soulignement */
-        }
-    </style>
+  
     <!-- JS
 ============================================ -->
     <!-- Modernizer JS -->
