@@ -146,7 +146,7 @@
                         <a href="{{ route('home') }}" class="logo logo-dark site-logo">
                             <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
                         </a>
-                        <a href="{{ route('home') }}" class="logo logo-light">
+                        <a href="{{ route('home') }}" class="logo logo-light site-logo">
                             <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
                         </a>
 
@@ -199,8 +199,8 @@
                         }
 
                         .site-logo img {
-                            max-height: 60px;
-                            width: 200px;
+                            max-height: 90px;
+                            width: 250px;
                         }
 
                             .header-brands img {
