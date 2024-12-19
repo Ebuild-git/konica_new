@@ -69,8 +69,44 @@
 
                             {{ $produit->nom }}
                         </td>
-                       
+
+
+                         
                         <td class="cusor">
+                            {{--   <span class="badge {{ $produit->stock > 0 ? 'bg-success' : 'bg-danger' }}">
+                                {{ $produit->stock > 0 ? 'En stock' : 'Rupture' }}
+                            </span> --}}
+
+                            @if ($produit->stock > 0  && $produit->sur_devis == false)
+                              
+                                <span class="text-success" title="En Stock">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span class="badge badge-success">En Stock</span>
+                                   
+                                </span>
+                             
+
+                            @endif
+
+                           @if(
+                             $produit->sur_devis == true)
+                           
+                              <b>------</b>
+                            
+                           @endif
+
+
+                            @if ($produit->stock ==  0 && $produit->sur_devis == false) 
+                                <!-- Icône pour rupture de stock -->
+                                <span class="text-danger" title="Rupture de Stock">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span class="badge badge-danger">Rupture</span>
+                                </span>
+                               
+                            @endif
+                        </td>
+                       
+                       {{--  <td class="cusor">
 
                            
                                  @if ($produit->sur_devis == false)
@@ -79,7 +115,7 @@
                                     </b>
                                 @else
                                     <b>------</b>
-                                @endif 
+                                @endif  --}}
     
                           
                             {{--   <span class="badge {{ $produit->stock > 0 ? 'bg-success' : 'bg-danger' }}">
@@ -107,7 +143,7 @@
                                     <span class="badge badge-danger">Pas de stock</span>
                                 </span>
                             @endif  --}}
-                        </td>
+                      {{--   </td> --}}
 
 
 
