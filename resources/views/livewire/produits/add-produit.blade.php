@@ -32,13 +32,13 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
+         {{--    <div class="mb-3">
                 <label><strong>Petite Description :</strong></label>
                 <textarea class=" form-control" name="description" wire:model="meta_description"></textarea>
                 @error('meta_description')
                     <span class="text-danger small"> {{ $message }} </span>
                 @enderror
-            </div>
+            </div> --}}
             <div class="mb-3">
                 <label><strong>Description :</strong></label>
                 <textarea class=" form-control" name="description" wire:model="description"></textarea>

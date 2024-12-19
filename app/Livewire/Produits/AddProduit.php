@@ -145,14 +145,14 @@ public $meta_description;
 
             $this->produit->nom = $this->nom;
             $this->produit->description = $this->description;
-            $this->produit->meta_description = $this->meta_description;
+           // $this->produit->meta_description = $this->meta_description;
         
             $this->produit->prix = $this->prix;
             $this->produit->prix_achat = $this->prix_achat;
           //  $this->produit->marque_id = $this->marque_id;
             $this->produit->category_id = $this->category_id;
             $this->produit->free_shipping = $this->free_shipping;
-            $produit->sur_devis = $this->sur_devis ?? false;
+            $this->produit->sur_devis = $this->sur_devis ?? false;
           //  $produit->category_id = $this->category_id;
 
             if ($this->photo) {

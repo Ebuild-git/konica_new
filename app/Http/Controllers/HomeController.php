@@ -29,6 +29,7 @@ class HomeController extends Controller
             ->Orwhere('description', 'like', '%'.$key.'%');
         }
        $produits = produits::select('*')->latest()->take(20)->get();
+//dd($produits);
        $searchproducts = produits::select('*')->latest()->take(10)->get();
        $rescentesproduits = produits::select('*')->take(10)->get();
       // $produitspromotions = produits::select('*')->
@@ -48,18 +49,12 @@ class HomeController extends Controller
        ->where('active', '1')
        ->limit(10)->get();
 
-       $services = Service::all();
-      return view('front.index', compact('rescentesproduits','searchproducts','produits','banners','services','key','testimonials', 'categoryProducts'));
+       
+      return view('front.index', compact('rescentesproduits','searchproducts','produits','banners','key','testimonials', 'categoryProducts'));
 
     }
      
-      public function detailsServices($id, $slug){
-        $service =Service:: findOrFail($id);
-      
-        $services = Service::all();
-        return view('front.services.details', compact('service','services'));
-      }
-
+   
 
     public function shop(Request $request){
         $key = $request->input("key", null);

@@ -210,6 +210,7 @@
                                                     </a>
                                                 </li>
                                                 @else
+
                                                 <li class="select-option2">
                                                     <a href="{{ url('devis', $produit->id) }}" style="font-size: 1.7rem; color: white;">
                                                         {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
@@ -264,12 +265,14 @@
                                                         }
 
                                                     </style>
-                                                    @if ($produit->inPromotion() && $produit->sur_devis === false)
-                                                    <div class="row text-center">
+                                                    @if ($produit->inPromotion() && $produit->sur_devis == false)
+                                                    <div class="row text-center2">
                                                         <div class="col-sm-6 col-6">
 
                                                             <b class="text-success" style="color: #4169E1">
                                                                 {{ $produit->getPrice() }} DT
+
+                                                                
                                                             </b>
                                                         </div>
 
@@ -295,6 +298,11 @@
                                                                 <x-devise></x-devise>
                                                             </span>
                                                         </div>
+
+                                                        @endif
+                                                        @if($produit->sur_devis == true)
+                                                            <br>
+                                                            <a href="{{ url('devis', $produit->id) }}" style="font-size: 1.7rem; color: white;">
                                                         @endif
 
 
@@ -453,7 +461,7 @@
                                                     @else
                                                     <li class="add-to-cart">
                                                         <a href="{{ url('devis', $produit->id) }}">
-                                                            {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
+                                                            {{ \App\Helpers\TranslationHelper::TranslateText('Demander devis') }}
                                                         </a>
                                                     </li>
                                                     @endif
@@ -581,7 +589,7 @@
                                                 .top-right {
                                                     position: absolute;
                                                     top: -30px;
-                                                    right: 18px;
+                                                    right: 8px;
                                                     color: #EFB121;
                                                 }
 
@@ -602,7 +610,7 @@
                                     </div>
                                     <div class="product-content">
                                         <div class=" col-sm-12 inner">
-                                            <div class="top-right">
+                                            {{-- <div class="top-right">
                                                 @if ($produit->stock > 0)
                                                 <label class="badge btn-bg-primary2"> {{ \App\Helpers\TranslationHelper::TranslateText('Produit en stock') }}</label>
                                                 @else
@@ -611,7 +619,7 @@
                                                 @endif
 
 
-                                            </div>
+                                            </div> --}}
 
                                             <div class="product-cate"  style="font-size: 20px; font-weight: bold;"><a href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}"> {{ \App\Helpers\TranslationHelper::TranslateText($produit->nom) }}</a>
                                             </div>
@@ -619,17 +627,29 @@
 
                                             </div>
                                             <h3 class="title"><a href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
-                                                    {{ \App\Helpers\TranslationHelper::TranslateText( Str::limit($produit->meta_description, 20)) }}
+                                                    {{ \App\Helpers\TranslationHelper::TranslateText( Str::limit($produit->description, 20)) }}
 
                                                 </a></h3>
                                             <div class="product-rating">
 
                                             </div>
                                             <div class="product-price-variant">
-                                                <span class="price-text"> {!! \App\Helpers\TranslationHelper::TranslateText("Prix") !!}:</span>
+                                            {{--     <span class="price-text"> {!! \App\Helpers\TranslationHelper::TranslateText("Prix") !!}:</span> --}}
                                                 <span class="price current-price"> <b class="text-success" style="color: #4169E1">
                                                         {{ $produit->getPrice() }} DT
                                                     </b></span>
+                                            </div>
+<br>
+
+                                            <div class="top">
+                                                @if ($produit->stock > 0)
+                                                <label class="badge btn-bg-primary2"> {{ \App\Helpers\TranslationHelper::TranslateText('Produit en stock') }}</label>
+                                                @else
+                                                <label class="badge bg-danger"> {{ \App\Helpers\TranslationHelper::TranslateText('Stock en cours d\'approvisionnement') }}</label>
+                                                </label>
+                                                @endif
+
+
                                             </div>
                                         </div>
                                     </div>

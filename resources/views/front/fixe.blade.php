@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>KONICA</title>
+    <title>KONICA-TUNISIE</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -275,7 +275,7 @@
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" href="#" role="button"
                                         id="dropdown-header-menu" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="far fa-th-large"></i>
+                                       {{--  <i class="far fa-th-large"></i> --}}
                                         {{ \App\Helpers\TranslationHelper::TranslateText('Categories') }}
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="dropdown-header-menu">

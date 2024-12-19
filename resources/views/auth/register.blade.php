@@ -119,7 +119,7 @@ $produit = DB::table('produits')->get();
                 </style>
                 <div class="axil-signin-banner bg_image bg_image--10">
                     <h3 class="title">
-                        {{ \App\Helpers\TranslationHelper::TranslateText('Nous offrons les mellieurs produits') }}.</h3>
+                       {{--  {{ \App\Helpers\TranslationHelper::TranslateText('Nous offrons les mellieurs produits') }}.</h3> --}}
                 </div>
             </div>
             <div class="col-lg-6 offset-xl-2">
