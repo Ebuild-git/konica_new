@@ -199,7 +199,7 @@
                         }
 
                         .site-logo img {
-                            max-height: 90px;
+                            max-height: 60px;
                             width: 250px;
                         }
 
