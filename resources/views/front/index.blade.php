@@ -298,12 +298,7 @@
                                                                 <x-devise></x-devise>
                                                             </span>
                                                         </div>
-                                                        @elseif ($produit->sur_devis == true)
-
-
-                                                     
-                                                            <a href="{{ url('devis', $produit->id) }}" style="font-size: 1.7rem; color: white;">
-                                                  
+                                                                     
                                                         
 
                                                         @endif
