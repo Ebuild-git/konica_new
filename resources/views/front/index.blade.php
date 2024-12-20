@@ -301,12 +301,10 @@
                                                         @elseif ($produit->sur_devis == true)
 
 
-                                                        <span class="price current-price" style="font-size: 1.7rem;">
-                                                          
-                                                            <br>
+                                                     
                                                             <a href="{{ url('devis', $produit->id) }}" style="font-size: 1.7rem; color: white;">
                                                   
-                                                        </span>
+                                                        
 
                                                         @endif
                                                        {{--  @if($produit->sur_devis == true)
