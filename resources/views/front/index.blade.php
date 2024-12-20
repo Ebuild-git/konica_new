@@ -425,7 +425,7 @@
                                                 @endif
                                             </span>
                                             <ul class="product-meta">
-                                                @if ($produit->stock > 0)
+                                                @if ($produit->statut == 'diponible')
                                                 <label class="badge btn-bg-primary2"> {{ \App\Helpers\TranslationHelper::TranslateText('Stock disponible') }}</label>
                                                 </label>
                                                 @else
@@ -642,7 +642,7 @@
 <br>
 
                                             <div class="top">
-                                                @if ($produit->stock > 0)
+                                                @if ($produit->statut == 'disponible' )
                                                 <label class="badge btn-bg-primary2"> {{ \App\Helpers\TranslationHelper::TranslateText('Produit en stock') }}</label>
                                                 @else
                                                 <label class="badge bg-danger"> {{ \App\Helpers\TranslationHelper::TranslateText('Stock en cours d\'approvisionnement') }}</label>

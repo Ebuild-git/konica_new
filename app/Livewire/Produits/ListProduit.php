@@ -30,6 +30,19 @@ class ListProduit extends Component
         return view('livewire.produits.list-produit',compact('produits','total','total_supprimers'));
     }
 
+    public function updateStatus($produitId, $newStatus)
+{
+    $produit = produits::find($produitId);
+    if ($produit) {
+        $produit->statut = $newStatus;
+        $produit->save();
+
+        // Optionnel : Ajoutez un message de confirmation
+        session()->flash('message', 'Statut du produit mis à jour avec succès.');
+    }
+}
+
+
    /*  public $stock;
 
     public function addStock($produitId)

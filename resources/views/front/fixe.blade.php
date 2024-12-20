@@ -275,7 +275,9 @@
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" href="#" role="button"
                                         id="dropdown-header-menu" data-bs-toggle="dropdown" aria-expanded="false">
-                                       {{--  <i class="far fa-th-large"></i> --}}
+                                       {{--   <i class="far fa-th-large"></i>  --}}
+                                       <i class="far fa-th-large" style="font-size: 22px; color:white;"></i>
+
                                         {{ \App\Helpers\TranslationHelper::TranslateText('Categories') }}
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="dropdown-header-menu">
@@ -872,7 +874,7 @@
                                           
                                             <a class="axil-btn  btn-bg-primary2 "
                                                 href="{{ url('devis', $produit->id) }}">
-                                                {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Demander devis') }}
                                             </a>
                                           
                                         @endif

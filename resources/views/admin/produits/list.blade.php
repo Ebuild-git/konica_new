@@ -42,12 +42,12 @@
                                 <button class="btn btn-warning btn-sm  px-5" onclick="url('{{ route('promotions') }}')">
                                     Promotions
                                 </button>
-                                @can('gestion_stock')
+                         {{--        @can('gestion_stock')
                                     <button class="btn btn-dark btn-sm  px-5" data-bs-toggle="modal"
                                         data-bs-target="#modal-add-stock">
                                         Ajout de stock
                                     </button>
-                                @endcan
+                                @endcan --}}
                                 @can('product_add')
                                     <button class="btn btn-primary btn-sm  px-5" onclick="url('{{ route('produit.add') }}')">
                                         Ajouter un produit

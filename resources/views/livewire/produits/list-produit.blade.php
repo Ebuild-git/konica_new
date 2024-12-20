@@ -70,42 +70,20 @@
                             {{ $produit->nom }}
                         </td>
 
-
-                         
                         <td class="cusor">
-                            {{--   <span class="badge {{ $produit->stock > 0 ? 'bg-success' : 'bg-danger' }}">
-                                {{ $produit->stock > 0 ? 'En stock' : 'Rupture' }}
-                            </span> --}}
-
-                            @if ($produit->stock > 0  && $produit->sur_devis == false)
-                              
-                                <span class="text-success" title="En Stock">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span class="badge badge-success">En Stock</span>
-                                   
-                                </span>
-                             
-
-                            @endif
-
-                           @if(
-                             $produit->sur_devis == true)
-                           
-                              <b>------</b>
-                            
-                           @endif
-
-
-                            @if ($produit->stock ==  0 && $produit->sur_devis == false) 
-                                <!-- Icône pour rupture de stock -->
-                                <span class="text-danger" title="Rupture de Stock">
-                                    <i class="fas fa-times-circle"></i>
-                                    <span class="badge badge-danger">Rupture</span>
-                                </span>
-                               
-                            @endif
+                            <select 
+                            class="form-select form-select-sm {{ $produit->statut === 'disponible' ? 'text-success' : 'text-danger' }}" 
+                            wire:change="updateStatus({{ $produit->id }}, $event.target.value)">
+                            <option value="disponible" @if($produit->statut === 'disponible') selected @endif>En stock</option>
+                            <option value="indisponible" @if($produit->statut === 'indisponible') selected @endif>En rupture</option>
+                        </select>
                         </td>
-                    
+                        
+                         
+                        {{-- <td class="cusor">
+                            {{ $produit->statut }}
+                        </td>
+                     --}}
                         <td>
                             @if ($produit->inPromotion()   && $produit->sur_devis == false)
                             <span class=" small">
@@ -150,7 +128,7 @@
                             @else
                                 <div class="progress-bar bg-info" style="width: 80%" aria-valuenow="30"
                                     aria-valuemin="0" aria-valuemax="100">
-                                    <b>Produit sur devis</b>
+                                    <b>Sur devis</b>
                                    
                                 </div>
                             @endif
@@ -160,14 +138,7 @@
                         <td style="text-align: right;">
                             <div class="btn-group">
 
-                                @if ($produit->stock < 20)
-                   
-                              
-                                    <button class="btn btn-primary btn-sm" title="Ajouter Stock"
-                                        wire:click="openModal({{ $produit->id }})">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                @endif
+                               
 
                                 <button class="btn btn-sm btn-dark"
                                     onclick="url(' {{ route('produits.update', ['id' => $produit->id]) }} ')">
