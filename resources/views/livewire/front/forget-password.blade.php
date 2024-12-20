@@ -147,14 +147,5 @@
     @endif
 
 
-    <style>
-        .btn-bg-primary2 {
-            background-color: #5EA13C;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-    </style>
+   
 </div>

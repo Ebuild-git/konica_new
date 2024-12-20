@@ -24,7 +24,7 @@ public $meta_description;
             $this->nom = $produit->nom;
             $this->tags = $produit->tags;
             $this->category_id = $produit->category_id;
-           // $this->marque_id = $produit->marque_id;
+            $this->marque_id = $produit->marque_id;
             $this->reference = $produit->reference;
             $this->prix = $produit->prix;
             $this->prix_achat = $produit->prix_achat;
@@ -72,7 +72,7 @@ public $meta_description;
             
           //  'free_shipping' => 'nullable|boolean',
             'sur_devis' => 'nullable|boolean',
-           // 'marque_id' => 'nullable|integer|exists:marques,id',
+         'marque_id' => 'nullable|integer|exists:marques,id',
          //  'marque_id' => 'nullable|integer|exists:marques,id',
         ]);
         ;[
@@ -99,7 +99,7 @@ public $meta_description;
         // $produit->category = $this->category;
 
         $produit->category_id = $this->category_id;
-       // $produit->marque_id = $this->marque_id;
+        $produit->marque_id = $this->marque_id;
 
 
 
@@ -135,7 +135,7 @@ public $meta_description;
                 'prix_achat' => 'nullable|numeric',
                 'photo' => 'nullable|image|mimes:jpg,jpeg,png,webp',
                 'photos.*' => 'nullable|image|mimes:jpg,jpeg,png,webp',
-              //  'marque_id' => 'nullable|integer|exists:marques,id',
+                'marque_id' => 'nullable|integer|exists:marques,id',
                 'category_id' => 'required|integer|exists:categories,id',
                 'free_shipping' => 'nullable|boolean',
                 'sur_devis' => 'nullable|boolean',
@@ -149,7 +149,7 @@ public $meta_description;
         
             $this->produit->prix = $this->prix;
             $this->produit->prix_achat = $this->prix_achat;
-          //  $this->produit->marque_id = $this->marque_id;
+            $this->produit->marque_id = $this->marque_id;
             $this->produit->category_id = $this->category_id;
             $this->produit->free_shipping = $this->free_shipping;
             $this->produit->sur_devis = $this->sur_devis ?? false;

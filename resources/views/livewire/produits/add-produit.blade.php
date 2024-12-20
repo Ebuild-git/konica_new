@@ -61,6 +61,19 @@
                         <span class="text-danger small"> {{ $message }} </span>
                     @enderror
                 </div>
+
+                    <div class="col-sm-6 mb-3">
+                    <label for="">Marque </label>
+                    <select wire:model='marque_id' class="form-control @error('marque_id') is-invalid @enderror">
+                        <option value=""></option>
+                        @foreach ($marques as $cat)
+                            <option value="{{ $cat->id }}">{{ $cat->nom }}</option>
+                        @endforeach
+                    </select>
+                    @error('category_id')
+                        <span class="text-danger small"> {{ $message }} </span>
+                    @enderror
+                </div> 
          
                
                 @if (!$sur_devis)

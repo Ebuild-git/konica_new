@@ -31,47 +31,7 @@
 <main>
 
     <style>
-        .axil-breadcrumb-item1 {
-            font-size: 14px;
-            color: #0162b1;
-            /* Default breadcrumb color */
-        }
-
-        .axil-breadcrumb-item.active {
-            font-weight: bold;
-            color: #0162b1;
-            /* Distinct color for active item */
-        }
-
-        .axil-breadcrumb-item:not(.active)::after {
-            content: " / ";
-            /* Adds a separator after non-active items */
-            color: #0162b1;
-        }
-
-        .select-option2 {
-            background-color: #0162b1;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-
-
-        .top-left {
-            position: absolute;
-            top: 8px;
-            left: 16px;
-            color: red;
-        }
-
-
-
-        .favori-actif {
-            color: red;
-
-        }
+       
     </style>
 
     <main class="main-wrapper">

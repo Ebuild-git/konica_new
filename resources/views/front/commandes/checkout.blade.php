@@ -5,9 +5,7 @@
 <main>
 
 <body class="sticky-header">
-    <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-<![endif]-->
+
     <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
  
     <main class="main-wrapper">
@@ -143,26 +141,7 @@
                 </form>
             </div>
         </div>
-        <!-- End Checkout Area  -->
-        <style>
-            .btn-bg-primary2 {
-                background-color: #0162b1;
-                color: #ffffff;
-                border: none;
-                padding: 10px 20px;
-                border-radius: 5px;
-                text-decoration: none;
-            }
-    
-            .btn-bg-secondary2 {
-            background-color: #0162b1; /* Couleur de fond, bleu dans cet exemple */
-            color: #ffffff; /* Couleur du texte, blanc dans cet exemple */
-            border: none;
-            padding: 10px 20px; /* Optionnel, ajuste la taille */
-            border-radius: 5px; /* Optionnel, arrondit les coins */
-            text-decoration: none; /* Supprime le soulignement */
-        }
-        </style>
+     
     </main>
 
 </main>

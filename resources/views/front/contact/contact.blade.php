@@ -18,19 +18,7 @@
                                 <li class="axil-breadcrumb-item1 active" aria-current="page"> {{ \App\Helpers\TranslationHelper::TranslateText('Contact') }}</li>
                             </ul>
 
-                            <style>
-                                .axil-breadcrumb-item1 {
-        font-size: 14px;
-        color: #EFB121; /* Default breadcrumb color */
-    }
-    
-    .axil-breadcrumb-item.active {
-        font-weight: bold;
-        color: #EFB121; /* Distinct color for active item */
-    }
-    
-  
-                            </style>
+                          
                             <h1 class="title">
                                 {{ \App\Helpers\TranslationHelper::TranslateText('Contactez-nous') }}
                             </h1>

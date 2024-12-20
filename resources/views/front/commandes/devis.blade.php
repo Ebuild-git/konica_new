@@ -5,9 +5,7 @@
 <main>
 
 <body class="sticky-header">
-    <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-<![endif]-->
+ 
     <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
  
     <main class="main-wrapper">
@@ -74,14 +72,7 @@
                                     </select>
                                 </div>
 
-                             {{--    <div >
-                                
-                                        <label>Votre image </label>
-                                        
-                                        <input  type="file" name="photo" id="photo"
-                                            placeholder="Inserez votre maquette" w-100 required />
-                                  
-                                </div> --}}
+                          
                                
 
                                 <div class="form-group">
@@ -129,39 +120,7 @@
 
                                             <tr class="order-shipping">
 
-                                               {{--  <tbody>
-                                                    <td colspan="2">
-                                                    <tr>
-                                                        <td class="tax"> {{ \App\Helpers\TranslationHelper::TranslateText('Frais de livraison') }}</td>
-                                                        <td>{{ $configs->frais ?? 0 }}
-                                                            DT</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="tax"> {{ \App\Helpers\TranslationHelper::TranslateText('Coupon de réduction') }}</td>
-                                                        <td>-{{ session('coupon')['value'] ?? 0 }}
-                                                            DT</td>
-                                                    </tr>
-                                                    </td>
-                                                   
-                                                </tbody> --}}
-                                             {{--    <td colspan="2">
-                                                    <div class="shipping-amount">
-                                                        <span class="title">Frais de Livraison</span>
-                                                        <span class="amount">$35.00</span>
-                                                    </div>
-                                                    <div class="input-group">
-                                                        <input type="radio" id="radio1" name="shipping" checked>
-                                                        <label for="radio1">Free Shippping</label>
-                                                    </div>
-                                                    <div class="input-group">
-                                                        <input type="radio" id="radio2" name="shipping">
-                                                        <label for="radio2">Local</label>
-                                                    </div>
-                                                    <div class="input-group">
-                                                        <input type="radio" id="radio3" name="shipping">
-                                                        <label for="radio3">Flat rate</label>
-                                                    </div>
-                                                </td> --}}
+                                            
                                             </tr>
                                            
                                         </tbody>
@@ -176,25 +135,7 @@
             </div>
         </div>
         <!-- End Checkout Area  -->
-        <style>
-            .btn-bg-primary2 {
-                background-color: #0162b1;
-                color: #ffffff;
-                border: none;
-                padding: 10px 20px;
-                border-radius: 5px;
-                text-decoration: none;
-            }
-    
-            .btn-bg-secondary2 {
-            background-color: #0162b1; /* Couleur de fond, bleu dans cet exemple */
-            color: #ffffff; /* Couleur du texte, blanc dans cet exemple */
-            border: none;
-            padding: 10px 20px; /* Optionnel, ajuste la taille */
-            border-radius: 5px; /* Optionnel, arrondit les coins */
-            text-decoration: none; /* Supprime le soulignement */
-        }
-        </style>
+       
     </main>
 
 </main>

@@ -145,7 +145,7 @@ $configs = DB::table('configs')->first();
                         <input type="text" name="code" placeholder="Entrez le code du coupon">
                         <div class="product-cupon-btn">
                             
-                           <button type="submit" class="axil-btn1  btn-bg-primary1 btn-outline1"> {{ \App\Helpers\TranslationHelper::TranslateText('Appliquer') }}</button> 
+                           <button type="submit" class="axil-btn1  btn-bg-primary2 btn-outline1"> {{ \App\Helpers\TranslationHelper::TranslateText('Appliquer') }}</button> 
                            <style>
                             .axil-btn1 {
     padding: 10px 20px;

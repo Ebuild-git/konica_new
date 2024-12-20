@@ -61,7 +61,7 @@ $produit = DB::table('produits')->get();
                         <a href="{{ url('register') }}" class="axil-btn btn-bg-secondary2 sign-up-btn"> {{ \App\Helpers\TranslationHelper::TranslateText('S\'inscrire') }}</a>
                         <style>
                             .btn-bg-secondary2 {
-                                background-color: #5EA13C;
+                                background-color: #0162b1;
 
                                 color: #ffffff;
 
@@ -75,7 +75,7 @@ $produit = DB::table('produits')->get();
                             }
 
                             .btn-bg-secondary2:hover {
-                                background-color: #5EA13C;
+                                background-color: #0162b1;
 
                                 color: #ffffff;
 
@@ -105,7 +105,7 @@ $produit = DB::table('produits')->get();
                         margin: 0;
                         position: relative;
                         z-index: 2;
-                        color: #EFB121;
+                        color: #0162b1;
 
                     }
 

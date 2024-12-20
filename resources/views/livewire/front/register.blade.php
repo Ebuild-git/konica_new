@@ -78,7 +78,7 @@
 
     <style>
         .btn-bg-primary2 {
-            background-color: #5EA13C;
+            background-color: #0162b1;
             color: #ffffff;
             border: none;
             padding: 10px 20px;
@@ -87,7 +87,7 @@
         }
 
         .btn-bg-secondary2 {
-        background-color: #EFB121; 
+        background-color: #0162b1; 
         color: #ffffff; 
         border: none;
         padding: 10px 20px; 

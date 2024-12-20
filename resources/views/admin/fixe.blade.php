@@ -164,6 +164,16 @@
                         </ul>
                     </li>
                 @endcan
+                    <li>
+                    <a href="{{ route('marques') }}">
+                        <div class="parent-icon icon-color-3"> <i class="ri-boxing-fill"></i>
+                        </div>
+                        <div class="menu-title">
+                            Les marques
+                        </div>
+                    </a>
+                </li> 
+
 {{-- 
                 <li>
                     <a href="{{ route('transports') }}">

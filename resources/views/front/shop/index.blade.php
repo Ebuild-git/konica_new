@@ -6,42 +6,6 @@
 <main>
 
 
-    <style>
-        .text-center {
-            text-align: center;
-        }
-
-        .axil-breadcrumb-item1 {
-            font-size: 14px;
-            color: #EFB121;
-            /* Default breadcrumb color */
-        }
-
-        .axil-breadcrumb-item.active {
-            font-weight: bold;
-            color: #EFB121;
-            /* Distinct color for active item */
-        }
-
-
-        .top-left {
-            position: absolute;
-            top: 8px;
-            right: 18px;
-            color: #0162b1;
-        }
-
-
-        .select-option2 {
-            background-color: #0162b1;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-
-    </style>
 
 
     <body class="sticky-header">
@@ -106,6 +70,19 @@
                                         </ul>
                                     </div>
                                 </div>
+
+                                     <div class="toggle-list product-categories product-gender active">
+                                        <h6 class="title">MARQUES</h6>
+                                        <div class="shop-submenu">
+                                            <ul>
+                                                @foreach ($marques as $marque)
+                                                    <li><a href="/marque/{{ $marque->id }}"
+                                                            class="{{ isset($current_marque) && $current_marque->id === $marque->id ? 'selected' : '' }}">{{ $marque->nom }}
+                                                            ({{ $marque->produits->count() }})</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div> 
 
 
 

@@ -29,6 +29,10 @@
     <link rel="stylesheet" href="/assets/css/vendor/sal.css">
     <link rel="stylesheet" href="/assets/css/vendor/magnific-popup.css">
     <link rel="stylesheet" href="/assets/css/vendor/base.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+
     <link rel="stylesheet" href="/assets/css/style.min.css">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -36,35 +40,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/Script.js"></script>
+    <script src="/scripts/Script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @yield('header')
 
 </head>
 
 
-<style>
-    .btn-bg-primary2 {
-        background-color: #0162b1;
-        color: #ffffff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        text-decoration: none;
-    }
-
-    .btn-bg-secondary2 {
-        background-color: #EFB121;
-        
-        color: #ffffff;
-        
-        border: none;
-        padding: 10px 20px;
-        
-        border-radius: 5px;
-        
-        text-decoration: none;
-        
-    }
-</style>
 
 
 <body class="sticky-header overflow-md-visible">
@@ -149,68 +131,7 @@
                             <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
                         </a>
 
-                        <style>
-
-.site-logo {
-                            display: flex;
-                            align-items: center;
-                            text-decoration: none;
-                            padding: 0px;
-                        }
-
-
-                        .top-bar__logo {
-                            position: relative;
-                            margin-left: 2px;
-                            z-index: 6
-                        }
-
-                        .top-bar__logo img {
-                            height: 90px
-                        }
-
-
-                        .site-logo img {
-                            height: 250px;
-                            width: 150px;
-                            object-fit: contain;
-                            transition: transform 0.3s ease;
-                            margin-top: -21px;
-                        }
-
-                        @media (max-width: 768px) {
-                            .site-logo img {
-                                height: 200px;
-                                width: 200px;
-                                margin-top: 30;
-                                padding: 10;
-                                margin-left: 20px;
-
-
-
-                            }
-                        }
-
-                     
-
-                        .site-logo {
-                            padding: 5px;
-                        }
-
-                        .site-logo img {
-                            max-height: 60px;
-                            width: 250px;
-                        }
-
-                            .header-brands img {
-
-                                object-fit: contain;
-                                transition: transform 0.3s ease;
-                                margin-top: 50px;
-                            }
-
-
-                        </style>
+                       
                     </div>
                  
                     <div class=" header-main-nav">
@@ -229,48 +150,7 @@
 
                             <ul class="mainmenu">
 
-                                <style>
-                                    #dropdown-header-menu {
-                                        color: #ffffff;
-                                      
-                                        background-color: #0162b1;
-                                       
-                                        border: 1px solid #0162b1;
-                                    
-                                        padding: 8px 12px;
-                                      
-                                        border-radius: 4px;
-                                      
-                                    }
-
-                             
-                                    #dropdown-header-menu[aria-expanded="true"] {
-                                        background-color: #0162b1;
-                                        
-                                        color: #ffffff;
-                                        
-                                        border-color: #EFB121;
-                                       
-                                    }
-
-                                 
-                                    #dropdown-header-menu .fa-th-large {
-                                        font-size: 20px;
-                                    
-                                        margin-right: 5px;
-                                        
-                                    }
-
-                                 
-                                    #dropdown-header-menu:hover {
-                                        background-color: #0162b1;
-                                    
-                                        color: #ffffff;
-                                      
-                                        border-color: #0162b1;
-                                      
-                                    }
-                                </style>
+                                
 
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" href="#" role="button"
@@ -343,12 +223,7 @@
                                 </a>
                             </li>
 
-                            <style>
-                                .axil-search:hover {
-                                    background-color: #f0f0f0;
-
-                                }
-                            </style>
+                           
 
 
                             <li class="shopping-cart">
@@ -420,56 +295,6 @@
                                 </div>
 
 
-                                <style>
-                                    .dropbtn img {
-                                        margin-right: 8px;
-                                    }
-
-                                    .dropdown-content {
-                                        display: none;
-                                        position: absolute;
-                                        background-color: #ffffff;
-                                        min-width: 150px;
-                                        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-                                        z-index: 1;
-                                        border: 1px solid #ccc;
-                                        border-radius: 5px;
-                                    }
-
-                                    .dropdown-content .dropdown-item {
-                                        display: flex;
-                                        align-items: center;
-                                        padding: 10px 15px;
-                                        background-color: transparent;
-                                        border: none;
-                                        width: 100%;
-                                        text-align: left;
-                                        cursor: pointer;
-                                        margin: 2px 0;
-                                    }
-
-
-                                    .dropdown-content .dropdown-item img {
-                                        margin-right: 8px;
-                                    }
-
-                                    .dropdown-content .dropdown-item:hover {
-                                        background-color: #f0f0f0;
-                                    }
-
-                                    .dropdown:hover .dropdown-content {
-                                        display: block;
-                                    }
-
-                                    .top-bar__navigation .active {
-                                        font-weight: bold;
-                                    }
-
-                                    .large-text {
-                                        font-size: 24px;
-                                       
-                                    }
-                                </style>
 
 
                             </li>
@@ -510,13 +335,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="axil-footer-widget">
                             <h5 class="widget-title"></h5>
-                            <style>
-                                .logo {
-                                    position: relative;
-                                    top: -30px;
-                                    
-                                }
-                            </style>
+                         
                             <div class="logo mb--30">
                                 <a href="{{ route('home') }}">
                                     <img class="light-logo" src="{{ Storage::url($config->logofooter ?? ' ') }}"
@@ -646,164 +465,6 @@
     <!-- End Footer Area  -->
 
 
-    <!-- Product Quick View Modal Start -->
-    <div class="modal fade quick-view-product" id="quick-view-modal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                            class="far fa-times"></i></button>
-                </div>
-                <div class="modal-body">
-                    <div class="single-product-thumb">
-                        <div class="row">
-                            <div class="col-lg-7 mb--40">
-                                <div class="row">
-                                    <div class="col-lg-10 order-lg-2">
-                                        <div
-                                            class="single-product-thumbnail product-large-thumbnail axil-product thumbnail-badge zoom-gallery">
-                                            <div class="thumbnail">
-                                                <img src="assets/images/product/product-big-01.png"
-                                                    alt="Product Images">
-                                                <div class="label-block label-right">
-                                                    <div class="product-badget">20% OFF</div>
-                                                </div>
-                                                <div class="product-quick-view position-view">
-                                                    <a href="assets/images/product/product-big-01.png"
-                                                        class="popup-zoom">
-                                                        <i class="far fa-search-plus"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="thumbnail">
-                                                <img src="assets/images/product/product-big-02.png"
-                                                    alt="Product Images">
-                                                <div class="label-block label-right">
-                                                    <div class="product-badget">20% OFF</div>
-                                                </div>
-                                                <div class="product-quick-view position-view">
-                                                    <a href="assets/images/product/product-big-02.png"
-                                                        class="popup-zoom">
-                                                        <i class="far fa-search-plus"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="thumbnail">
-                                                <img src="assets/images/product/product-big-03.png"
-                                                    alt="Product Images">
-                                                <div class="label-block label-right">
-                                                    <div class="product-badget">20% OFF</div>
-                                                </div>
-                                                <div class="product-quick-view position-view">
-                                                    <a href="assets/images/product/product-big-03.png"
-                                                        class="popup-zoom">
-                                                        <i class="far fa-search-plus"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2 order-lg-1">
-                                        <div class="product-small-thumb small-thumb-wrapper">
-                                            <div class="small-thumb-img">
-                                                <img src="assets/images/product/product-thumb/thumb-08.png"
-                                                    alt="thumb image">
-                                            </div>
-                                            <div class="small-thumb-img">
-                                                <img src="assets/images/product/product-thumb/thumb-07.png"
-                                                    alt="thumb image">
-                                            </div>
-                                            <div class="small-thumb-img">
-                                                <img src="assets/images/product/product-thumb/thumb-09.png"
-                                                    alt="thumb image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 mb--40">
-                                <div class="single-product-content">
-                                    <div class="inner">
-                                        <div class="product-rating">
-                                            <div class="star-rating">
-                                                <img src="assets/images/icons/rate.png" alt="Rate Images">
-                                            </div>
-                                            <div class="review-link">
-                                                <a href="#">(<span>1</span> customer reviews)</a>
-                                            </div>
-                                        </div>
-                                        <h3 class="product-title">Serif Coffee Table</h3>
-                                        <span class="price-amount">$155.00 - $255.00</span>
-                                        <ul class="product-meta">
-                                            <li><i class="fal fa-check"></i>In stock</li>
-                                            <li><i class="fal fa-check"></i>Free delivery available</li>
-                                            <li><i class="fal fa-check"></i>Sales 30% Off Use Code: MOTIVE30</li>
-                                        </ul>
-                                        <p class="description">In ornare lorem ut est dapibus, ut tincidunt nisi
-                                            pretium. Integer ante est, elementum eget magna. Pellentesque sagittis
-                                            dictum libero, eu dignissim tellus.</p>
-
-                                        <div class="product-variations-wrapper">
-
-                                            <!-- Start Product Variation  -->
-                                            <div class="product-variation">
-                                                <h6 class="title">Colors:</h6>
-                                                <div class="color-variant-wrapper">
-                                                    <ul class="color-variant mt--0">
-                                                        <li class="color-extra-01 active"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-02"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                        <li class="color-extra-03"><span><span
-                                                                    class="color"></span></span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <!-- End Product Variation  -->
-
-                                            <!-- Start Product Variation  -->
-                                            <div class="product-variation">
-                                                <h6 class="title">Size:</h6>
-                                                <ul class="range-variant">
-                                                    <li>xs</li>
-                                                    <li>s</li>
-                                                    <li>m</li>
-                                                    <li>l</li>
-                                                    <li>xl</li>
-                                                </ul>
-                                            </div>
-                                         
-
-                                        </div>
-
-                                     
-                                        <div class="product-action-wrapper d-flex-center">
-                                           
-                                            <div class="pro-qty"><input type="text" value="1"></div>
-                                         
-                                            <ul class="product-action d-flex-center mb--0">
-                                                <li class="add-to-cart"><a href="cart.html"
-                                                        class="axil-btn btn-bg-primary2">Add to Cart</a></li>
-                                                <li class="wishlist"><a href="wishlist.html"
-                                                        class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a>
-                                                </li>
-                                            </ul>
-                                
-
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="header-search-modal" id="header-search-modal">
         <button class="card-close sidebar-close"><i class="fas fa-times"></i></button>
