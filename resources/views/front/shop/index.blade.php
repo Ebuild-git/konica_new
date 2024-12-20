@@ -7,7 +7,7 @@
 
 
     <style>
-        .text-centered {
+        .text-center {
             text-align: center;
         }
 
@@ -212,7 +212,7 @@
                                         <div class="product-price-variant">
                                             <h6 class="product-price--main">
 
-                                                @if ($produit->inPromotion() && $produit->sur_devis === false)
+                                                @if ($produit->inPromotion() && $produit->sur_devis == false)
                                                 <div class="row text-center">
                                                     <div class="col-sm-6 col-6">
 
@@ -221,7 +221,7 @@
                                                         </b>
                                                     </div>
 
-                                                    <div class="col-sm-6 col-6 text-end">
+                                                    <div class="col-sm-6 col-6 text">
                                                         <strike>
 
 
@@ -245,10 +245,15 @@
                                                     </div>
                                                     @endif
 
+                                                   
+                                                    
+
 
 
 
                                             </h6>
+                                            
+                                            
                                         </div>
                                     </div>
                                 </div>
