@@ -107,6 +107,7 @@ $configs = DB::table('configs')->first();
                         
                         <input type="text" name="code" placeholder="Entrez le code du coupon">
                         <div class="product-cupon-btn">
+                            
                            <button type="submit" class="axil-btn1  btn-bg-primary1 btn-outline1"> {{ \App\Helpers\TranslationHelper::TranslateText('Appliquer') }}</button> 
                            <style>
                             .axil-btn1 {
@@ -118,7 +119,7 @@ $configs = DB::table('configs')->first();
 }
 
 .btn-bg-primary1 {
-    background-color: #5EA13C
+    background-color: #0162b1
     ; /* Example primary color */
     color: #fff;
     border: none;
@@ -126,14 +127,14 @@ $configs = DB::table('configs')->first();
 
 .btn-outline1 {
     background-color: transparent;
-    color: #5EA13C
+    color: #0162b1
     ;
-    border: 2px solid #5EA13C
+    border: 2px solid #0162b1
     ;
 }
 
 .axil-btn1.btn-bg-primary1.btn-outline1:hover {
-    background-color: #5EA13C
+    background-color: #0162b1
     ; /* Darker shade on hover */
     color: #fff;
 }
@@ -183,7 +184,8 @@ $configs = DB::table('configs')->first();
                                 @endif
                             </div>
                             @if ($total > 0)
-                            <a class="axil-btn btn-bg-primary2 checkout-btn" href="{{ url('/commander') }}"> {{ \App\Helpers\TranslationHelper::TranslateText('Passer le commande') }}</a>
+                          
+                            <a class="axil-btn1  btn-bg-primary1 btn-outline1" href="{{ url('/commander') }}"> {{ \App\Helpers\TranslationHelper::TranslateText('Passer la commande') }}</a>
                             @endif
                           
                         </div>
@@ -195,8 +197,8 @@ $configs = DB::table('configs')->first();
     <!-- End Cart Area  -->
 
     <style>
-        .btn-bg-primary2 {
-            background-color: #5EA13C;
+        .select-option2 {
+            background-color: #0162b1;
             color: #ffffff;
             border: none;
             padding: 10px 20px;
@@ -204,14 +206,8 @@ $configs = DB::table('configs')->first();
             text-decoration: none;
         }
 
-        .btn-bg-secondary2 {
-        background-color: #EFB121; /* Couleur de fond, bleu dans cet exemple */
-        color: #ffffff; /* Couleur du texte, blanc dans cet exemple */
-        border: none;
-        padding: 10px 20px; /* Optionnel, ajuste la taille */
-        border-radius: 5px; /* Optionnel, arrondit les coins */
-        text-decoration: none; /* Supprime le soulignement */
-    }
+        
+    
     </style>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>

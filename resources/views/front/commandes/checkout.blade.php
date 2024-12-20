@@ -126,24 +126,7 @@
                                                     </td>
                                                    
                                                 </tbody>
-                                             {{--    <td colspan="2">
-                                                    <div class="shipping-amount">
-                                                        <span class="title">Frais de Livraison</span>
-                                                        <span class="amount">$35.00</span>
-                                                    </div>
-                                                    <div class="input-group">
-                                                        <input type="radio" id="radio1" name="shipping" checked>
-                                                        <label for="radio1">Free Shippping</label>
-                                                    </div>
-                                                    <div class="input-group">
-                                                        <input type="radio" id="radio2" name="shipping">
-                                                        <label for="radio2">Local</label>
-                                                    </div>
-                                                    <div class="input-group">
-                                                        <input type="radio" id="radio3" name="shipping">
-                                                        <label for="radio3">Flat rate</label>
-                                                    </div>
-                                                </td> --}}
+                                             
                                             </tr>
                                             <tr class="order-total">
                                                 <td>Total</td>
@@ -163,7 +146,7 @@
         <!-- End Checkout Area  -->
         <style>
             .btn-bg-primary2 {
-                background-color: #5EA13C;
+                background-color: #0162b1;
                 color: #ffffff;
                 border: none;
                 padding: 10px 20px;
@@ -172,7 +155,7 @@
             }
     
             .btn-bg-secondary2 {
-            background-color: #EFB121; /* Couleur de fond, bleu dans cet exemple */
+            background-color: #0162b1; /* Couleur de fond, bleu dans cet exemple */
             color: #ffffff; /* Couleur du texte, blanc dans cet exemple */
             border: none;
             padding: 10px 20px; /* Optionnel, ajuste la taille */
