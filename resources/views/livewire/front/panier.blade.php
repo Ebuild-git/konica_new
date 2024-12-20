@@ -52,6 +52,43 @@ $configs = DB::table('configs')->first();
                                     {{ $details['prix'] }} DT
                                 </p></td>
                                 <td class="product-quantity" data-title="Qty">
+                                    <div class="pro-qty d-flex align-items-center">
+                                        <!-- Bouton pour diminuer la quantité -->
+                                        <span 
+                                            class="quantity-control minus" 
+                                            wire:click="update({{ $details['id_produit'] }}, {{ max($details['quantite'] - 1, 0) }})">
+                                            <i class="fas fa-minus"></i>
+                                        </span>
+                                        
+                                        <!-- Champ d'entrée pour la quantité -->
+                                        <input 
+                                            type="number" 
+                                            value="{{ $details['quantite'] }}" 
+                                            min="1" 
+                                            wire:change="update({{ $details['id_produit'] }}, $event.target.value)" 
+                                            class="quantity-input" 
+                                            autocomplete="off">
+                                        
+                                        <!-- Bouton pour augmenter la quantité, masqué si la quantité est 0 -->
+                                        <span 
+                                            class="quantity-control plus {{ $details['quantite'] == 0 ? 'd-none' : '' }}" 
+                                            wire:click="update({{ $details['id_produit'] }}, {{ $details['quantite'] + 1 }})">
+                                            <i class="fas fa-plus"></i>
+                                        </span>
+                                    </div>
+                                </td>
+                                <style>
+                                    .quantity-control.plus.d-none {
+    display: none;
+}
+
+                                </style>
+                                
+                              
+                                
+                                
+                                
+                               {{--  <td class="product-quantity" data-title="Qty">
                                     <div class="pro-qty">
                                     
                                        <span class="quantity-control minus"></span>
@@ -61,7 +98,7 @@ $configs = DB::table('configs')->first();
                                         
                                     </div>
                                     
-                                </td>
+                                </td> --}}
                                 <td class="product-subtotal" data-title="Subtotal"><span class="currency-symbol"></span> {{ $details['prix'] * $details['quantite'] }}
                                     DT</td>
                             </tr>
