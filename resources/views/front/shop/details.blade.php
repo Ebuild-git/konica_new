@@ -149,7 +149,7 @@
 
                                     <span class="price-amount">
 
-                                        @if ($produit->inPromotion() && $produit->sur_devis === false)
+                                        @if ($produit->inPromotion() && $produit->sur_devis == false)
                                             <div class="row">
                                                 <div class="col-sm-6 col-6">
 
@@ -181,7 +181,7 @@
 
                                     </div>
                                     <ul class="product-meta">
-                                        @if ($produit->stock > 0)
+                                        @if ($produit->statut == 'disponible' )
                                             <label class="badge btn-bg-primary2">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Stock disponible') }}</label>
                                         @else

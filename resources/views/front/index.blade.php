@@ -298,6 +298,15 @@
                                                                 <x-devise></x-devise>
                                                             </span>
                                                         </div>
+                                                        @elseif ($produit->sur_devis == true)
+
+
+                                                        <span class="price current-price" style="font-size: 1.7rem;">
+                                                          
+                                                            <br>
+                                                            <a href="{{ url('devis', $produit->id) }}" style="font-size: 1.7rem; color: white;">
+                                                  
+                                                        </span>
 
                                                         @endif
                                                        {{--  @if($produit->sur_devis == true)
@@ -410,7 +419,7 @@
 
                                             <h3 class="product-title">{{ $produit->nom }}</h3>
                                             <span class="price-amount">
-                                                @if ($produit->inPromotion() && $produit->sur_devis === false)
+                                                @if ($produit->inPromotion() && $produit->sur_devis == false)
                                                 <b class="text-success" style="color: #4169E1">
                                                     {{ $produit->getPrice() }} DT
                                                 </b>
@@ -422,8 +431,18 @@
 
                                                 @elseif ($produit->sur_devis == false)
                                                 {{ $produit->getPrice() }}DT
+                                                @elseif ($produit->sur_devis == true)
+
+
+                                                <span class="price current-price" style="font-size: 1.7rem;">
+                                                    {{ $produit->getPrice() }}
+                                                    <x-devise></x-devise>
+                                                </span>
+                                                
                                                 @endif
                                             </span>
+                                           
+
                                             <ul class="product-meta">
                                                 @if ($produit->statut == 'diponible')
                                                 <label class="badge btn-bg-primary2"> {{ \App\Helpers\TranslationHelper::TranslateText('Stock disponible') }}</label>
@@ -455,7 +474,7 @@
                                                 </div>
 
                                                 <ul class="product-action d-flex-center mb--0">
-                                                    @if($produit->sur_devis === false)
+                                                    @if($produit->sur_devis == false)
                                                     <li class="add-to-cart"><a onclick="AddToCart( {{ $produit->id }} )" class="axil-btn btn-bg-primary2"> {{ \App\Helpers\TranslationHelper::TranslateText('Ajouter au panier') }}</a></li>
 
                                                     @else
