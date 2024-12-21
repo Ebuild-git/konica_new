@@ -233,14 +233,18 @@
                                                         </strike>
                                                     </div>
 
-                                                    @elseif ($produit->sur_devis == false)
+                                                    @else
                                                     
 
 
                                                     <div class="text-center">
                                                         <span class="price current-price" style="font-size: 1.7rem;">
-                                                            {{ $produit->getPrice() }}
-                                                            <x-devise></x-devise>
+                                                            @if($produit->getPrice())
+                                                            {{ $produit->getPrice() }} <x-devise></x-devise>
+                                                            @else
+                                                            <br>
+
+                                                            @endif
                                                         </span>
                                                     </div>
                                                     @endif

@@ -534,7 +534,7 @@
                                         @else
                                           
                                             <a class="axil-btn  btn-bg-primary2 "
-                                                href="{{ url('devis', $produit->id) }}">
+                                                href="{{ url('devis', $produit->id) }}" style="color: white;">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Demander devis') }}
                                             </a>
                                           
@@ -578,10 +578,10 @@
                     <span class="subtotal-amount" id="montant_total_panier">00</span>
                 </h3>
                 <div class="group-btn">
-                    <a href="{{ route('cart') }}" class="axil-btn btn-bg-primary2 viewcart-btn">
+                    <a href="{{ route('cart') }}" class="axil-btn btn-bg-primary2 viewcart-btn"  style="color: white;">
                         {{ \App\Helpers\TranslationHelper::TranslateText('Voir panier') }}
                     </a>
-                    <a href="{{ url('/commander') }}" class="axil-btn btn-bg-secondary2 checkout-btn">
+                    <a href="{{ url('/commander') }}" class="axil-btn btn-bg-secondary2 checkout-btn"  style="color: white;">
                         {{ \App\Helpers\TranslationHelper::TranslateText('Passer commande') }}
                     </a>
                 </div>

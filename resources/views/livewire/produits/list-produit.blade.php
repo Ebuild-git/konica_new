@@ -74,8 +74,8 @@
                             <select 
                             class="form-select form-select-sm {{ $produit->statut === 'disponible' ? 'text-success' : 'text-danger' }}" 
                             wire:change="updateStatus({{ $produit->id }}, $event.target.value)">
-                            <option value="disponible" @if($produit->statut === 'disponible') selected @endif>En stock</option>
-                            <option value="indisponible" @if($produit->statut === 'indisponible') selected @endif>En rupture</option>
+                            <option style="color: green" value="disponible" @if($produit->statut === 'disponible') selected @endif>En stock</option>
+                            <option style="color: red" value="indisponible" @if($produit->statut === 'indisponible') selected @endif>En rupture</option>
                         </select>
                         </td>
                         
