@@ -99,6 +99,8 @@ class HomeController extends Controller
         return view('front.shop.index',compact('produits', 'categories','key','total_produit','max_prix','ordre_affichage'));
     }
 
+  
+
     public function search_products(Request $request)
     {
         $all_products = produits::whereBetween('prix',[$request->left_value, $request->right_value])->get();
@@ -179,10 +181,10 @@ class HomeController extends Controller
         $marques = Marque::with('produits')->get();
         $current_marque = Marque::with('produits')->findOrFail($id);
         $produits = $current_marque->produits()->paginate(10);
-        $users = User::all();
+      
 
         //dd($produits);
-        return view('front.shop.index', compact('current_category','current_marque','marques', 'users', 'categories', 'produits'));
+        return view('front.shop.index', compact('current_category','current_marque','marques', 'categories', 'produits'));
     }
 
     public function details($id){
@@ -195,7 +197,7 @@ class HomeController extends Controller
     {
         $categories = Category::with('produits')->get();
         $current_category = Category::with('produits')->findOrFail($id);
-   ;
+   
        $produits = $current_category->produits()->paginate(24);
         $users = User::all();  
         return view('front.shop.index', compact('current_category', 'users', 'categories', 'produits'));

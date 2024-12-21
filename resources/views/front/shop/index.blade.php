@@ -72,7 +72,7 @@
                                 </div>
 
                                      <div class="toggle-list product-categories product-gender active">
-                                        <h6 class="title">MARQUES</h6>
+                                        <h6 class="title">  {{ \App\Helpers\TranslationHelper::TranslateText('LES MARQUES') }}</h6>
                                         <div class="shop-submenu">
                                             <ul>
                                                 @foreach ($marques as $marque)
@@ -85,6 +85,29 @@
                                     </div> 
 
 
+                                    <div class="toggle-list product-price-range active">
+                                        <h6 class="title">  {{ \App\Helpers\TranslationHelper::TranslateText('FILTRES') }}</h6>
+                                        <div class="shop-submenu">
+                                            @php
+                                            $max = DB::table('produits')->max('prix');
+                                            $min = DB::table('produits')->min('prix');
+                                            //dd($max);
+                                        @endphp
+                                         
+                                            <form action="/shop" method="post" class="mt--25">
+                                                @csrf
+                                                <div id="slider-range"  data-min="{{ $min }}" data-max="{{ $max }}"></div>
+                                                <div class="flex-center mt--20">
+                                                    <span class="input-range">  {{ \App\Helpers\TranslationHelper::TranslateText('Prix') }}: </span>
+                                                    <input style="" type="text" id="amount" readonly>
+                                                    <input type="hidden" name="price_range" id="price_range" />                                                </div>
+                                                <button class="tp-product-widget-filter-btn filter_button  axil-btn btn-bg-primary2"
+                                                type="submit">  {{ \App\Helpers\TranslationHelper::TranslateText('Filtrer') }}</button>
+                                            </form>
+                                        </div>
+                                        
+                                    </div>
+                        
 
                             </div>
                             <!-- End .axil-shop-sidebar -->
@@ -126,9 +149,9 @@
                                 @foreach ($produits as $key => $produit)
                                 <div class="col-xl-4 col-sm-6">
                                     <div class="axil-product product-style-one mb--30" style="border: 1px solid #0162b1; border-radius: 8px; overflow: hidden;">
-                                        <div class="thumbnail">
+                                        <div class="thumbnail ">
                                             <a href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
-                                                <img src="{{ Storage::url($produit->photo) }}" alt="{{ $produit->nom }}" style="max-width: 300px; max-height: 300px;">
+                                                <img  src="{{ Storage::url($produit->photo) }}" alt="{{ $produit->nom }}" style="max-width: 300px; max-height: 300px;">
 
                                             </a>
 
@@ -253,6 +276,83 @@
             </div>
           
 
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="{{ asset('js/script.js') }}"></script>
+            <script>
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+            </script>
+            <script>
+                $(document).ready(function(e) {
+                    $('.range_slider').on('change', function() {
+                        let left_value = $('#input_left').val();
+                        let right_value = $('#input_right').val();
+                        // alert(left_value+right_value);
+                        $.ajax({
+                            url: "{{ route('search.products') }}",
+                            method: "GET",
+                            data: {
+                                left_value: left_value,
+                                right_value: right_value
+                            },
+                            success: function(res) {
+                                $('.search-result').html(res);
+                            }
+                        });
+                    });
+    
+                    $('#sort_by').on('change', function() {
+                        let sort_by = $('#sort_by').val();
+                        $.ajax({
+                            url: "{{ route('sort.by') }}",
+                            method: "GET",
+                            data: {
+                                sort_by: sort_by
+                            },
+                            success: function(res) {
+                                $('.search-result').html(res);
+                            }
+                        });
+                    });
+                })
+            </script>
+    
+            <script>
+                $(document).ready(function() {
+                    /*----------------------------------------------------*/
+                    /*  Jquery Ui slider js
+                    /*----------------------------------------------------*/
+                    if ($("#slider-range").length > 0) {
+                        const max_value = parseInt($("#slider-range").data('max')) || 500;
+                        const min_value = parseInt($("#slider-range").data('min')) || 0;
+                        const currency = $("#slider-range").data('currency') || '';
+                        let price_range = min_value + '-' + max_value;
+                        if ($("#price_range").length > 0 && $("#price_range").val()) {
+                            price_range = $("#price_range").val().trim();
+                        }
+    
+                        let prix = price_range.split('-');
+                        $("#slider-range").slider({
+                            range: true,
+                            min: min_value,
+                            max: max_value,
+                            values: prix,
+                            slide: function(event, ui) {
+                                $("#amount").val(currency + ui.values[0] + " -  " + currency + ui.values[1]);
+                                $("#price_range").val(ui.values[0] + "-" + ui.values[1]);
+                            }
+                        });
+                    }
+                    if ($("#amount").length > 0) {
+                        const m_currency = $("#slider-range").data('currency') || '';
+                        $("#amount").val(m_currency + $("#slider-range").slider("values", 0) +
+                            "  -  " + m_currency + $("#slider-range").slider("values", 1));
+                    }
+                })
+            </script>
            
         </main>
 

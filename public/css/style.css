@@ -1,4 +1,9 @@
-
+.main-img, .hover-img {
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover;
+    border-radius: 8px; 
+}
 .text-centered {
     text-align: center;
 }

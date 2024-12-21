@@ -175,3 +175,53 @@ $(document).ready(function () {
       });
    })
 
+///////////filtre
+   $("#slider-range").slider({
+range: true,
+min: 0,
+max: 1500,
+values: [75, 300],
+slide: function (event, ui) {
+$("#amount").val( ui.values[0] +" DT "+ " - " + ui.values[1]+ " DT");
+$("#price_range").val( ui.values[0] + " - " + ui.values[1]);
+}
+});
+$("#amount").val( $("#slider-range").slider("values", 0) + " DT "+ 
+" - " + $("#slider-range").slider("values", 1)) + " DT";
+$("#price_range").val( $("#slider-range").slider("values", 0) + " - " + $("#slider-range").slider("values", 1));
+
+
+/////////////Testimonial//////////
+$(document).ready(function() {
+    $('#testimonialForm').on('submit', function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: $(this).attr('action'),
+            method: $(this).attr('method'),
+            data: $(this).serialize(),
+            success: function(response) {
+
+                $('#testimonialModal').modal('hide');
+
+                $('#successMessage').text(
+                    'Témoignage créé avec succès! Il sera valide après confirmation des administrateurs'
+
+                ).show();
+
+                setTimeout(function() {
+                    location.reload();
+                }, 5000);
+            },
+            error: function(response) {
+
+                $('#errorMessage').text('Une erreur est survenue.')
+                    .show();
+            }
+        });
+    });
+});
+
+
+
+

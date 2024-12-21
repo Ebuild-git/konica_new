@@ -131,7 +131,6 @@
                                                         src="{{ Storage::url($produit->photo) }}" alt="Product Images">
                                                 </a>
 
-
                                                 <div class="top-left" style="background-color: #e01010;color: white;">
                                                     <span>
                                                         @if ($produit->sur_devis == false)
@@ -223,7 +222,7 @@
 
                                                                         </strike>
                                                                     </div>
-                                                                @elseif ($produit->sur_devis == false)
+                                                                @elseif($produit->sur_devis == false)
                                                                     <div class="text-center">
                                                                         <span class="price current-price"
                                                                             style="font-size: 1.7rem;">
@@ -236,14 +235,15 @@
                                                                   
                                                                 
                                                             @endif
-                                                           {{--     @if ($produit->sur_devis == true)
+                                                            {{--  @if ($produit->sur_devis == true)
                                                             
                                                             <a href="{{ url('devis', $produit->id) }}" style="font-size: 1.7rem; color: white;">
-                                                        @endif  --}} 
-
+                                                        @endif  
+ --}}
 
 
                                                         </h6>
+                                                       
                                                     </div>
                                                 </div>
                                             </div>
@@ -563,7 +563,7 @@
                     <div class="section-title-wrapper">
                         <span class="title-highlighter highlighter-primary"> <i class="far fa-shopping-basket"></i>
                             {{ \App\Helpers\TranslationHelper::TranslateText('Marques') }}</span>
-                        <h2 class="title">{{ \App\Helpers\TranslationHelper::TranslateText('Les marques') }}</h2>
+                        <h2 class="title">{{ \App\Helpers\TranslationHelper::TranslateText('Nos marques') }}</h2>
                     </div>
                     <div class="categrie-product-activation slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide">
                         @foreach ($marques as $marque)

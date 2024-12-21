@@ -77,6 +77,12 @@ Route::get('/sort-by',[HomeController::class,'sort_by'])->name('sort.by');
 Route::get('search', [HomeController::class, 'search'])->name("search");
 
 
+Route::get('/products/filter', [HomeController::class, 'filter'])->name('products.filter');
+
+Route::post('/produit/search', [HomeController::class, 'produitSearch'])->name('produit.search');
+Route::get('/search-product',[HomeController::class,'search_products'])->name('search.products');
+Route::get('/products/ajax-filter', [HomeController::class, 'ajaxFilter'])->name('products.ajaxFilter');
+
 
 //gestion du panier
 Route::get('cart', [panier_client::class, 'cart'])->name('cart');

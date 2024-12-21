@@ -122,7 +122,7 @@
                             @if ($produit->sur_devis == false)
                                 <div class="progress-bar bg-primary progress" style="width: 80%" aria-valuenow="10"
                                     aria-valuemin="0" aria-valuemax="100">
-                                    <b>Produit simple</b>
+                                    <b> Achat en ligne</b>
                                     
                                 </div>
                             @else
