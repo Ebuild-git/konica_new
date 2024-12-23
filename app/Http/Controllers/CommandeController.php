@@ -69,6 +69,7 @@ class CommandeController extends Controller
 
     foreach ($paniers_session as $session) {
       $produit = produits::find($session['id_produit']);
+  
       if ($produit) {
         $paniers[] = [
           'nom' => $produit->nom,

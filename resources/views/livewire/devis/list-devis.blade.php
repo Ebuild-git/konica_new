@@ -82,7 +82,7 @@
 
             <tbody>
                 @forelse ($commandes as $commande)
-                    @if (  $commande->sur_devis || $commande->quantite)
+                    @if ( $commande->quantite)
                         <tr>
                             <td>
                                 <input type="checkbox" wire:click="toggleCommandeSelection({{ $commande->id }})">

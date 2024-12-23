@@ -18,6 +18,7 @@
                         {!! implode('', $errors->all('<div>:message</div>')) !!}
                     @endif
                     @csrf
+                    <input type="hidden" name="id_produit" value="{{ $produit->id }}" />
                     <div class="row">
                         <div class="col-lg-6">
                          

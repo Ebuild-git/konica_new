@@ -94,14 +94,21 @@
                                                         {{ $contenu->type }}
                                                     </b>
                                                 </td>
-                                                <td>
+                                                <td>@if($contenu->produit->sur_devis == false )
                                                     {{ $contenu->prix_unitaire }} DT
+                                                    @else
+                                                    <b>------</b>
+                                                    @endif
                                                 </td>
                                                 <td>
                                                     {{ $contenu->quantite }}
                                                 </td>
                                                 <td>
+                                                    @if($contenu->produit->sur_devis == false )
                                                     {{ $contenu->quantite * $contenu->prix_unitaire }} DT
+                                                    @else
+                                                    <b>------</b>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -116,11 +123,15 @@
                                             <b>Résumé de la commande </b>
                                         </h6>
                                         Montant total : <br>
+                                        @if($contenu->produit->sur_devis == false )
                                         <b>{{ $commande->montant() }} DT</b>
-                                        @if ($commande->frais)
+                                        @else
+                                        <b>------</b>
+                                        @endif
+                                        @if ($commande->frais && $contenu->produit->sur_devis == false )
                                             ( Frais de livraison inclu ( {{ $commande->frais ?? 0 }} DT) ) .
                                         @endif
-                                        @if ($commande->coupon)
+                                        @if ($commande->coupon  && $contenu->produit->sur_devis == false )
                                         ( Le code promo est appliqué d'une valeur de  ( {{ $commande->coupon ?? 0 }} DT) ) .
                                         @endif
                                         <br>
