@@ -325,8 +325,16 @@
 
 
     </main>
+    <style>
+        .custom-footer-bg {
+            background-color:#009196; /* Remplacez #333 par la couleur souhaitée */
+            color: #fff;
+        }
+        </style>
+        
 
-    <footer class="axil-footer-area footer-style-2">
+   {{--  <footer class="axil-footer-area footer-style-2"> --}}
+    <footer class="axil-footer-area footer-style-2 custom-footer-bg">
         <!-- Start Footer Top Area  -->
         <div class="footer-top separator-top">
             <div class="container">
@@ -343,7 +351,7 @@
                                 </a>
                             </div>
 
-                            <p class="logo" style="font-size: 18px; line-height: 1.6; text-align: justify;">
+                            <p class="logo" style="font-size: 18px; line-height: 1.6; text-align: justify;color:white;">
 
                                 {!! \App\Helpers\TranslationHelper::TranslateText($config->description) !!}
                             </p>
@@ -359,19 +367,19 @@
                             <div class="inner">
                                 <ul>
                                     @if (Auth()->user())
-                                        <li><a href="{{ route('profile') }}">
+                                        <li><a href="{{ route('profile') }}" style="color:white;">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Paramètres') }}</a>
                                         </li>
-                                        <li><a href="{{ route('favories') }}">
+                                        <li><a href="{{ route('favories') }}" style="color:white;">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Mes favoris') }}</a>
                                         </li>
-                                        <li><a href="{{ route('cart') }}">
+                                        <li><a href="{{ route('cart') }}" style="color:white;">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Mon panier') }}</a>
                                         </li>
                                         @else
-                                        <li><a href="{{ route('login') }}">
+                                        <li><a href="{{ route('login') }}" style="color:white;">
                                             {{ \App\Helpers\TranslationHelper::TranslateText('Se connecter') }}</a></li>
-                                        <li><a href="{{ route('register') }}">
+                                        <li><a href="{{ route('register') }}" style="color:white;">
                                             {{ \App\Helpers\TranslationHelper::TranslateText('S\'  inscrire' ) }}</a></li>
 
                                     @endif
@@ -386,15 +394,15 @@
                             </h5>
                             <div class="inner">
                                 <ul>
-                                    <li><a href="{{ route('home') }}">
+                                    <li><a href="{{ route('home') }}" style="color:white;">
                                             {{ \App\Helpers\TranslationHelper::TranslateText('Accueil') }}</a></li>
-                                    <li><a href="{{ route('about') }}">
+                                    <li><a href="{{ route('about') }}" style="color:white;">
                                             {{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</a>
                                     </li>
 
-                                    <li><a href="{{ route('shop') }}">
+                                    <li><a href="{{ route('shop') }}" style="color:white;">
                                             {{ \App\Helpers\TranslationHelper::TranslateText('Produits') }}</a></li>
-                                    <li><a href="{{ route('contact') }}">
+                                    <li><a href="{{ route('contact') }}" style="color:white;">
                                             {{ \App\Helpers\TranslationHelper::TranslateText('Contact') }}</a></li>
                                 </ul>
                             </div>
@@ -413,13 +421,13 @@
                                     <div class="inner">
 
                                         <ul class="support-list-item">
-                                            <li><a href="mailto:example@domain.com"><i
+                                            <li style="color:white;"><a href="mailto:example@domain.com" style="color:white;"><i
                                                         class="fal fa-envelope-open"></i>
                                                     {{ $config->email ?? ' ' }}</a></li>
-                                            <li><a href="tel:(+01)850-315-5862"><i
-                                                        class="fal fa-phone-alt"></i>{{ $config->telephone ?? ' ' }}</a>
+                                            <li><a href="tel:(+01)850-315-5862" style="color:white;"><i
+                                                        class="fal fa-phone-alt" style="color:white;"></i>{{ $config->telephone ?? ' ' }}</a>
                                             </li>
-                                            <li><i class="fal fa-map-marker-alt"></i>{{ $config->addresse ?? ' ' }}
+                                            <li style="color:white;"><i class="fal fa-map-marker-alt" ></i>{{ $config->addresse ?? ' ' }}
                                             </li>
                                         </ul>
                                     </div>
@@ -441,7 +449,7 @@
                     <div class="col-xl-4 col-lg-12">
                         <div class="copyright-left d-flex flex-wrap justify-content-center">
                             <ul class="quick-link">
-                                <li>©{{ date('Y') }} KONICA | Design By<a
+                                <li style="color:white;">©{{ date('Y') }} KONICA | Design By<a
                                         href="https://www.e-build.tn" style="color: #c71f17;">
                                         <b> E-build </b>
                                     </a>.</li>
