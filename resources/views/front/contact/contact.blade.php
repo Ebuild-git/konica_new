@@ -82,7 +82,7 @@
                 <div class="axil-google-map-wrap axil-section-gap pb--0">
                     <div class="mapouter">
                         <div class="gmap_canvas">
-                            <iframe width="1080" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=melbourne&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                            <iframe width="1080" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Konica&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
                         </div>
                     </div>
                 </div>
