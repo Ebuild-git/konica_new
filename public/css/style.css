@@ -1,3 +1,14 @@
+
+
+    .product-image {
+    width: 200px; /* Largeur fixe */
+    height: 200px; /* Hauteur fixe */
+    object-fit: cover; /* Adapte l'image pour remplir le conteneur sans distorsion */
+    border-radius: 8px; /* Optionnel : coins arrondis pour un effet esthétique */
+    display: block; /* Empêche les espaces blancs dans les liens inline */
+}
+
+
 .main-img, .hover-img {
     width: 200px; 
     height: 200px; 
@@ -393,12 +404,7 @@ button.btn-primary:hover {
         width: 300px; 
     }
 
-    .fixed-dimension {
-        width: 150px; 
-        height: 150px; 
-        object-fit: cover; 
-        border-radius: 5px; 
-    }
+ 
 
     .image-center {
         display: flex;

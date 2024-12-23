@@ -151,10 +151,9 @@
                                     <div class="axil-product product-style-one mb--30" style="border: 1px solid #0162b1; border-radius: 8px; overflow: hidden;">
                                         <div class="thumbnail ">
                                             <a href="{{ route('details-produits', ['id' => $produit->id, 'slug' => Str::slug(Str::limit($produit->nom, 10))]) }}">
-                                                <img  src="{{ Storage::url($produit->photo) }}" alt="{{ $produit->nom }}" style="max-width: 300px; max-height: 300px;">
+                                                <img class="product-image"   src="{{ Storage::url($produit->photo) }}" alt="{{ $produit->nom }}" style="max-width: 300px; max-height: 300px;">
 
                                             </a>
-
 
 
                                             <div class="top-left" style="background-color: #e01010;color: white;">
@@ -192,7 +191,7 @@
                                                     {{ \App\Helpers\TranslationHelper::TranslateText('Ajouter au panier') }}</a>
                                                 @else
                                                 <a href="{{ url('devis', $produit->id) }}" style="font-size: 1.7rem; color: white;">
-                                                    {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
+                                                    {{ \App\Helpers\TranslationHelper::TranslateText('Demander devis') }}
                                                 </a>
                                                 @endif
 

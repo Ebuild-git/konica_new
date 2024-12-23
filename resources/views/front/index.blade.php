@@ -575,14 +575,26 @@
                     <div class="categrie-product-activation slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide">
                         @foreach ($marques as $marque)
                         <div class="slick-single-layout">
-                            <div class="categrie-product" data-sal="zoom-out" data-sal-delay="200"
+                            <div class="categrie-products" data-sal="zoom-out" data-sal-delay="200"
                                 data-sal-duration="500">
                                 <a  href="/marque/{{ $marque->id }}"
                                     class="{{ isset($current_marque) && $current_marque->id === $marque->id ? 'selected' : '' }}">
-                                    <img class="img-fluid fixed-dimension"  src="{{ Storage::url($marque->image) }}" 
+                                    <img  class="fixed-dimension"  src="{{ Storage::url($marque->image) }}" 
                                         alt="product categorie">
                                     <h6 class="cat-title">{{ $marque->nom }}</h6>
                                 </a>
+
+                                <style>
+                                    .fixed-dimension {
+    width: 150px; /* Largeur fixe */
+    height: 150px; /* Hauteur fixe */
+    object-fit: cover; /* Remplit le conteneur sans déformer l'image */
+    display: block; /* Supprime les espaces blancs indésirables */
+    border-radius: 5px; /* Optionnel : coins arrondis pour l'image */
+    overflow: hidden; /* Cache les débordements éventuels */
+}
+
+                                </style>
                             </div>
                             <!-- End .categrie-product -->
                         </div>

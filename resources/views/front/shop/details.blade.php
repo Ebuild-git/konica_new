@@ -212,7 +212,7 @@
                                             <li class="select-option2">
                                                 <a href="{{ url('devis', $produit->id) }}"
                                                     style="font-size: 1.7rem; color: white;">
-                                                    {{ \App\Helpers\TranslationHelper::TranslateText('Demmander devis') }}
+                                                    {{ \App\Helpers\TranslationHelper::TranslateText('Demander devis') }}
                                                 </a>
                                             </li>
                                         @endif
