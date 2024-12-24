@@ -3,9 +3,11 @@
 @section('body')
     <main>
         @php
-            $config = DB::table('configs')->first();
+        
             $service = DB::table('services')->get();
             $produit = DB::table('produits')->get();
+            $config = DB::table('configs')->first();
+            $configs = DB::table('configs')->first();
         @endphp
 
 
