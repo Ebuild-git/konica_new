@@ -100,7 +100,7 @@ class Edit extends Component
         $this->commande->phone = $this->phone;
         $this->commande->gouvernorat = $this->gouvernorat;
         $this->commande->frais = $this->frais ? $config->frais : null;
-        $this->commande->tax = $this->tax ? $config->tax : null;
+    //    $this->commande->tax = $this->tax ? $config->tax : null;
         $this->commande->save();
 
         //flash success message en frnancais
