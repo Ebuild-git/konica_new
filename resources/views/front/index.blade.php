@@ -62,6 +62,38 @@
                 </div>
             </div>
 
+            <div class="axil-about-area about-style-1 axil-section-gap ">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-4 col-lg-6">
+                            <div class="about-thumbnail">
+                                <div class="thumbnail">
+                                    <img src="{{ Storage::url($config->image_apropos) }}" alt="About Us">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-6">
+                            <div class="about-content content-right">
+                             <h4>   <span class="axil-breadcrumb-item1 active" aria-current="page"> <i class="far fa-shopping-basket"></i>  {{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</span> </h4>
+                               {{--  <span class="title-highlighter highlighter-primary2"> <i class="far fa-shopping-basket"></i>A Propos de nous</span>
+                               --}}  <h3 class="title">
+                                {{ \App\Helpers\TranslationHelper::TranslateText($config->titre_appros ?? '') }}
+                               </h3>
+                                
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <p style="text-align: justify">
+                                            {!! \App\Helpers\TranslationHelper::TranslateText($config->des_apropos ?? ' ') !!}
+                                        </p>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="axil-categorie-area bg-color-white axil-section-gapcommon">
                 <div class="container">
