@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('sous_categories', function (Blueprint $table) {
             $table->id();
             $table->string('nom')->nullable();
+            $table->unsignedBigInteger('categorie_id')->nullable();;
+          //  $table->unsignedBigInteger('categorie_id')->nullable();;
             $table->timestamps();
         });
     }

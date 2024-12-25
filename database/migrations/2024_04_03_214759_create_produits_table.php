@@ -23,6 +23,9 @@ return new class extends Migration
             $table->string('photo');
             $table->unsignedBigInteger('id_promotion')->nullable()->default(null);
             $table->unsignedBigInteger("category_id")->nullable();
+            $table->unsignedBigInteger("sous_category_id")->nullable();
+            $table->unsignedBigInteger("sous_categorie_id")->nullable();
+            $table->unsignedBigInteger("famille_id")->nullable();
             $table->integer("stock")->default(0);
             $table->enum("statut",["disponible","indisponible"])->default("indisponible");
             $table->json('photos')->nullable();

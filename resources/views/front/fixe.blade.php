@@ -185,11 +185,6 @@
                                 </li>
 
 
-                                </li class="menu-item">
-                                <a href="{{ route('about') }}">
-                                    {{ \App\Helpers\TranslationHelper::TranslateText('A propos') }}</a>
-                                </li>
-
 
 
                                 <li class="menu-item">
@@ -197,9 +192,7 @@
                                 </li>
 
 
-                                <li class="menu-item"><a href="{{ route('contact') }}">
-                                        {{ \App\Helpers\TranslationHelper::TranslateText('Contact') }}</a></li>
-
+                               
                             </ul>
                         </nav>
                     </div>

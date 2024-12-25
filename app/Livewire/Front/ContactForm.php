@@ -70,6 +70,8 @@ class ContactForm extends Component
                     'nom',
                     'sujet',
                     'message',
+                    'telephone',
+                 
                 
                 ]
             );

@@ -395,6 +395,35 @@ public function categories_update($id)
     return view('admin.categories.update', compact('category'));
 }
 
+
+public function sous_categories()
+{
+    return view('admin.sous_categories.list');
+}
+
+public function sous_categories_update($id)
+{
+    $sous_category = Sous_category::find($id);
+    if (!$sous_category) {
+        $message = "Sous-categorie non disponible!";
+        abort(404, $message);
+    }
+    //  dd($sous_category);
+    return view('admin.sous_categories.update', compact('sous_category'));
+}
+
+public function sous_category_add()
+{
+    return view('admin.sous_categories.add');
+}
+
+/////////////////Familless////////////////
+
+public function familles()
+{
+    return view('admin.familles.list');
+}
+
 /////////////////Transports////////////////
 
 public function transports()

@@ -50,14 +50,27 @@
 
             <div class="row">
                 <div class="col-sm-6 mb-3">
-                    <label for="">Categorie </label>
-                    <select wire:model='category_id' class="form-control @error('category_id') is-invalid @enderror">
-                        <option value=""></option>
+                    <label for="category">Catégorie :</label>
+                    <select wire:model="category_id" wire:change="loadSubCategories" id="category" class="form-control @error('category_id') is-invalid @enderror">
+                        <option value="">Choisir une catégorie</option>
                         @foreach ($categories as $cat)
                             <option value="{{ $cat->id }}">{{ $cat->nom }}</option>
                         @endforeach
                     </select>
                     @error('category_id')
+                        <span class="text-danger small"> {{ $message }} </span>
+                    @enderror
+                </div>
+                
+                <div class="col-sm-6 mb-3">
+                    <label for="sub_category">Sous-catégorie :</label>
+                    <select wire:model="sous_category_id" id="sub_category" class="form-control @error('sous_category_id') is-invalid @enderror">
+                        <option value="">Choisir une sous-catégorie</option>
+                        @foreach ($sous_categories as $cat)
+                            <option value="{{ $cat->id }}">{{ $cat->titre }}</option>
+                        @endforeach
+                    </select>
+                    @error('sous_category_id')
                         <span class="text-danger small"> {{ $message }} </span>
                     @enderror
                 </div>

@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('familles', function (Blueprint $table) {
-            $table->id();
-            $table->string('nom')->nullable();
-            $table->unsignedBigInteger("sous_category_id")->nullable();
-            $table->timestamps();
+        Schema::table('produits', function (Blueprint $table) {
+            $table->unsignedBigInteger("sous_categorie_id")->nullable();
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('familles');
+        Schema::table('produits', function (Blueprint $table) {
+            $table->dropColumn('sous_categorie_id');
+        });
     }
 };

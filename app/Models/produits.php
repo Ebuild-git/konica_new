@@ -20,6 +20,9 @@ class produits extends Model
     'photo',
    'id_promotion',
   'category_id',
+  'sous_category_id',
+  "sous_categorie_id",
+  'famille_id',
     'stock',
     'statut',
     'photos',
@@ -103,9 +106,19 @@ class produits extends Model
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+
+    public function sous_categories(){
+        return $this->belongsTo(Sous_category::class,'sous_category_id', 'id');
+    }
+
+
     public function marques()
     {
         return $this->belongsTo(Marque::class, 'marque_id', 'id');
+    }
+
+    public function familles(){
+        return $this->belongsTo(Famille::class,'famille_id', 'id');
     }
 
 

@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Livewire\Produits;
-
-use App\Models\{produits, Category, Marque};
+use App\Models\{produits, Category, Marque, Sous_category};
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -12,10 +11,17 @@ class AddProduit extends Component
 {
     use WithFileUploads;
 
-    public $nom,$tags, $prix, $category_id,$photo, $photos, $prix_achat, $photo2, $photos2, $produit, $reference, $description,$marque_id ;
+    public $nom,$tags, $prix, $category_id,$categori_id,$photo, $photos, $prix_achat, $photo2, $photos2, $produit, $reference, $description,$marque_id ;
 
 public $free_shipping, $sur_devis;
-public $meta_description;
+public $meta_description, $sous_category_id;
+public $sous_categories = array();
+
+
+
+
+
+
 
     public function mount($produit)
     {
@@ -24,6 +30,7 @@ public $meta_description;
             $this->nom = $produit->nom;
             $this->tags = $produit->tags;
             $this->category_id = $produit->category_id;
+            $this->sous_category_id = $produit->sous_category_id;
             $this->marque_id = $produit->marque_id;
             $this->reference = $produit->reference;
             $this->prix = $produit->prix;
@@ -34,23 +41,31 @@ public $meta_description;
             $this->free_shipping = $produit->free_shipping;
             $this->sur_devis = $produit->sur_devis ?? 0;
             $this->meta_description = $produit->meta_description;
-         //   $this->tags = $produit->tags;
+            $this->sous_categories = Sous_category::where('categorie_id', $this->category_id)->get();
+     
 
         }
     }
 
-
-
+ 
 
 
     public function render()
     {
         $categories = Category::all();
         $marques = Marque::all();
-        return view('livewire.produits.add-produit', compact('categories','marques'));
+        $sous_categories = Sous_category::all();
+        return view('livewire.produits.add-produit', compact('categories','marques', 'sous_categories'));
     }
 
+    public function loadSubCategories()
+    {
 
+        $this->sous_category_id = null;
+    
+        $this->sous_categories = Sous_category::where('categorie_id', $this->category_id)->get();
+    }
+    
 
 
 
@@ -69,6 +84,7 @@ public $meta_description;
             'photo' =>  'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'photos.*' => 'nullable|image|mimes:jpg,jpeg,png,webp',
             'category_id' => 'required|integer|exists:categories,id',
+            'sous_category_id' => 'nullable|integer|exists:sous_categories,id',
             
           //  'free_shipping' => 'nullable|boolean',
             'sur_devis' => 'nullable|boolean',
@@ -85,6 +101,9 @@ public $meta_description;
 
 
         $categories = Category::findOrFail($data[('category_id')]);
+        $sous_categories = Sous_category::findOrFail($data[('sous_category_id')]);
+
+     //   dd($categories);
 
         $produit = new produits();
         $produit->nom = $this->nom;
@@ -100,6 +119,7 @@ public $meta_description;
 
         $produit->category_id = $this->category_id;
         $produit->marque_id = $this->marque_id;
+        $produit->sous_category_id = $this->sous_category_id;
 
 
 

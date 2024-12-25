@@ -8,4 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 class Sous_category extends Model
 {
     use HasFactory;
+    protected $fillable = ['nom', 'categorie_id'];
+
+
+    public function categories()
+    {
+        return $this->belongsTo(Category::class,  'categorie_id', 'id');
+    }
+
+    public function produits(){
+        return $this->hasMany(produits::class,'sous_category_id');
+    }
+
+
+    public function familles(){
+        return $this->hasMany(Famille::class, 'sous_category_id');
+    }
+
+      
+    public function productCount()
+    {
+        return $this->produits()->count();
+    }
+    
 }

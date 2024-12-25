@@ -158,7 +158,21 @@ Route::middleware(['auth'])->group(function () {
         ->name('categories.update')
         ->middleware('permission:category_edit');
 
+       
+        /////////sous_categories/////////////////////////
+        Route::get('/admin/sous_categories', [AdminController::class,'sous_categories'])
+        ->name('sous_categories');
 
+    Route::get('/admin/sous_category/{id}/update', [AdminController::class,'sous_categories_update'])->name('sous_categories.update');
+        
+    Route::get('/admin/sous_category_add', [AdminController::class,'sous_category_add']) ->name('sous_category.add');
+
+
+
+        ///////////////////Familless/////////////////
+        Route::get('/admin/familles', [AdminController::class, 'familles'])
+            ->name('familles');
+    Route::get('/admin/familles/add', [AdminController::class, 'famille_add']);
 
     ///////////////////Transports/////////////////
     Route::get('/admin/transports', [AdminController::class, 'transports'])

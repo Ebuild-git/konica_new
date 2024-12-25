@@ -13,7 +13,7 @@
     @endif
     <form wire:submit="save" class="axil-contact-form">
         <div class="row row--10">
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="form-group">
                     <label> {{ \App\Helpers\TranslationHelper::TranslateText('Nom') }}*</label>
                     <input wire:model="nom" type="text" id="nom" placeholder="Votre nom">
@@ -24,7 +24,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="form-group">
                     <label>Email*</label>
                     <input wire:model="email" type="email" id="email" placeholder=" {{ \App\Helpers\TranslationHelper::TranslateText('Votre email') }}">
@@ -35,8 +35,19 @@
                     @enderror
                 </div>
             </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label> {{ \App\Helpers\TranslationHelper::TranslateText('Nom') }}*</label>
+                    <input wire:model="telephone" type="number" id="nom" placeholder=" {{ \App\Helpers\TranslationHelper::TranslateText('Votre téléphone') }}">
+                    @error('nom')
+                        <span class="small text-danger">
+                            {{ $message }}
+                        </span>
+                    @enderror
+                </div>
+            </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="form-group">
                     <label> {{ \App\Helpers\TranslationHelper::TranslateText('Sujet') }}*</label>
                     <input wire:model="sujet" type="text" id="sujet" placeholder=" {{ \App\Helpers\TranslationHelper::TranslateText('Sujet') }}">
