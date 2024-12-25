@@ -4,10 +4,6 @@
 
 
 <main>
-
-
-
-
     <body class="sticky-header">
 
         <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
@@ -19,22 +15,10 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-md-8">
                             <div class="inner">
-                                <ul class="axil-breadcrumb">
-                                    <li class="axil-breadcrumb-item"><a href="{{ route('home') }}">
-                                            {{ \App\Helpers\TranslationHelper::TranslateText('Accueil') }}</a></li>
-                                    <li class="separator"></li>
-                                    <li class="axil-breadcrumb-item1 active" aria-current="page"> {{ __('boutique') }}
-                                    </li>
-                                </ul>
-
-
                                 <h1 class="title">
                                     {{ \App\Helpers\TranslationHelper::TranslateText('Explorez tous les produits') }}
                                 </h1>
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-md-4">
-
                         </div>
                     </div>
                 </div>
@@ -82,7 +66,7 @@
                                                 @endforeach
                                             </ul>
                                         </div>
-                                    </div> 
+                                    </div>
 
 
                                     <div class="toggle-list product-price-range active">
@@ -93,7 +77,7 @@
                                             $min = DB::table('produits')->min('prix');
                                             //dd($max);
                                         @endphp
-                                         
+
                                             <form action="/shop" method="post" class="mt--25">
                                                 @csrf
                                                 <div id="slider-range"  data-min="{{ $min }}" data-max="{{ $max }}"></div>
@@ -105,9 +89,9 @@
                                                 type="submit">  {{ \App\Helpers\TranslationHelper::TranslateText('Filtrer') }}</button>
                                             </form>
                                         </div>
-                                        
+
                                     </div>
-                        
+
 
                             </div>
                             <!-- End .axil-shop-sidebar -->
@@ -166,7 +150,7 @@
                                                     @endif
                                                 </span>
                                             </div>
-                                           
+
                                     <div class="product-hover-action">
                                         <ul class="cart-action">
                                             @if (Auth()->user())
@@ -233,7 +217,7 @@
                                                     </div>
 
                                                     @else
-                                                    
+
 
 
                                                     <div class="text-center">
@@ -248,15 +232,15 @@
                                                     </div>
                                                     @endif
 
-                                                   
-                                                    
+
+
 
 
 
 
                                             </h6>
-                                            
-                                            
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -265,7 +249,7 @@
                         @endforeach
 
 
-                      
+
                     </div>
                     <div class="text-center pt--20">
                         <ul class="pagination-list">
@@ -275,9 +259,9 @@
                 </div>
             </div>
             </div>
-         
+
             </div>
-          
+
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script src="{{ asset('js/script.js') }}"></script>
@@ -306,7 +290,7 @@
                             }
                         });
                     });
-    
+
                     $('#sort_by').on('change', function() {
                         let sort_by = $('#sort_by').val();
                         $.ajax({
@@ -322,7 +306,7 @@
                     });
                 })
             </script>
-    
+
             <script>
                 $(document).ready(function() {
                     /*----------------------------------------------------*/
@@ -336,7 +320,7 @@
                         if ($("#price_range").length > 0 && $("#price_range").val()) {
                             price_range = $("#price_range").val().trim();
                         }
-    
+
                         let prix = price_range.split('-');
                         $("#slider-range").slider({
                             range: true,
@@ -356,7 +340,7 @@
                     }
                 })
             </script>
-           
+
         </main>
 
 

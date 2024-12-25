@@ -282,8 +282,8 @@
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Connexion') }}</a>
                                         </div>
                                         <div class="reg-footer text-center">
-                                            {{ \App\Helpers\TranslationHelper::TranslateText('Pas de compte') }}? <a
-                                                href="{{ url('register') }}" class="btn-link">
+                                            {{ \App\Helpers\TranslationHelper::TranslateText('Pas de compte') }}? <br />
+                                            <a href="{{ url('register') }}" class="btn-link">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Inscrivez vous ici') }}.</a>
                                         </div>
                                     @endif

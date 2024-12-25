@@ -3,7 +3,7 @@
 @section('body')
     <main>
 @php
-    
+
     $config = DB::table('configs')->first();
 @endphp
 
@@ -14,20 +14,20 @@
                 <div class="inner">
                     <ul class="axil-breadcrumb">
                         <li class="axil-breadcrumb-item"><a href="{{ route('home') }}">
-                            {{ \App\Helpers\TranslationHelper::TranslateText('Accueil') }}    
+                            {{ \App\Helpers\TranslationHelper::TranslateText('Accueil') }}
                         </a></li>
                         <li class="separator"></li>
                         <li class="axil-breadcrumb-item1 active" aria-current="page"> {{ \App\Helpers\TranslationHelper::TranslateText('A propos de nou') }}</li>
                         <style>
                             .axil-breadcrumb-item1 {
-    font-size: 14px;
-    color: #EFB121; /* Default breadcrumb color */
-}
+                                font-size: 14px;
+                                color: #EFB121; /* Default breadcrumb color */
+                            }
 
-.axil-breadcrumb-item.active {
-    font-weight: bold;
-    color: #EFB121; /* Distinct color for active item */
-}
+                            .axil-breadcrumb-item.active {
+                                font-weight: bold;
+                                color: #EFB121; /* Distinct color for active item */
+                            }
 
                         </style>
                     </ul>
@@ -64,14 +64,14 @@
                    --}}  <h3 class="title">
                     {{ \App\Helpers\TranslationHelper::TranslateText($config->titre_appros ?? '') }}
                    </h3>
-                    
+
                     <div class="row">
                         <div class="col-xl-12">
                             <p style="text-align: justify">
                                 {!! \App\Helpers\TranslationHelper::TranslateText($config->des_apropos ?? ' ') !!}
                             </p>
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@
             </div>
             <div class="col-lg-7 order-lg-1">
                 <div class="about-content content-left">
-                   
+
                     <h4 class="title">
                         {{ \App\Helpers\TranslationHelper::TranslateText($config->titre_apropos2) }}
                     </h4>
@@ -106,11 +106,11 @@
             <div class="col-lg-5">
                  <div class="about-thumbnail">
                     <img src="{{ Storage::url($config->image_apropos2) }}" alt="about">
-                </div> 
+                </div>
             </div>
             <div class="col-lg-7">
                 <div class="about-content content-right">
-                   
+
                   <h4 class="title">{{ $config->titre_apropos1 }}</h4>
                     <p style="text-align: justify">
                         {!! \App\Helpers\TranslationHelper::TranslateText($config->des_apropos1 ?? ' ') !!}
@@ -119,7 +119,7 @@
                 </div>
             </div>
         </div>
-       
+
     </div>
 </div> --}}
 
@@ -152,7 +152,7 @@
 <br><br>
 
 
-        
+
     </main>
     @endsection
-    
+

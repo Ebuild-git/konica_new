@@ -123,10 +123,7 @@ $produit = DB::table('produits')->get();
                         <p class="b2 mb--55">
                             {{ \App\Helpers\TranslationHelper::TranslateText('Entrez les coordonnées ci-dessous') }}
                         </p>
-
-
                         @livewire('connexion')
-
                     </div>
                 </div>
             </div>

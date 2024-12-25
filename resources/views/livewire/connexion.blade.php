@@ -24,11 +24,11 @@
     </div>
     <div class="form-group position-relative">
         <label> {{ \App\Helpers\TranslationHelper::TranslateText('Mot de passe') }}</label>
-        <input 
-            type="password" 
-            id="password1" 
-            class="form-control" 
-            wire:model="password" 
+        <input
+            type="password"
+            id="password1"
+            class="form-control"
+            wire:model="password"
             placeholder=" {{ \App\Helpers\TranslationHelper::TranslateText('Mot de passe') }}"
         >
         <span class="oeil">
@@ -47,8 +47,8 @@
                 top: 20px;
             }
         </style>
-     
-        
+
+
         @error('password')
         <span class="text-danger small">
             {{ $message }}
@@ -74,14 +74,11 @@
         }
     });
 </script>
-    
 
- 
+
+
     <div class="form-group d-flex align-items-center justify-content-between">
         <button type="submit" class="axil-btn btn-bg-primary2 submit-btn">
-            <span wire:loading>
-                <img src="https://i.gifer.com/ZKZg.gif" height="15" alt="" srcset="">
-            </span>
             <i class="ri-git-repository-private-line"></i>
             {{ \App\Helpers\TranslationHelper::TranslateText('Connexion') }}</button>
         <a href="{{ route('forgot_password') }}" class="forgot-btn"> {{ \App\Helpers\TranslationHelper::TranslateText('Mot de passe oublié') }}?</a>
