@@ -282,7 +282,7 @@
                             {{ __('Categories') }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
-                            {{-- @foreach($groupedCategories as $category)
+                            @foreach($groupedCategories as $category)
                             <li class="dropdown-item">
                                 <span>{{ $category['category_name'] }}</span>
                                 @if($category['subcategories']->isNotEmpty())
@@ -302,29 +302,6 @@
                                     </ul>
                                 @endif
                             </li>
-                            @endforeach --}}
-                            @foreach($groupedCategories as $category)
-                                <div>
-                                    <a href="#" class="category-link">
-                                        <span>{{ $category['category_name'] }}</span>
-                                    </a>
-                                    @if($category['subcategories']->isNotEmpty())
-                                        <ul class="submenu">
-                                            @foreach($category['subcategories'] as $subcategory)
-                                                <li>
-                                                    <span>{{ $subcategory['subcategory_name'] }}</span>
-                                                    @if($subcategory['families']->isNotEmpty())
-                                                        <ul class="sub-submenu">
-                                                            @foreach($subcategory['families'] as $family)
-                                                                <li><span>{{ $family['family_name'] }}</span></li>
-                                                            @endforeach
-                                                        </ul>
-                                                    @endif
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    @endif
-                                </div>
                             @endforeach
                         </ul>
                     </li>

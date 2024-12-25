@@ -87,7 +87,6 @@ width: 100%;
     .sub-submenu {
         margin-left: 20px; /* Indentation for subcategories */
         padding-left: 10px; /* Add padding for readability */
-        border-left: 2px solid #ccc; /* Optional: visual separator */
     }
 
     .submenu span,
