@@ -31,7 +31,7 @@
 <main>
 
     <style>
-       
+
     </style>
 
     <main class="main-wrapper">
@@ -119,16 +119,12 @@
                                                 </div>
 
                                                 <div class="col-sm-6 col-6 text-end">
-
-
                                                     <span
                                                         style="position: relative; font-size: 1.7rem; color: #dc3545; font-weight: bold;">
                                                         {{ $produit->prix }} DT
                                                         <span
                                                             style="position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background-color: black;"></span>
                                                     </span>
-
-
                                                 </div>
 
                                                 <span class="price current-price">
@@ -149,18 +145,40 @@
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Stock en cours d\'approvisionnement') }}</label>
                                         @endif
                                         <br><br>
-
-                                        <li><span style="color: #EFB121">
-                                                {{ \App\Helpers\TranslationHelper::TranslateText('Categorie') }}:</span>
-                                            <span style="color: #5EA13C">
-
+                                        <li>
+                                            <span style="color: #0162B1; margin-right: 10px;">
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Categorie') }}:
+                                            </span>
+                                            <span style="color: #000;">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText(Str::limit($produit->categories->nom, 30)) }}
                                             </span>
                                         </li>
+                                        @if($sousCategory)
+                                        <li>
+                                            <span style="color: #0162B1; margin-right: 10px;">
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Sous-categorie') }}:
+                                            </span>
+                                            <span style="color: #000;">
+                                                {{ \App\Helpers\TranslationHelper::TranslateText(Str::limit($sousCategory->nom, 30)) }}
+                                            </span>
+                                        </li>
+                                        @endif
+
+                                        @if($famille)
+                                        <li>
+                                            <span style="color: #0162B1; margin-right: 10px;">
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Famille') }}:
+                                            </span>
+                                            <span style="color: #000;">
+                                                {{ \App\Helpers\TranslationHelper::TranslateText(Str::limit($famille->nom, 30)) }}
+                                            </span>
+                                        </li>
+                                        @endif
+
                                         <br>
-                                        <li> <span style="color: #EFB121">
+                                        <li> <span style="color: #0162B1;margin-right: 10px;">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Reference') }}:</span>
-                                            <span style="color: #5EA13C">{{ $produit->reference }}</span>
+                                            <span style="color: #000;">{{ $produit->reference }}</span>
                                         </li>
                                     </ul>
                                     <p class="description">

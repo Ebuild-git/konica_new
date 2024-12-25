@@ -1,7 +1,7 @@
 <div>
     <form wire:submit="save">
         <div class="mb-3">
-            <label for="">Logo de la marque(126*70)</label>
+            <label for="">Logo de la marque(133*78)</label>
             <input type="file" name="logo" wire:model="logo" class="form-control" id="">
             @error('logo')
                 <span class="small text-danger">
