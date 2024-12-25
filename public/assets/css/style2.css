@@ -54,7 +54,7 @@ width: 100%;
 
 /* Styling individual items within the dropdown */
 .secondary-navigation .dropdown-item {
-    padding: 8px 16px;
+    padding: 0px 10px;
     display: block;
     width: 100%; /* Full width for each item */
     text-align: left; /* Align text to the left */
@@ -85,10 +85,9 @@ width: 100%;
 
 .submenu,
     .sub-submenu {
-        margin-left: 20px; /* Indentation for subcategories */
-        padding-left: 10px; /* Add padding for readability */
+        margin-left: 5px; /* Indentation for subcategories */
+        padding-left: 2px; /* Add padding for readability */
     }
-
     .submenu span,
     .sub-submenu span {
         display: block;

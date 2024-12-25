@@ -284,16 +284,16 @@
                         <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
                             @foreach($groupedCategories as $category)
                             <li class="dropdown-item">
-                                <span>{{ $category['category_name'] }}</span>
+                                <span style="text-decoration: underline;">{{ $category['category_name'] }}</span>
                                 @if($category['subcategories']->isNotEmpty())
                                     <ul class="submenu">
                                         @foreach($category['subcategories'] as $subcategory)
                                             <li>
-                                                <span>{{ $subcategory['subcategory_name'] }}</span>
+                                                <span style="font-weight:400;text-decoration: underline;">{{ $subcategory['subcategory_name'] }}</span>
                                                 @if($subcategory['families']->isNotEmpty())
                                                     <ul class="sub-submenu">
                                                         @foreach($subcategory['families'] as $family)
-                                                            <li><span>{{ $family['family_name'] }}</span></li>
+                                                            <li><span style="font-weight:400;text-decoration: underline;">{{ $family['family_name'] }}</span></li>
                                                         @endforeach
                                                     </ul>
                                                 @endif
