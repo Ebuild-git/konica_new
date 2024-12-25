@@ -268,3 +268,60 @@ list-style: none; /* Supprimer les puces */
         display: none;
     }
 }
+
+
+/* General styling for mobile navigation */
+.mobile-nav-menu {
+    display: none; /* Hidden by default, shown by JS on click */
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Full width */
+    position: absolute;
+    z-index: 1000; /* Ensure it's on top */
+    left: 0;
+    top: 60px; /* Adjust based on your header's height */
+    list-style: none; /* Remove default list styling */
+    border-top: 1px solid #ccc; /* Subtle separation from the header */
+}
+
+.mobile-nav-item {
+    width: 100%; /* Full width of the menu */
+    border-bottom: 1px solid #ccc; /* Light line to separate items */
+}
+
+.mobile-nav-link, .mobile-submenu-link, .mobile-dropdown-item {
+    display: block;
+    padding: 10px 20px; /* Adequate padding for touch targets */
+    color: #333; /* Neutral, legible text color */
+    text-decoration: none;
+    font-size: 16px; /* Legible font size */
+    font-weight: normal; /* Default weight for simplicity */
+}
+
+/* Hover states for interactivity feedback */
+.mobile-nav-link:hover, .mobile-submenu-link:hover, .mobile-dropdown-item:hover {
+    color: #555; /* Slightly darker text on hover */
+    text-decoration: none; /* No underline on hover */
+}
+
+/* Submenu specific styling */
+.mobile-dropdown-menu, .mobile-submenu-dropdown-menu {
+    padding-left: 0;
+}
+
+.mobile-dropdown-submenu .mobile-submenu-dropdown-menu {
+    padding-left: 20px; /* Indent submenus for hierarchy */
+}
+
+/* Show the mobile menu when mobile-nav-toggler is clicked */
+.mobile-nav-toggler.clicked + .mobile-nav-menu {
+    display: block;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .mobile-nav-menu {
+        display: block; /* Always shown on mobile when toggled */
+    }
+}
+

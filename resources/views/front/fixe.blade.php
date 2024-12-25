@@ -176,6 +176,34 @@
                                     <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
                                 </a>
                             </div>
+                            <!-- Mobile-specific navigation menu -->
+                            <ul class="mobile-nav-menu">
+                                @foreach($groupedCategories as $category)
+                                <li class="mobile-nav-item">
+                                    <a href="#" class="mobile-nav-link" id="mobileCategoryDropdown{{ $loop->index }}">
+                                        {{ $category['category_name'] }}
+                                    </a>
+                                    <ul class="mobile-dropdown-menu" aria-labelledby="mobileCategoryDropdown{{ $loop->index }}" style="display: none;">
+                                        @if($category['subcategories']->isNotEmpty())
+                                            @foreach($category['subcategories'] as $subcategory)
+                                            <li class="mobile-dropdown-submenu">
+                                                <a href="#" class="mobile-submenu-link" id="mobileSubCategoryDropdown{{ $loop->parent->index }}{{ $loop->index }}">
+                                                    {{ $subcategory['subcategory_name'] }}
+                                                </a>
+                                                <ul class="mobile-submenu-dropdown-menu" aria-labelledby="mobileSubCategoryDropdown{{ $loop->parent->index }}{{ $loop->index }}" style="display: none;">
+                                                    @if($subcategory['families']->isNotEmpty())
+                                                        @foreach($subcategory['families'] as $family)
+                                                        <li><a href="#" class="mobile-dropdown-item">{{ $family['family_name'] }}</a></li>
+                                                        @endforeach
+                                                    @endif
+                                                </ul>
+                                            </li>
+                                            @endforeach
+                                        @endif
+                                    </ul>
+                                </li>
+                                @endforeach
+                            </ul>
                         </nav>
                     </div>
 
@@ -262,11 +290,11 @@
                                 </div>
                             </li>
 
-                            {{-- <li class="axil-mobile-toggle">
+                            <li class="axil-mobile-toggle">
                                 <button class="menu-btn mobile-nav-toggler">
                                     <i class="flaticon-menu-2"></i>
                                 </button>
-                            </li> --}}
+                            </li>
                         </ul>
                     </div>
 
@@ -274,6 +302,27 @@
                 </div>
             </div>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Handle clicks on category links
+    $('.mobile-nav-link').click(function(e) {
+        e.preventDefault(); // Prevent the default anchor link behavior
+        var $dropdown = $(this).next('.mobile-dropdown-menu');
+        $('.mobile-dropdown-menu').not($dropdown).slideUp(); // Close other menus
+        $dropdown.slideToggle(); // Toggle the current menu
+    });
+
+    // Handle clicks on subcategory links
+    $('.mobile-submenu-link').click(function(e) {
+        e.preventDefault(); // Prevent the default anchor link behavior
+        var $submenu = $(this).next('.mobile-submenu-dropdown-menu');
+        $('.mobile-submenu-dropdown-menu').not($submenu).slideUp(); // Close other sub-menus
+        $submenu.slideToggle(); // Toggle the current sub-menu
+    });
+});
+</script>
+
         <nav class="secondary-navigation axil-mainmenu" style="padding: 5px;">
             <div class="container-fluid">
                 <ul class="secondary-menu" id="mobileNav">
@@ -312,7 +361,6 @@ document.querySelector('.hamburger-menu').addEventListener('click', function() {
     document.querySelector('.header-navbar').classList.toggle('active');
 });
 </script>
-
 
     <main>
 
