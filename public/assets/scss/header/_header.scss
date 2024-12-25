@@ -1,5 +1,5 @@
 /*-----------------------
-    Header Styles  
+    Header Styles
 -------------------------*/
 .header-brand {
     a {
@@ -157,7 +157,7 @@
             padding: 15px 0;
         }
     }
-    
+
     @media only screen and (max-width: 1399px) {
         .header-navbar {
             .header-main-nav {
@@ -205,7 +205,7 @@
                 @media (max-width: 991px) {
                     margin: 0;
                 }
-                
+
             }
         }
     }
@@ -420,7 +420,7 @@
 }
 
 /*-----------------------
-    Header Action  
+    Header Action
 -------------------------*/
 .header-action {
     @media #{$small-mobile} {
@@ -578,8 +578,8 @@
                     }
                 }
             }
-            
-          
+
+
             &.open {
                 opacity: 1;
                 visibility: visible;
@@ -633,7 +633,7 @@
     visibility: hidden;
     z-index: 10;
     @media only screen and (max-width: 991px) {
-        width: 92%; 
+        width: 92%;
         right: -100%;
     }
     .card-close {
@@ -672,10 +672,10 @@
         max-height: 90vh;
         overflow: auto;
         @media only screen and (max-width: 991px) {
-            width: 100%;   
+            width: 100%;
             padding: 70px 30px 30px;
         }
-        @media only screen and (max-width: 479px) {  
+        @media only screen and (max-width: 479px) {
             padding: 70px 15px 30px;
         }
     }
@@ -721,7 +721,7 @@
             bottom: 0;
             z-index: 10;
             pointer-events: none;
-            
+
             &:before {
                 display: none;
             }
@@ -835,7 +835,7 @@
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
         transition: all .3s cubic-bezier(0.29, 1.39, 0.86, 1.15);
-        
+
     }
 }
 
@@ -845,13 +845,13 @@
 .axil-mainmenu.aside-category-menu {
     background-color: #f7f7f7;
     @media only screen and (max-width: 991px) {
-        padding: 10px 0;   
+        padding: 10px 0;
     }
     .header-main-nav {
         margin-right: 0;
         margin-left: 40px;
         @media only screen and (max-width: 991px) {
-            margin-left: 0;   
+            margin-left: 0;
         }
     }
     .header-nav-department {
@@ -870,7 +870,7 @@
             padding: 17px 30px;
             position: relative;
             @media only screen and (max-width: 991px) {
-                padding: 10px 20px;  
+                padding: 10px 20px;
                 border-radius: 6px;
             }
             .icon {
@@ -878,7 +878,7 @@
                 color: var(--color-white);
                 font-size: 18px;
                 @media only screen and (max-width: 991px) {
-                    margin-right: 15px;   
+                    margin-right: 15px;
                 }
                 @media #{$small-mobile} {
                     display: none;
@@ -977,7 +977,7 @@
                 position: relative;
                 @media #{$smlg-device} {
                     font-size: 16px;
-                    padding: 12px 0;    
+                    padding: 12px 0;
                 }
                 .menu-icon {
                     margin-right: 14px;
@@ -1027,7 +1027,7 @@
             transition: all 0.3s ease-in-out;
             margin-left: 1px;
             @media only screen and (max-width: 1320px) {
-                width: 870px; 
+                width: 870px;
             }
             @media only screen and (max-width: 1199px) {
                 position: initial;
@@ -1078,10 +1078,10 @@
                 }
                 &:nth-child(1n) {
                     transition-delay: 0.1s;
-                }       
+                }
                 &:nth-child(2n) {
                     transition-delay: 0.2s;
-                }       
+                }
                 &:nth-child(3n) {
                     transition-delay: 0.3s;
                 }
@@ -1158,7 +1158,7 @@
                     text-align: center;
                 }
             }
-        } 
+        }
     }
 
     .mainmenu {
@@ -1186,7 +1186,7 @@
     Mobile Menu
 -------------------------*/
 .header-main-nav {
-    .mainmenu-nav {  
+    .mainmenu-nav {
         @media only screen and (max-width: 991px) {
             display: block;
             position: fixed;
@@ -1195,7 +1195,7 @@
             right: -250px;
             width: 250px;
             background-color: var(--color-white);
-            z-index: 100; 
+            z-index: 100;
             transition: all 0.3s ease-in-out;
             padding: 20px 30px 10px;
             visibility: hidden;
@@ -1309,7 +1309,7 @@
     color: var(--color-dark);
     font-size: 12px;
     @media only screen and (min-width: 992px) {
-        display: none;   
+        display: none;
     }
     &:hover {
         background-color: var(--color-primary);
@@ -1323,7 +1323,7 @@
         max-height: 35px;
     }
     @media only screen and (min-width: 992px) {
-        display: none;   
+        display: none;
     }
 }
 

@@ -21,8 +21,8 @@ STYLESHEET INDEXING
 |	|___ Extend
 |	|___ Animations
 |	|___ Shortcode
-|	|___ Common Style 
-|	|___ Forms Styles 
+|	|___ Common Style
+|	|___ Forms Styles
 |
 |___Elements Styles
 |	|___ About Us
@@ -61,7 +61,7 @@ STYLESHEET INDEXING
 Default Styles
 ================================== */
 /*----------------------
-Variables 
+Variables
 -----------------------*/
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Poppins:wght@400;500;600;700&display=swap");
 :root {
@@ -777,7 +777,7 @@ var {
 }
 
 /*---------------------------
-	List Style 
+	List Style
 ---------------------------*/
 ul,
 ol {
@@ -858,7 +858,7 @@ ol ul {
 }
 
 /*----------------------
-Extend 
+Extend
 -----------------------*/
 .post-scale, .radius {
   border-radius: var(--radius);
@@ -888,7 +888,7 @@ Extend
 }
 
 /*----------------------
-Animation  
+Animation
 -----------------------*/
 .post-scale {
   overflow: hidden;
@@ -946,7 +946,7 @@ Animation
   }
 }
 /* ------------------------
-    Custom Animation 01 
+    Custom Animation 01
 ----------------------------*/
 @-webkit-keyframes headerSlideDown {
   0% {
@@ -1013,7 +1013,7 @@ Animation
   }
 }
 /*--------------------------------
-Scroll Down Button Animation  
+Scroll Down Button Animation
 ----------------------------------*/
 @keyframes scrollDown {
   0% {
@@ -1104,7 +1104,7 @@ Shortcode
 }
 
 /*===============================
-    Background Color 
+    Background Color
 =================================*/
 .bg-color-primary {
   background: var(--color-primary);
@@ -1135,7 +1135,7 @@ Shortcode
 }
 
 /*===========================
-    Background Image 
+    Background Image
 =============================*/
 .bg_image--1 {
   background-image: url(../images/bg/bg-image-1.jpg);
@@ -1721,7 +1721,7 @@ textarea:-ms-input-placeholder {
 }
 
 /*=============================
-	Overlay styles 
+	Overlay styles
 ==============================*/
 [data-overlay],
 [data-black-overlay],
@@ -1824,7 +1824,7 @@ textarea:-ms-input-placeholder {
 }
 
 /*------------------------------
-    Scroll Up 
+    Scroll Up
 --------------------------------*/
 #scrollUp {
   width: 70px;
@@ -1917,7 +1917,7 @@ textarea:-ms-input-placeholder {
 }
 
 /*--------------------
-    Contact Form 
+    Contact Form
 ----------------------*/
 .form-message {
   margin-bottom: 0;
@@ -1933,7 +1933,7 @@ textarea:-ms-input-placeholder {
 }
 
 /*----------------------
-Common Style 
+Common Style
 -----------------------*/
 /* Theme Gradient */
 .bg-gradient-1 {
@@ -2452,7 +2452,7 @@ input[type=submit]:hover {
 Elements Styles
 ================================== */
 /*-------------------------
-About Us  
+About Us
 --------------------------*/
 @media only screen and (max-width: 991px) {
   .axil-about-area .about-thumbnail {
@@ -2636,7 +2636,7 @@ About Us
 }
 
 /*-------------------------
-    Back To Top  
+    Back To Top
 --------------------------*/
 .back-to-top {
   position: fixed;
@@ -2691,7 +2691,7 @@ About Us
 }
 
 /*-------------------------
-    Breadcrumb Styles  
+    Breadcrumb Styles
 --------------------------*/
 .axil-breadcrumb-area {
   position: relative;
@@ -2768,7 +2768,7 @@ About Us
 }
 
 /*----------------------
-    Button Styles  
+    Button Styles
 -----------------------*/
 a.axil-btn,
 button.axil-btn {
@@ -2941,7 +2941,7 @@ button.axil-btn.btn-size-md i {
 }
 
 /*-------------------------
-Categories 
+Categories
 --------------------------*/
 .categrie-product {
   min-width: 120px;
@@ -3075,7 +3075,7 @@ Categories
 }
 
 /*-------------------------
- Contact 
+ Contact
 --------------------------*/
 #gmap_canvas {
   width: 100%;
@@ -3115,7 +3115,7 @@ Categories
 }
 
 /*-------------------------
-Countdown 
+Countdown
 --------------------------*/
 .countdown {
   display: flex;
@@ -3320,7 +3320,7 @@ Countdown
 }
 
 /*-------------------------
-Newsletter  
+Newsletter
 --------------------------*/
 .etrade-newsletter-wrapper {
   padding: 100px 107px 85px;
@@ -3394,7 +3394,7 @@ Newsletter
 }
 
 /* -----------------------
-Pagination 
+Pagination
 --------------------------*/
 .post-pagination {
   margin-top: 80px;
@@ -3850,7 +3850,7 @@ Privacy Policy
 }
 
 /*-------------------------
-Section Heading  
+Section Heading
 --------------------------*/
 .title-highlighter {
   font-size: 14px;
@@ -4102,7 +4102,7 @@ Service
 }
 
 /*----------------------------
-Slick Style  
+Slick Style
 ------------------------------*/
 .slick-layout-wrapper--20 .slick-list {
   margin: -20px;
@@ -6037,7 +6037,7 @@ Video Style
 }
 
 /*-----------------------
-    Splash Page Styles  
+    Splash Page Styles
 -------------------------*/
 .pv-main-wrapper .section-title-wrapper {
   padding-right: 0;
@@ -6533,7 +6533,7 @@ Video Style
 Header Styles
 ================================== */
 /*------------------------------
-    Header Campaign Styles  
+    Header Campaign Styles
 -------------------------------*/
 .header-top-campaign {
   background-image: url("../images/others/campaign-bg2.png");
@@ -6626,7 +6626,7 @@ Header Styles
 }
 
 /*------------------------------
-    Header Top Styles  
+    Header Top Styles
 -------------------------------*/
 .axil-header-top {
   padding: 8px 0;
@@ -6895,7 +6895,7 @@ Header Styles
 }
 
 /*-----------------------
-    Header Styles  
+    Header Styles
 -------------------------*/
 .header-brand a {
   display: block;
@@ -7315,7 +7315,7 @@ Header Styles
 }
 
 /*-----------------------
-    Header Action  
+    Header Action
 -------------------------*/
 @media only screen and (max-width: 479px) {
   .header-action {
@@ -8296,7 +8296,7 @@ Header Styles
 }
 
 /*-------------------------
-    Main Menu Nav  
+    Main Menu Nav
 --------------------------*/
 @media only screen and (max-width: 991px) {
   .mainmenu-nav {
@@ -8434,7 +8434,7 @@ Header Styles
 Shop Styles
 ================================== */
 /*----------------------
-Header Shopping Cart  
+Header Shopping Cart
 -----------------------*/
 .cart-dropdown {
   position: fixed;
@@ -8747,7 +8747,7 @@ body.open .closeMask {
 }
 
 /*----------------------
-    Shop Styles  
+    Shop Styles
 ----------------------*/
 .category-select {
   display: flex;
@@ -10312,7 +10312,7 @@ body.open .closeMask {
 }
 
 /*----------------------------
-    Product Details Styles  
+    Product Details Styles
 ----------------------------*/
 .single-product-thumbnail.thumbnail-badge .thumbnail {
   padding-right: 45px;
@@ -11448,7 +11448,7 @@ body.open .closeMask {
 }
 
 /*-----------------------
-    Checkout Styles  
+    Checkout Styles
 -------------------------*/
 .product-table-heading {
   display: flex;
@@ -12086,7 +12086,7 @@ body.open .closeMask {
 }
 
 /*-----------------------
- My Account Dashboard 
+ My Account Dashboard
 -------------------------*/
 .axil-signin-area {
   position: fixed;
@@ -12465,7 +12465,7 @@ body.open .closeMask {
 Blog Styles
 ================================== */
 /*----------------------------
-Blog List  
+Blog List
 ----------------------------*/
 .axil-post-wrapper .content-blog {
   border-top: 1px solid #f3f3f3;
@@ -12659,7 +12659,7 @@ Blog List
 }
 
 /*---------------------
-    Blog Meta 
+    Blog Meta
 -----------------------*/
 .axil-post-meta {
   display: flex;
@@ -12712,7 +12712,7 @@ Blog List
 }
 
 /*---------------------
-    Blog Grid 
+    Blog Grid
 -----------------------*/
 .blog-grid {
   border: 1px solid #f1f1f1;
@@ -12782,7 +12782,7 @@ Blog List
 }
 
 /*----------------------------
-Blog Single  
+Blog Single
 ----------------------------*/
 .axil-single-post .post-content {
   padding: 0 75px;
@@ -12902,7 +12902,7 @@ Blog Single
 }
 
 /*---------------------
-Axil Comment  
+Axil Comment
 ----------------------*/
 .axil-total-comment-post {
   display: flex;
@@ -12922,7 +12922,7 @@ Axil Comment
 }
 
 /*---------------------------
-  Comment Form Styles  
+  Comment Form Styles
 ----------------------------*/
 .comment-respond {
   margin: 50px 0 0;
@@ -12939,7 +12939,7 @@ Axil Comment
 }
 
 /* --------------------------
-  Comments Styles  
+  Comments Styles
 -----------------------------*/
 .comment-list ul.children {
   padding-left: 75px;
@@ -13030,7 +13030,7 @@ Axil Comment
 }
 
 /*-------------------------
- Blog Sidebar  
+ Blog Sidebar
 ---------------------------*/
 @media only screen and (max-width: 991px) {
   .axil-sidebar-area {
@@ -13058,7 +13058,7 @@ Axil Comment
 }
 
 /*---------------------
-    Tag Cloud 
+    Tag Cloud
 -----------------------*/
 .tagcloud {
   display: flex;
@@ -13084,7 +13084,7 @@ Axil Comment
 }
 
 /*-----------------------
-    Blog Search  
+    Blog Search
 ------------------------*/
 .blog-search,
 .wp-block-search {
@@ -13120,7 +13120,7 @@ Axil Comment
 }
 
 /*---------------------
-    Widget Ress  
+    Widget Ress
 -----------------------*/
 .widget_rss ul li a {
   color: var(--color-heading);
@@ -13144,7 +13144,7 @@ Axil Comment
 }
 
 /*---------------------
-    Widget Archives  
+    Widget Archives
 -----------------------*/
 .widget_archive ul {
   margin-bottom: 0;
@@ -13167,7 +13167,7 @@ Axil Comment
 }
 
 /*---------------------
-    Widget Archives Dropdown 
+    Widget Archives Dropdown
 -----------------------*/
 .widget_archive_dropdown select {
   border-radius: 4px;
@@ -13179,7 +13179,7 @@ Axil Comment
 Footer Styles
 ================================== */
 /*------------------------
-    Footer Styles  
+    Footer Styles
 -------------------------*/
 .footer-top {
   padding: 80px 0 40px;
@@ -13204,7 +13204,7 @@ Footer Styles
 }
 
 /*----------------------
-    Footer Widget  
+    Footer Widget
 ----------------------*/
 .axil-footer-widget {
   margin-bottom: 40px;
@@ -13280,7 +13280,7 @@ Footer Styles
 }
 
 /*-----------------------
-    Copyright Area  
+    Copyright Area
 ------------------------*/
 .copyright-default {
   padding: 15px 0;
@@ -13670,7 +13670,7 @@ Footer Styles
 }
 
 /*-----------------------
-   Offer Popup Modal Area  
+   Offer Popup Modal Area
 ------------------------*/
 .offer-popup-modal {
   position: fixed;

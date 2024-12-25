@@ -1,0 +1,158 @@
+
+.axil-mainmenu1 .header-navbar {
+display: flex;
+align-items: center;
+width: 100%;
+}
+.axil-mainmenu1 .header-navbar .header-main-nav {
+  flex: 1;
+  margin: 0 50px;
+}
+.secondary-navigation {
+background-color: #0162B1;
+padding: 10px 0;
+border-top: 1px solid #ddd;
+width: 100%;
+}
+
+.secondary-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.secondary-menu li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.secondary-menu li a:hover {
+    color: #c71f2e;
+}
+
+/* Dropdown menu to be full width */
+.secondary-navigation .dropdown-menu {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed positioning to stretch across the screen */
+    top: 100%; /* Position it right below the navbar */
+    left: 0; /* Start from the left edge of the viewport */
+    width: 100vw; /* Full viewport width */
+    background-color: #fff; /* Background color */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow for visibility */
+    border-top: 1px solid #ccc; /* A subtle top border */
+}
+
+/* Show dropdown menu on hover */
+.secondary-navigation .dropdown:hover .dropdown-menu {
+    display: block; /* Show the dropdown */
+}
+
+/* Styling individual items within the dropdown */
+.secondary-navigation .dropdown-item {
+    padding: 12px 16px; /* Adequate padding for touch targets */
+    display: block;
+    width: 100%; /* Full width for each item */
+    text-align: left; /* Align text to the left */
+    color: #333; /* Text color */
+    text-decoration: none; /* No underline */
+}
+
+.secondary-navigation .dropdown-item:hover {
+    background-color: #f0f0f0; /* Light grey background on hover */
+}
+.secondary-navigation.axil-sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #f8f9fa;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.dropdown-item span {
+    display: block;
+    color: #333;
+    cursor: pointer;
+    font-weight: bold; /* Make category names bold */
+    font-size: 12px;
+}
+
+.submenu {
+    list-style: none;
+    padding-left: 20px; /* Indent subcategories */
+}
+
+.submenu li span {
+    font-weight: normal; /* Normal font weight for subcategories */
+}
+
+.dropdown-item {
+    padding: 5px 10px; /* Smaller padding for a compact look */
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+.axil-mainmenu {
+    display: flex;
+    justify-content: center;  /* Centrer horizontalement */
+    align-items: center;      /* Centrer verticalement */
+    width: 100%;
+}
+
+.axil-mainmenu.axil-sticky {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 5;
+    background-color: #0162B1 !important;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+  }
+/* Menu sous forme de hamburger */
+.hamburger-menu {
+    display: none; /* Cacher par défaut */
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+}
+
+/* Menu active (mobile) */
+.header-navbar.active .nav-menu-list {
+    display: block;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header-department .nav-menu-list {
+display: flex; /* Utiliser flexbox pour le conteneur */
+flex-direction: row; /* Aligner les éléments horizontalement */
+padding: 0; /* Supprimer le padding par défaut */
+margin: 0; /* Supprimer la marge par défaut */
+list-style: none; /* Supprimer les puces */
+}
+
+.header-department .nav-menu-list li {
+    margin: 0 15px; /* Espacement entre les éléments */
+}
+
+.header-department .nav-menu-list li a {
+    display: block; /* Rendre le lien cliquable sur toute la largeur */
+    padding: 10px; /* Ajouter du padding pour le confort */
+    text-decoration: none; /* Supprimer le soulignement */
+    color: #000; /* Couleur du texte */
+}
+
+.header-department .nav-menu-list li a:hover {
+    background-color: #f0f0f0; /* Couleur de fond au survol */
+}

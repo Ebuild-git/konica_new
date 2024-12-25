@@ -3,6 +3,37 @@
     $config = DB::table('configs')->first();
     $service = DB::table('services')->get();
     $produit = DB::table('produits')->get();
+
+    $categories = DB::table('categories')
+        ->select(
+            'categories.id as category_id',
+            'categories.nom as category_name',
+            'sous_categories.id as subcategory_id',
+            'sous_categories.nom as subcategory_name',
+            'familles.id as family_id',
+            'familles.nom as family_name'
+        )
+        ->leftJoin('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
+        ->leftJoin('familles', 'sous_categories.id', '=', 'familles.sous_category_id')
+        ->get();
+
+    // Group and nest data for hierarchical display
+    $groupedCategories = $categories->groupBy('category_id')->map(function ($categoryGroup) {
+        return [
+            'category_name' => $categoryGroup->first()->category_name,
+            'subcategories' => $categoryGroup->groupBy('subcategory_id')->map(function ($subcategoryGroup) {
+                return [
+                    'subcategory_name' => $subcategoryGroup->first()->subcategory_name,
+                    'families' => $subcategoryGroup->map(function ($family) {
+                        return [
+                            'family_id' => $family->family_id,
+                            'family_name' => $family->family_name,
+                        ];
+                    })->filter(),
+                ];
+            })->filter(),
+        ];
+    });
 @endphp
 
 <!doctype html>
@@ -31,16 +62,16 @@
     <link rel="stylesheet" href="/assets/css/vendor/base.css">
 
     <link rel="stylesheet" href="/css/style.css">
-
-
+    <link rel="stylesheet" href="/assets/css/style2.css">
     <link rel="stylesheet" href="/assets/css/style.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/Script.js"></script>
-   
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @yield('header')
 
@@ -50,9 +81,9 @@
 
 
 <body class="sticky-header overflow-md-visible">
- 
+
     <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
-  
+
     <header class="header axil-header header-style-7">
         <div class="axil-header-top">
             <div class="container-fluid">
@@ -69,7 +100,7 @@
                             <ul class="quick-link">
                                 <div class="header-top-dropdown">
                                     <div class="dropdown">
-                                     
+
 
                                         <form action="{{ route('locale.change') }}" method="POST">
                                             @csrf
@@ -117,9 +148,9 @@
                 </div>
             </div>
         </div>
-     
+
         <div id="axil-sticky-placeholder"></div>
-        <div class="axil-mainmenu">
+        <div class="axil-mainmenu1">
             <div class="container-fluid">
                 <div class="header-navbar">
 
@@ -131,14 +162,12 @@
                             <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
                         </a>
 
-                       
+
                     </div>
-                 
+
                     <div class=" header-main-nav">
                         <nav class="mainmenu-nav">
                             <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
-
-
                             <div class="mobile-nav-brand header-brands">
                                 <a href="{{ route('home') }}" class="logo logo-dark">
                                     <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
@@ -147,60 +176,11 @@
                                     <img src="{{ Storage::url($config->logo ?? ' ') }}" alt="Site Logo">
                                 </a>
                             </div>
-
-                            
-
-                            <ul class="mainmenu">
-
-                                
-
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" href="#" role="button"
-                                        id="dropdown-header-menu" data-bs-toggle="dropdown" aria-expanded="false">
-                                     
-                                       <i class="far fa-th-large" style="font-size: 22px; color:white;"></i>
-
-                                        {{ \App\Helpers\TranslationHelper::TranslateText('Categories') }}
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdown-header-menu">
-                                        @foreach ($categories as $category)
-                                            <li>
-
-                                                <a class="dropdown-item1 @class([
-                                                    'selected' =>
-                                                        isset($current_category) && $current_category->id === $category->id,
-                                                ])"
-                                                    href="/category/{{ $category->id }}"
-                                                    style="color: {{ isset($current_category) && $current_category->id === $category->id ? '#EFB121' : '#000000' }};">
-                                                    {{ $category->nom ?? ' ' }}
-                                                </a>
-
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </li>
-
-
-
-                                <li class="menu-item"><a href="{{ route('home') }}">{{ __('accueil') }}</a>
-
-                                </li>
-
-
-
-
-                                <li class="menu-item">
-                                    <a href="{{ route('shop') }}">{{ __('boutique') }}</a>
-                                </li>
-
-
-                               
-                            </ul> 
                         </nav>
-                    </div> 
+                    </div>
 
 
-                    
+
                     <div class="header-action">
                         <ul class="action-list">
 
@@ -220,10 +200,6 @@
                                     <i class="far fa-search"></i>
                                 </a>
                             </li>
-
-                           
-
-
                             <li class="shopping-cart">
                                 <a href="#" class="cart-dropdown-btn">
                                     <span class="cart-count" id="count-panier-span">00</span>
@@ -240,7 +216,6 @@
                                     <i class="far fa-user"></i>
                                 </a>
                                 <div class="my-account-dropdown">
-
                                     @if (Auth()->user())
                                         <ul>
                                             @if (auth()->user()->role != 'client')
@@ -272,316 +247,113 @@
                                                     @csrf
                                                 </form>
                                             </li>
-
-
-
-
                                         </ul>
                                     @else
                                         <div class="login-btn">
                                             <a href="{{ url('login') }}" class="axil-btn btn-bg-primary2">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Connexion') }}</a>
                                         </div>
-
                                         <div class="reg-footer text-center">
                                             {{ \App\Helpers\TranslationHelper::TranslateText('Pas de compte') }}? <a
                                                 href="{{ url('register') }}" class="btn-link">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Inscrivez vous ici') }}.</a>
                                         </div>
                                     @endif
-
                                 </div>
-
-
-
-
                             </li>
-                    
-                            <li class="axil-mobile-toggle">
+
+                            {{-- <li class="axil-mobile-toggle">
                                 <button class="menu-btn mobile-nav-toggler">
                                     <i class="flaticon-menu-2"></i>
                                 </button>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
 
-                    
+
                 </div>
             </div>
         </div>
-        
-    </header>
- {{--    <header class="header axil-header header-style-2">
-       
-        <div class="axil-mainmenu aside-category-menu">
-            <div class="container">
-                <div class="header-navbar">
-                    <div class="header-nav-department">
-                        <aside class="header-department" >
-                     
-                            <nav class="department-nav-menu" >
-                           
-                                <ul class="nav-menu-list">
-                                    <li>
-                                        <a href="#" class="nav-link has-megamenu">
-                                            <span class="menu-icon"><img src="./assets/images/product/categories/cat-01.png" alt="Department"></span>
-                                            <span class="menu-text">Fashion</span>
-                                        </a>
-                                        <div class="department-megamenu">
-                                            <div class="department-megamenu-wrap">
-                                                <div class="department-submenu-wrap">
-                                                    <div class="department-submenu">
-                                                        <h3 class="submenu-heading">Men</h3>
-                                                        <ul>
-                                                            <li><a href="shop.html">T-shirts</a></li>
-                                                            <li><a href="shop-sidebar.html">Shirts</a></li>
-                                                            <li><a href="shop.html">Jeans</a></li>
-                                                        </ul>
-                                                        <h3 class="submenu-heading">Baby</h3>
-                                                        <ul>
-                                                            <li><a href="shop.html">Baby Cloths</a></li>
-                                                            <li><a href="shop-sidebar.html">Baby Gear</a></li>
-                                                            <li><a href="shop.html">Baby Toddler</a></li>
-                                                            <li><a href="shop-sidebar.html">Baby Toys</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="department-submenu">
-                                                        <h3 class="submenu-heading">Women</h3>
-                                                        <ul>
-                                                            <li><a href="shop.html">Jeans</a></li>
-                                                            <li><a href="shop-sidebar.html">T-shirts</a></li>
-                                                            <li><a href="shop.html">Shirts</a></li>
-                                                            <li><a href="shop.html">Tops</a></li>
-                                                            <li><a href="shop-sidebar.html">Jumpsuits</a></li>
-                                                            <li><a href="shop.html">Coats</a></li>
-                                                            <li><a href="shop-sidebar.html">Sweater</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="department-submenu">
-                                                        <h3 class="submenu-heading">Accessories</h3>
-                                                        <ul>
-                                                            <li><a href="shop.html">Handbag</a></li>
-                                                            <li><a href="shop.html">Shoes</a></li>
-                                                            <li><a href="shop.html">Wallets</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="featured-product">
-                                                    <h3 class="featured-heading">Featured</h3>
-                                                    <div class="product-list">
-                                                        <div class="item-product">
-                                                            <a href="#"><img src="./assets/images/product/product-feature1.png" alt="Featured Product"></a>
-                                                        </div>
-                                                        <div class="item-product">
-                                                            <a href="#"><img src="./assets/images/product/product-feature2.png" alt="Featured Product"></a>
-                                                        </div>
-                                                        <div class="item-product">
-                                                            <a href="#"><img src="./assets/images/product/product-feature3.png" alt="Featured Product"></a>
-                                                        </div>
-                                                        <div class="item-product">
-                                                            <a href="#"><img src="./assets/images/product/product-feature4.png" alt="Featured Product"></a>
-                                                        </div>
-                                                    </div>
-                                                    <a href="#" class="axil-btn btn-bg-primary">See All Offers</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link has-megamenu">
-                                            <span class="menu-icon"><img src="./assets/images/product/categories/cat-02.png" alt="Department"></span>
-                                            <span class="menu-text">Electronics</span>
-                                        </a>
-                                        <div class="department-megamenu">
-                                            <div class="department-megamenu-wrap">
-                                                <div class="department-submenu-wrap">
-                                                    <div class="department-submenu">
-                                                        <h3 class="submenu-heading">Men</h3>
-                                                        <ul>
-                                                            <li><a href="shop.html">T-shirts</a></li>
-                                                            <li><a href="shop-sidebar.html">Shirts</a></li>
-                                                            <li><a href="shop.html">Jeans</a></li>
-                                                        </ul>
-                                                        <h3 class="submenu-heading">Baby</h3>
-                                                        <ul>
-                                                            <li><a href="shop.html">Baby Cloths</a></li>
-                                                            <li><a href="shop-sidebar.html">Baby Gear</a></li>
-                                                            <li><a href="shop.html">Baby Toddler</a></li>
-                                                            <li><a href="shop-sidebar.html">Baby Toys</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="department-submenu">
-                                                        <h3 class="submenu-heading">Women</h3>
-                                                        <ul>
-                                                            <li><a href="shop.html">Jeans</a></li>
-                                                            <li><a href="shop-sidebar.html">T-shirts</a></li>
-                                                            <li><a href="shop.html">Shirts</a></li>
-                                                            <li><a href="shop.html">Tops</a></li>
-                                                            <li><a href="shop-sidebar.html">Jumpsuits</a></li>
-                                                            <li><a href="shop.html">Coats</a></li>
-                                                            <li><a href="shop-sidebar.html">Sweater</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="department-submenu">
-                                                        <h3 class="submenu-heading">Accessories</h3>
-                                                        <ul>
-                                                            <li><a href="shop.html">Handbag</a></li>
-                                                            <li><a href="shop.html">Shoes</a></li>
-                                                            <li><a href="shop.html">Wallets</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="featured-product">
-                                                    <h3 class="featured-heading">Featured</h3>
-                                                    <div class="product-list">
-                                                        <div class="item-product">
-                                                            <a href="#"><img src="./assets/images/product/product-feature1.png" alt="Featured Product"></a>
-                                                        </div>
-                                                        <div class="item-product">
-                                                            <a href="#"><img src="./assets/images/product/product-feature2.png" alt="Featured Product"></a>
-                                                        </div>
-                                                        <div class="item-product">
-                                                            <a href="#"><img src="./assets/images/product/product-feature3.png" alt="Featured Product"></a>
-                                                        </div>
-                                                        <div class="item-product">
-                                                            <a href="#"><img src="./assets/images/product/product-feature4.png" alt="Featured Product"></a>
-                                                        </div>
-                                                    </div>
-                                                    <a href="#" class="axil-btn btn-bg-primary">See All Offers</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link has-megamenu">
-                                            <span class="menu-icon"><img src="./assets/images/product/categories/cat-03.png" alt="Department"></span>
-                                            <span class="menu-text">Home Decor</span>
-                                        </a>
-                                       
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link has-megamenu">
-                                            <span class="menu-icon"><img src="./assets/images/product/categories/cat-04.png" alt="Department"></span>
-                                            <span class="menu-text">Medicine</span>
-                                        </a>
-                                      
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link">
-                                            <span class="menu-icon"><img src="./assets/images/product/categories/cat-05.png" alt="Department"></span>
-                                            <span class="menu-text">Furniture</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link">
-                                            <span class="menu-icon"><img src="./assets/images/product/categories/cat-06.png" alt="Department"></span>
-                                            <span class="menu-text">Crafts</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link">
-                                            <span class="menu-icon"><img src="./assets/images/product/categories/cat-07.png" alt="Department"></span>
-                                            <span class="menu-text">Accessories</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link">
-                                            <span class="menu-icon"><img src="./assets/images/product/categories/cat-08.png" alt="Department"></span>
-                                            <span class="menu-text">Camera</span>
-                                        </a>
-                                        
-                                    </li>
+        <nav class="secondary-navigation axil-mainmenu" style="padding: 5px;">
+            <div class="container-fluid">
+                <ul class="secondary-menu">
+                    {{-- <li><a href="#">{{ __('Categories') }}</a></li> --}}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ __('Categories') }}
+                        </a>
 
+                        <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                            {{-- <li><span href="#" class="dropdown-item">{{ __('Category 1') }}</span></li>
+                            <li><span href="#" class="dropdown-item">{{ __('Category 2') }}</span></li>
+                            <li><span href="#" class="dropdown-item">{{ __('Category 3') }}</span></li> --}}
+                            <!-- More categories as needed -->
+                            {{-- <li class="dropdown-item">
+                                <span>Category 1</span>
+                                <ul class="submenu">
+                                    <li>
+                                        <span>Sub-category 1A</span>
+                                        <ul class="sub-submenu">
+                                            <li><span>Sub-subcategory 1A-1</span></li>
+                                            <li><span>Sub-subcategory 1A-2</span></li>
+                                        </ul>
+                                    </li>
+                                    <li><span>Sub-category 1B</span></li>
                                 </ul>
-                            </nav>
-                        </aside>
-                    </div>
-
-
-                  
-                </div>
+                            </li>
+                            <li class="dropdown-item">
+                                <span>Category 1</span>
+                                <ul class="submenu">
+                                    <li>
+                                        <span>Sub-category 1A</span>
+                                        <ul class="sub-submenu">
+                                            <li><span>Sub-subcategory 1A-1</span></li>
+                                            <li><span>Sub-subcategory 1A-2</span></li>
+                                        </ul>
+                                    </li>
+                                    <li><span>Sub-category 1B</span></li>
+                                </ul>
+                            </li> --}}
+                            @foreach($groupedCategories as $category)
+                            <li class="dropdown-item">
+                                <span>{{ $category['category_name'] }}</span>
+                                @if($category['subcategories']->isNotEmpty())
+                                    <ul class="submenu">
+                                        @foreach($category['subcategories'] as $subcategory)
+                                            <li>
+                                                <span>{{ $subcategory['subcategory_name'] }}</span>
+                                                @if($subcategory['families']->isNotEmpty())
+                                                    <ul class="sub-submenu">
+                                                        @foreach($subcategory['families'] as $family)
+                                                            <li><span>{{ $family['family_name'] }}</span></li>
+                                                        @endforeach
+                                                    </ul>
+                                                @endif
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </li>
+                        @endforeach
+                        </ul>
+                    </li>
+                    <li><a href="{{ route('home') }}">{{ __('Accueil') }}</a></li>
+                    <li><a href="{{ route('shop') }}">{{ __('Boutique') }}</a></li>
+                </ul>
             </div>
-        </div>
-    
+        </nav>
     </header>
- --}}
-<style>
-
-    /* Centrer le menu */
-.axil-mainmenu {
-    display: flex;
-    justify-content: center;  /* Centrer horizontalement */
-    align-items: center;      /* Centrer verticalement */
-    width: 100%;
-}
-
-
-/* Menu sous forme de hamburger */
-.hamburger-menu {
-    display: none; /* Cacher par défaut */
-}
-
-@media screen and (max-width: 768px) {
-    .hamburger-menu {
-        display: block;
-    }
-}
-
-/* Menu active (mobile) */
-.header-navbar.active .nav-menu-list {
-    display: block;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-
-    
-    .header-department .nav-menu-list {
-    display: flex; /* Utiliser flexbox pour le conteneur */
-    flex-direction: row; /* Aligner les éléments horizontalement */
-    padding: 0; /* Supprimer le padding par défaut */
-    margin: 0; /* Supprimer la marge par défaut */
-    list-style: none; /* Supprimer les puces */
-}
-
-.header-department .nav-menu-list li {
-    margin: 0 15px; /* Espacement entre les éléments */
-}
-
-.header-department .nav-menu-list li a {
-    display: block; /* Rendre le lien cliquable sur toute la largeur */
-    padding: 10px; /* Ajouter du padding pour le confort */
-    text-decoration: none; /* Supprimer le soulignement */
-    color: #000; /* Couleur du texte */
-}
-
-.header-department .nav-menu-list li a:hover {
-    background-color: #f0f0f0; /* Couleur de fond au survol */
-}
-</style>
 
 <script>
-
-    // JavaScript pour le menu hamburger
 document.querySelector('.hamburger-menu').addEventListener('click', function() {
     document.querySelector('.header-navbar').classList.toggle('active');
 });
-
 </script>
 
 
     <main>
 
-
-
         @yield('body')
-
-
-
 
     </main>
     <style>
@@ -590,7 +362,7 @@ document.querySelector('.hamburger-menu').addEventListener('click', function() {
             color: #fff;
         }
         </style>
-        
+
 
    {{--  <footer class="axil-footer-area footer-style-2"> --}}
     <footer class="axil-footer-area footer-style-2 custom-footer-bg">
@@ -602,7 +374,7 @@ document.querySelector('.hamburger-menu').addEventListener('click', function() {
                     <div class="col-lg-3 col-sm-6">
                         <div class="axil-footer-widget">
                             <h5 class="widget-title"></h5>
-                         
+
                             <div class="logo mb--30">
                                 <a href="{{ route('home') }}">
                                     <img class="light-logo" src="{{ Storage::url($config->logofooter ?? ' ') }}"
@@ -618,7 +390,7 @@ document.querySelector('.hamburger-menu').addEventListener('click', function() {
 
                         </div>
                     </div>
-                
+
                     <div class="col-lg-3 col-sm-6">
                         <div class="axil-footer-widget">
                             <h5 class="widget-title">
@@ -646,7 +418,7 @@ document.querySelector('.hamburger-menu').addEventListener('click', function() {
                             </div>
                         </div>
                     </div>
-                 
+
                     <div class="col-lg-3 col-sm-6">
                         <div class="axil-footer-widget">
                             <h5 class="widget-title"> {{ \App\Helpers\TranslationHelper::TranslateText(' Pages') }}
@@ -667,14 +439,14 @@ document.querySelector('.hamburger-menu').addEventListener('click', function() {
                             </div>
                         </div>
                     </div>
-                 
+
                     <div class="col-lg-3 col-sm-6">
                         <div class="axil-footer-widget">
                             <h5 class="widget-title">
                                 {{ \App\Helpers\TranslationHelper::TranslateText('Contact info') }}
                             </h5>
                             <div class="inner">
-                             
+
                                 <div class="download-btn-group">
 
                                     <div class="inner">
@@ -694,11 +466,11 @@ document.querySelector('.hamburger-menu').addEventListener('click', function() {
                             </div>
                         </div>
                     </div>
-                  
+
                 </div>
             </div>
         </div>
-  
+
         <div class="copyright-area copyright-default separator-top">
             <div class="container">
                 <div class="row align-items-center">
@@ -799,12 +571,12 @@ document.querySelector('.hamburger-menu').addEventListener('click', function() {
                                             <a onclick="AddToCart( {{ $produit->id }} )" class="cart-btn"><i
                                                     class="fal fa-shopping-cart"></i></a>
                                         @else
-                                          
+
                                             <a class="axil-btn  btn-bg-primary2 "
                                                 href="{{ url('devis', $produit->id) }}" style="color: white;">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Demander devis') }}
                                             </a>
-                                          
+
                                         @endif
                                         @if (Auth()->user())
                                             <a onclick="AddFavoris({{ $produit->id }})" class="cart-btn"><i
@@ -820,7 +592,7 @@ document.querySelector('.hamburger-menu').addEventListener('click', function() {
             </div>
         </div>
     </div>
-  
+
 
 
 
@@ -834,7 +606,7 @@ document.querySelector('.hamburger-menu').addEventListener('click', function() {
             <div class="cart-body">
                 <ul class="cart-item-list" id="list_content_panier">
 
-                 
+
 
 
                 </ul>
@@ -856,7 +628,7 @@ document.querySelector('.hamburger-menu').addEventListener('click', function() {
         </div>
     </div>
 
-  
+
     <!-- JS
 ============================================ -->
     <!-- Modernizer JS -->
@@ -878,6 +650,8 @@ document.querySelector('.hamburger-menu').addEventListener('click', function() {
     <script src="/assets/js/vendor/isotope.pkgd.min.js"></script>
     <script src="/assets/js/vendor/counterup.js"></script>
     <script src="/assets/js/vendor/waypoints.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Main JS -->
     <script src="/assets/js/main.js"></script>
