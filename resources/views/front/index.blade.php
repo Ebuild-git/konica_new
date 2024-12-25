@@ -672,7 +672,7 @@
 
                                 <style>
                                     .fixed-dimension {
-                                        width: 133px; /* Largeur fixe */
+                                        width: 125px; /* Largeur fixe */
                                         height: 87px; /* Hauteur fixe */
                                         object-fit: cover; /* Remplit le conteneur sans déformer l'image */
                                         display: block; /* Supprime les espaces blancs indésirables */
