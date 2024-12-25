@@ -274,7 +274,7 @@
                 </div>
             </div>
         </div>
-        <nav class="secondary-navigation axil-mainmenu" style="padding: 5px;">
+        {{-- <nav class="secondary-navigation axil-mainmenu" style="padding: 5px;">
             <div class="container-fluid">
                 <ul class="secondary-menu">
                     <li class="dropdown">
@@ -309,7 +309,37 @@
                     <li><a href="{{ route('shop') }}">{{ __('Boutique') }}</a></li>
                 </ul>
             </div>
+        </nav> --}}
+        <nav class="secondary-navigation axil-mainmenu" style="padding: 5px;">
+            <div class="container-fluid">
+                <ul class="secondary-menu">
+                    @foreach($groupedCategories as $category)
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" id="categoryDropdown{{ $loop->index }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ $category['category_name'] }}
+                        </a>
+                        <ul class="dropdown-menu custom-scroll" aria-labelledby="categoryDropdown{{ $loop->index }}">
+                            @if($category['subcategories']->isNotEmpty())
+                                @foreach($category['subcategories'] as $subcategory)
+                                <li class="dropdown-item">
+                                    <span style="text-decoration: underline;">{{ $subcategory['subcategory_name'] }}</span>
+                                    @if($subcategory['families']->isNotEmpty())
+                                        <ul class="submenu">
+                                            @foreach($subcategory['families'] as $family)
+                                                <li><span style="font-weight:400;text-decoration: underline;">{{ $family['family_name'] }}</span></li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                </li>
+                                @endforeach
+                            @endif
+                        </ul>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
         </nav>
+
     </header>
 
 <script>
