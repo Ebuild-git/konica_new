@@ -15,7 +15,7 @@ class Famille extends Model
     }
 
     public function produits(){
-        return $this->hasMany(Produits::class, 'famille_id','id');
+        return $this->hasMany(produits::class, 'famille_id','id');
     }
   
     public function productCount()
