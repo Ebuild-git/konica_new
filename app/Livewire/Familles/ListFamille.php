@@ -39,9 +39,9 @@ public function delete($id){
    if($famille){
   //  $this->emit('villeDeleted');
     session()->flash('success', 'Famille deleted successfully');
-    return redirect()->route('transports');
+    return redirect()->route('familles');
    }
-    return redirect()->route('transports');
+    return redirect()->route('familles');
 }
 
     public function render()
