@@ -106,29 +106,21 @@
                             {{ \App\Helpers\TranslationHelper::TranslateText('Parcourrir par categories') }}
                         </h2>
                     </div>
-                    <div class="categrie-product-activation slick-layout-wrapper--15 axil-slick-arrow  arrow-top-slide">
-
+                    <div class="custom-slider">
                         @foreach ($categories as $category)
-                            <div class="slick-single-layout">
-                                <div class="categrie-product" data-sal="zoom-out" data-sal-delay="200"
-                                    data-sal-duration="500">
-                                    <a href="/category/{{ $category->id }}"
-                                        class="{{ isset($current_category) && $current_category->id === $category->id ? 'selected' : '' }}">
-                                        <img {{-- class="img-fluid" --}} src="{{ Storage::url($category->photo) }}"
-                                            width="200" border-radius="8px" height="200" class="rounded shadow"
-                                            alt="product categorie">
-                                        {{-- <img class="img-fluid" src="./assets/images/product/categories/elec-4.png" alt="product categorie"> --}}
-                                        <h6 class="cat-title">
-                                            {{ \App\Helpers\TranslationHelper::TranslateText($category->nom ?? '') }}
-                                        </h6>
-                                    </a>
-                                </div>
-
+                            <div class="custom-slide">
+                                <a href="/category/{{ $category->id }}" class="{{ isset($current_category) && $current_category->id === $category->id ? 'active-link' : 'category-link' }}">
+                                    <div class="image-container">
+                                        <img src="{{ Storage::url($category->photo) }}" alt="{{ $category->nom }}" class="category-image">
+                                    </div>
+                                    <div class="title-container">
+                                        <h6>{{ \App\Helpers\TranslationHelper::TranslateText($category->nom ?? '') }}</h6>
+                                    </div>
+                                </a>
                             </div>
                         @endforeach
-
-
                     </div>
+
                 </div>
             </div>
 

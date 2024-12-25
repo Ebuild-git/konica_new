@@ -194,3 +194,70 @@ list-style: none; /* Supprimer les puces */
     background: #f1f1f1; /* Track color */
     border-radius: 2px; /* Rounded corners for track */
 }
+
+
+.custom-slider {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px; /* Space between items */
+}
+
+.custom-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 106px; /* Fixed width for each slide */
+    height: 121px; /* Fixed height for each slide */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Subtle shadow for depth */
+}
+
+.category-link, .active-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none; /* Removes underline from links */
+}
+
+.active-link {
+    border: 2px solid blue; /* Highlight for active category */
+}
+
+.image-container {
+    width: 100%;
+    height: 70%; /* Allocate 70% of the height to the image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-image {
+    max-width: 60%;
+    max-height: 60%;
+    object-fit: cover; /* Cover ensures the image fills the area */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.title-container {
+    width: 100%;
+    height: 30%; /* Allocate 30% of the height to the title */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9f9f9; /* Light background for the title area */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.title-container h6 {
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* No wrap to ensure single line */
+    font-size: 14px; /* Consistent font size */
+}
