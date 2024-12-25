@@ -304,28 +304,28 @@
                             </li>
                             @endforeach --}}
                             @foreach($groupedCategories as $category)
-                        <div class="dropdown-item">
-                            <a href="#" class="category-link">
-                                <span>{{ $category['category_name'] }}</span>
-                            </a>
-                            @if($category['subcategories']->isNotEmpty())
-                                <ul class="submenu">
-                                    @foreach($category['subcategories'] as $subcategory)
-                                        <li>
-                                            <span>{{ $subcategory['subcategory_name'] }}</span>
-                                            @if($subcategory['families']->isNotEmpty())
-                                                <ul class="sub-submenu">
-                                                    @foreach($subcategory['families'] as $family)
-                                                        <li><span>{{ $family['family_name'] }}</span></li>
-                                                    @endforeach
-                                                </ul>
-                                            @endif
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            @endif
-                        </div>
-                    @endforeach
+                                <div>
+                                    <a href="#" class="category-link">
+                                        <span>{{ $category['category_name'] }}</span>
+                                    </a>
+                                    @if($category['subcategories']->isNotEmpty())
+                                        <ul class="submenu">
+                                            @foreach($category['subcategories'] as $subcategory)
+                                                <li>
+                                                    <span>{{ $subcategory['subcategory_name'] }}</span>
+                                                    @if($subcategory['families']->isNotEmpty())
+                                                        <ul class="sub-submenu">
+                                                            @foreach($subcategory['families'] as $family)
+                                                                <li><span>{{ $family['family_name'] }}</span></li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @endif
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                </div>
+                            @endforeach
                         </ul>
                     </li>
                     <li><a href="{{ route('home') }}">{{ __('Accueil') }}</a></li>

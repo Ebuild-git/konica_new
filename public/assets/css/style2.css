@@ -22,6 +22,7 @@ width: 100%;
     gap: 10px;
     padding: 0;
     margin: 0;
+
 }
 
 .secondary-menu li a {
@@ -82,14 +83,18 @@ width: 100%;
     font-size: 12px;
 }
 
-.submenu {
-    list-style: none;
-    padding-left: 20px; /* Indent subcategories */
-}
+.submenu,
+    .sub-submenu {
+        margin-left: 20px; /* Indentation for subcategories */
+        padding-left: 10px; /* Add padding for readability */
+        border-left: 2px solid #ccc; /* Optional: visual separator */
+    }
 
-.submenu li span {
-    font-weight: normal; /* Normal font weight for subcategories */
-}
+    .submenu span,
+    .sub-submenu span {
+        display: block;
+        margin: 2px 0;
+    }
 
 .dropdown-item {
     padding: 5px; /* Smaller padding for a compact look */
@@ -155,4 +160,15 @@ list-style: none; /* Supprimer les puces */
 
 .header-department .nav-menu-list li a:hover {
     background-color: #f0f0f0; /* Couleur de fond au survol */
+}
+.category-link {
+    text-decoration: none;
+    color: inherit; /* Use default text color */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.category-link:hover {
+    color: #c71f2e; /* Add hover effect */
+    text-decoration: underline; /* Optional: underline on hover */
 }
