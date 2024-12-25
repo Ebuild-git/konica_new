@@ -3,7 +3,7 @@
 @section('body')
     <main>
         @php
-        
+
             $service = DB::table('services')->get();
             $produit = DB::table('produits')->get();
             $config = DB::table('configs')->first();
@@ -81,14 +81,14 @@
                                --}}  <h3 class="title">
                                 {{ \App\Helpers\TranslationHelper::TranslateText($config->titre_appros ?? '') }}
                                </h3>
-                                
+
                                 <div class="row">
                                     <div class="col-xl-12">
                                         <p style="text-align: justify">
                                             {!! \App\Helpers\TranslationHelper::TranslateText($config->des_apropos ?? ' ') !!}
                                         </p>
                                     </div>
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -257,7 +257,7 @@
                                                                         </strike>
                                                                     </div>
                                                                 @else
-                                                               
+
                                                                     <div class="text-center">
                                                                         <span class="price current-price"
                                                                             style="font-size: 1.7rem;">
@@ -267,24 +267,24 @@
                                                                             <br>
 
                                                                             @endif
-                                                                        
-                                                                           
+
+
                                                                         </span>
                                                                     </div>
 
-                                                              
-                                                                  
-                                                                
+
+
+
                                                             @endif
                                                             {{--  @if ($produit->sur_devis == true)
-                                                            
+
                                                             <a href="{{ url('devis', $produit->id) }}" style="font-size: 1.7rem; color: white;">
-                                                        @endif  
+                                                        @endif
  --}}
 
 
                                                         </h6>
-                                                       
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -323,7 +323,7 @@
                                     <img src="{{ Storage::url($config->icone_satisfaction ?? '') }}" width="100"
                                         height="100" alt="Shape">
                                 </div>
-                              
+
 
                                 <div class="content">
                                     <h5 class="title" style="text-align: justify">
@@ -413,7 +413,7 @@
                                                 </div>
                                                 <div class="product-content">
                                                     <div class=" col-sm-12 inner">
-                                                       
+
 
                                                         <div class="product-cate"
                                                             style="font-size: 20px; font-weight: bold;"><a
@@ -513,7 +513,7 @@
                             @endforeach
                         @endif
 
-                      
+
                     </div>
 
                 </div>
@@ -588,7 +588,7 @@
                                     {{ session('success') }}
                                 </div>
                             @endif
-                          
+
                         </div>
 
 
@@ -606,12 +606,12 @@
                                 <h3 class="title mb--10">
                                     {{ \App\Helpers\TranslationHelper::TranslateText('Nous aimerions avoir de nos nouvelles') }}.</h3>
                                 <p>
-                                    
+
                                     {{ \App\Helpers\TranslationHelper::TranslateText('Si vous des excellents produits que vous fabriquez ou vous souhaitez travaillez avec nous, envoyez-nous un message') }}
                                 </p>
                                 @livewire('Front.ContactForm')
-                            
-                         
+
+
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -623,16 +623,16 @@
                                 <span class="phone">Télphone: {{ $configs->telephone ?? ' ' }}</span>
                                 <span class="email">Email: {{ $configs->email ?? ' ' }}</span>
                             </div>
-                           
+
                             <div class="opening-hour">
                                 <h4 class="title mb--20">
                                     {{ \App\Helpers\TranslationHelper::TranslateText('Horaires ouverture') }}:</h4>
                                 <p>
                                     {{ \App\Helpers\TranslationHelper::TranslateText('Du lundi  au samedi: 9h00-22h') }}
-                                    
+
                                     <br>
                                     {{ \App\Helpers\TranslationHelper::TranslateText('Dimanche : 10h00 - 18h00') }}
-                                    
+
                                 </p>
                             </div>
                         </div>
@@ -665,34 +665,34 @@
                                 data-sal-duration="500">
                                 <a  href="/marque/{{ $marque->id }}"
                                     class="{{ isset($current_marque) && $current_marque->id === $marque->id ? 'selected' : '' }}">
-                                    <img  class="fixed-dimension"  src="{{ Storage::url($marque->image) }}" 
+                                    <img  class="fixed-dimension"  src="{{ Storage::url($marque->image) }}"
                                         alt="product categorie">
                                     <h6 class="cat-title">{{ $marque->nom }}</h6>
                                 </a>
 
                                 <style>
                                     .fixed-dimension {
-    width: 150px; /* Largeur fixe */
-    height: 150px; /* Hauteur fixe */
-    object-fit: cover; /* Remplit le conteneur sans déformer l'image */
-    display: block; /* Supprime les espaces blancs indésirables */
-    border-radius: 5px; /* Optionnel : coins arrondis pour l'image */
-    overflow: hidden; /* Cache les débordements éventuels */
-}
+                                        width: 133px; /* Largeur fixe */
+                                        height: 87px; /* Hauteur fixe */
+                                        object-fit: cover; /* Remplit le conteneur sans déformer l'image */
+                                        display: block; /* Supprime les espaces blancs indésirables */
+                                        border-radius: 5px; /* Optionnel : coins arrondis pour l'image */
+                                        overflow: hidden; /* Cache les débordements éventuels */
+                                    }
 
                                 </style>
                             </div>
                             <!-- End .categrie-product -->
                         </div>
                         @endforeach
-                      
+
                     </div>
                 </div>
             </div>
 
 
-           
-          
+
+
 
 
 
