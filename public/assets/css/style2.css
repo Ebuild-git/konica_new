@@ -263,4 +263,8 @@ list-style: none; /* Supprimer les puces */
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-
+@media (max-width: 768px) {
+    .secondary-navigation {
+        display: none;
+    }
+}

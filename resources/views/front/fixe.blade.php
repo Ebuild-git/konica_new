@@ -274,45 +274,9 @@
                 </div>
             </div>
         </div>
-        {{-- <nav class="secondary-navigation axil-mainmenu" style="padding: 5px;">
-            <div class="container-fluid">
-                <ul class="secondary-menu">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ __('Categories') }}
-                        </a>
-                        <ul class="dropdown-menu custom-scroll" aria-labelledby="categoriesDropdown">
-                            @foreach($groupedCategories as $category)
-                            <li class="dropdown-item">
-                                <span style="text-decoration: underline;">{{ $category['category_name'] }}</span>
-                                @if($category['subcategories']->isNotEmpty())
-                                    <ul class="submenu">
-                                        @foreach($category['subcategories'] as $subcategory)
-                                            <li>
-                                                <span style="font-weight:400;text-decoration: underline;">{{ $subcategory['subcategory_name'] }}</span>
-                                                @if($subcategory['families']->isNotEmpty())
-                                                    <ul class="sub-submenu">
-                                                        @foreach($subcategory['families'] as $family)
-                                                            <li><span style="font-weight:400;text-decoration: underline;">{{ $family['family_name'] }}</span></li>
-                                                        @endforeach
-                                                    </ul>
-                                                @endif
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                @endif
-                            </li>
-                            @endforeach
-                        </ul>
-                    </li>
-                    <li><a href="{{ route('home') }}">{{ __('Accueil') }}</a></li>
-                    <li><a href="{{ route('shop') }}">{{ __('Boutique') }}</a></li>
-                </ul>
-            </div>
-        </nav> --}}
         <nav class="secondary-navigation axil-mainmenu" style="padding: 5px;">
             <div class="container-fluid">
-                <ul class="secondary-menu">
+                <ul class="secondary-menu" id="mobileNav">
                     @foreach($groupedCategories as $category)
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" id="categoryDropdown{{ $loop->index }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -339,6 +303,7 @@
                 </ul>
             </div>
         </nav>
+
 
     </header>
 
