@@ -281,7 +281,7 @@
                         <a href="#" class="dropdown-toggle" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ __('Categories') }}
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                        <ul class="dropdown-menu custom-scroll" aria-labelledby="categoriesDropdown">
                             @foreach($groupedCategories as $category)
                             <li class="dropdown-item">
                                 <span style="text-decoration: underline;">{{ $category['category_name'] }}</span>
