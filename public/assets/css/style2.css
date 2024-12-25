@@ -195,69 +195,72 @@ list-style: none; /* Supprimer les puces */
     border-radius: 2px; /* Rounded corners for track */
 }
 
-
-.custom-slider {
+.category-slider {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px; /* Space between items */
+    justify-content: center;
+    gap: 15px; /* Adjusted space between cards */
 }
 
-.custom-slide {
+.category-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 106px; /* Fixed width for each slide */
-    height: 121px; /* Fixed height for each slide */
+    width: 150px; /* Reduced width for smaller cards */
+    height: 180px; /* Reduced height for smaller cards */
+    border: 1px solid #ddd; /* Subtle border for cards */
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Lighter shadow for less depth */
     overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Subtle shadow for depth */
+    background: #fff; /* White background for cleaner look */
+    transition: transform 0.3s ease-in-out;
 }
 
-.category-link, .active-link {
+.category-card:hover {
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.category-link, .active-category {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-decoration: none; /* Removes underline from links */
+    text-decoration: none; /* Ensures no underline */
+    color: #333; /* Text color */
 }
 
-.active-link {
-    border: 2px solid blue; /* Highlight for active category */
+.active-category {
+    border-color: #007bff; /* Active category highlight */
 }
 
-.image-container {
+.photo-container {
     width: 100%;
-    height: 70%; /* Allocate 70% of the height to the image */
+    height: 120px; /* Precise height for photos */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.category-image {
-    max-width: 60%;
-    max-height: 60%;
-    object-fit: cover; /* Cover ensures the image fills the area */
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+.category-photo {
+    width: auto; /* Adjust width automatically */
+    height: 100%; /* Full height within the container */
+    object-fit: cover; /* Cover to fill the space without distortion */
 }
 
-.title-container {
+.category-title {
     width: 100%;
-    height: 30%; /* Allocate 30% of the height to the title */
+    height: 60px; /* Fixed height for title container */
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f9f9f9; /* Light background for the title area */
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-}
-
-.title-container h6 {
+    padding: 5px;
     text-align: center;
+}
+
+.category-title h6 {
+    font-size: 12px; /* Smaller font size for smaller cards */
     margin: 0;
-    padding: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap; /* No wrap to ensure single line */
-    font-size: 14px; /* Consistent font size */
+    white-space: nowrap;
 }
+

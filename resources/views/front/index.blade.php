@@ -106,19 +106,41 @@
                             {{ \App\Helpers\TranslationHelper::TranslateText('Parcourrir par categories') }}
                         </h2>
                     </div>
-                    <div class="custom-slider">
-                        @foreach ($categories as $category)
-                            <div class="custom-slide">
-                                <a href="/category/{{ $category->id }}" class="{{ isset($current_category) && $current_category->id === $category->id ? 'active-link' : 'category-link' }}">
-                                    <div class="image-container">
-                                        <img src="{{ Storage::url($category->photo) }}" alt="{{ $category->nom }}" class="category-image">
+                    <div
+                        class="explore-product-activation slick-layout-wrapper slick-layout-wrapper--15 axil-slick-arrow arrow-top-slide">
+                        <div class="slick-single-layout">
+                            <div class="row row--15">
+                                @foreach ($categories as $category)
+                                    <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30">
+                                        <div class="axil-product product-style-one"
+                                            style="border: 1px solid #0162b1; border-radius: 8px; overflow: hidden;">
+                                            <div class="thumbnail">
+                                                <a
+                                                    href="#">
+                                                    <img data-sal="zoom-out" data-sal-delay="200" data-sal-duration="800"
+                                                        loading="lazy" class="main-img" border-radius="8px"
+                                                        src="{{ Storage::url($category->photo) }}" alt="Product Images">
+                                                    <img class="hover-img" border-radius="8px"
+                                                        src="{{ Storage::url($category->photo) }}" alt="Product Images">
+                                                </a>
+                                            </div>
+                                            <div class="product-content">
+                                                <div class="inner">
+                                                    <div class="">
+                                                        <h5 class="title text-center "><a
+                                                                href="#">
+                                                                {{ \App\Helpers\TranslationHelper::TranslateText($category->nom ?? '') }}
+
+                                                            </a>
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="title-container">
-                                        <h6>{{ \App\Helpers\TranslationHelper::TranslateText($category->nom ?? '') }}</h6>
-                                    </div>
-                                </a>
+                                @endforeach
                             </div>
-                        @endforeach
+                        </div>
                     </div>
 
                 </div>
@@ -201,11 +223,6 @@
 
                                                                     <i class="far fa-heart"></i></a></li>
                                                         @endif
-
-
-
-
-
                                                     </ul>
                                                 </div>
                                             </div>
@@ -268,12 +285,6 @@
 
 
                                                             @endif
-                                                            {{--  @if ($produit->sur_devis == true)
-
-                                                            <a href="{{ url('devis', $produit->id) }}" style="font-size: 1.7rem; color: white;">
-                                                        @endif
- --}}
-
 
                                                         </h6>
 
@@ -283,10 +294,8 @@
                                         </div>
                                     </div>
                                 @endforeach
-
                             </div>
                         </div>
-
                     </div>
                     <div class="row">
                         <div class="col-lg-12 text-center mt--20 mt_sm--0">
