@@ -279,7 +279,6 @@ list-style: none; /* Supprimer les puces */
     position: absolute;
     z-index: 1000; /* Ensure it's on top */
     left: 0;
-    top: 60px; /* Adjust based on your header's height */
     list-style: none; /* Remove default list styling */
     border-top: 1px solid #ccc; /* Subtle separation from the header */
 }
@@ -291,7 +290,7 @@ list-style: none; /* Supprimer les puces */
 
 .mobile-nav-link, .mobile-submenu-link, .mobile-dropdown-item {
     display: block;
-    padding: 10px 20px; /* Adequate padding for touch targets */
+    padding: 0px 20px; /* Adequate padding for touch targets */
     color: #333; /* Neutral, legible text color */
     text-decoration: none;
     font-size: 16px; /* Legible font size */
@@ -302,6 +301,7 @@ list-style: none; /* Supprimer les puces */
 .mobile-nav-link:hover, .mobile-submenu-link:hover, .mobile-dropdown-item:hover {
     color: #555; /* Slightly darker text on hover */
     text-decoration: none; /* No underline on hover */
+    margin-left: 10px;
 }
 
 /* Submenu specific styling */
