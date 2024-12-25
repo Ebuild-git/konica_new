@@ -277,43 +277,11 @@
         <nav class="secondary-navigation axil-mainmenu" style="padding: 5px;">
             <div class="container-fluid">
                 <ul class="secondary-menu">
-                    {{-- <li><a href="#">{{ __('Categories') }}</a></li> --}}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ __('Categories') }}
                         </a>
-
                         <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
-                            {{-- <li><span href="#" class="dropdown-item">{{ __('Category 1') }}</span></li>
-                            <li><span href="#" class="dropdown-item">{{ __('Category 2') }}</span></li>
-                            <li><span href="#" class="dropdown-item">{{ __('Category 3') }}</span></li> --}}
-                            <!-- More categories as needed -->
-                            {{-- <li class="dropdown-item">
-                                <span>Category 1</span>
-                                <ul class="submenu">
-                                    <li>
-                                        <span>Sub-category 1A</span>
-                                        <ul class="sub-submenu">
-                                            <li><span>Sub-subcategory 1A-1</span></li>
-                                            <li><span>Sub-subcategory 1A-2</span></li>
-                                        </ul>
-                                    </li>
-                                    <li><span>Sub-category 1B</span></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-item">
-                                <span>Category 1</span>
-                                <ul class="submenu">
-                                    <li>
-                                        <span>Sub-category 1A</span>
-                                        <ul class="sub-submenu">
-                                            <li><span>Sub-subcategory 1A-1</span></li>
-                                            <li><span>Sub-subcategory 1A-2</span></li>
-                                        </ul>
-                                    </li>
-                                    <li><span>Sub-category 1B</span></li>
-                                </ul>
-                            </li> --}}
                             @foreach($groupedCategories as $category)
                             <li class="dropdown-item">
                                 <span>{{ $category['category_name'] }}</span>
@@ -334,7 +302,7 @@
                                     </ul>
                                 @endif
                             </li>
-                        @endforeach
+                            @endforeach
                         </ul>
                     </li>
                     <li><a href="{{ route('home') }}">{{ __('Accueil') }}</a></li>

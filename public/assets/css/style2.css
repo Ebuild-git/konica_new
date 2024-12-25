@@ -92,7 +92,7 @@ width: 100%;
 }
 
 .dropdown-item {
-    padding: 5px 10px; /* Smaller padding for a compact look */
+    padding: 5px; /* Smaller padding for a compact look */
     white-space: nowrap; /* Prevents text from wrapping */
 }
 .axil-mainmenu {
