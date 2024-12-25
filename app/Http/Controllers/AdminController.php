@@ -6,7 +6,7 @@ use App\Models\commandes;
 use App\Models\historiques_stock;
 use App\Models\config;
 use App\Models\historiques_connexion;
-use App\Models\{produits, Category,Marque, Contact, favoris, Service, Coupon, Testimonial};
+use App\Models\{produits, Category,Marque, Contact, favoris, Service, Coupon, Testimonial, Sous_category};
 use App\Models\User;
 use App\Models\views;
 use Illuminate\Http\Request;

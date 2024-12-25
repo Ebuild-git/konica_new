@@ -1,4 +1,4 @@
-@section('titre', 'Ajouter une sous  category')
+@section('titre', 'Ajouter un rayon')
 @extends('admin.fixe')
 
 @section('body')
@@ -16,9 +16,9 @@
                                     <a href="javascript: void(0);">{{ config('app.name') }}</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="{{ route('sous_categories') }}"> Sous Categories</a>
+                                    <a href="{{ route('sous_categories') }}">Rayons</a>
                                 </li>
-                                <li class="breadcrumb-item active">Ajouter une sous category</li>
+                                <li class="breadcrumb-item active">Ajouter  un rayon</li>
                             </ol>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="header-title">
-                                Formulaire d'ajout d'une sous category
+                                Formulaire d'ajout d'un rayon
                             </h5>
                         </div>
                         <div class="card-body">

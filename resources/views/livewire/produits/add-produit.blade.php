@@ -63,17 +63,31 @@
                 </div>
                 
                 <div class="col-sm-6 mb-3">
-                    <label for="sub_category">Sous-catégorie :</label>
-                    <select wire:model="sous_category_id" id="sub_category" class="form-control @error('sous_category_id') is-invalid @enderror">
-                        <option value="">Choisir une sous-catégorie</option>
+                    <label for="sub_category">Rayon :</label>
+                    <select wire:model="sous_category_id"  wire:change="loadFamilles" id="sub_category" class="form-control @error('sous_category_id') is-invalid @enderror">
+                        <option value="">Choisir un rayon</option>
                         @foreach ($sous_categories as $cat)
-                            <option value="{{ $cat->id }}">{{ $cat->titre }}</option>
+                            <option value="{{ $cat->id }}">{{ $cat->nom }}</option>
                         @endforeach
                     </select>
                     @error('sous_category_id')
                         <span class="text-danger small"> {{ $message }} </span>
                     @enderror
                 </div>
+
+                <div class="col-sm-6 mb-3">
+                    <label for="famille">Famille :</label>
+                    <select wire:model="famille_id" id="famille" class="form-control @error('famille_id') is-invalid @enderror">
+                        <option value="">Choisir une famille</option>
+                        @foreach ($familles as $cat)
+                            <option value="{{ $cat->id }}">{{ $cat->nom }}</option>
+                        @endforeach
+                    </select>
+                    @error('famille_id')
+                        <span class="text-danger small"> {{ $message }} </span>
+                    @enderror
+                </div>
+
 
                     <div class="col-sm-6 mb-3">
                     <label for="">Marque </label>

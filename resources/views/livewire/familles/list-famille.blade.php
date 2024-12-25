@@ -35,6 +35,9 @@
                                    
                                     <td> {{ $famile->created_at->format('d/m/Y') }} </td>
                                     <td class="text-end">
+                                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#editModal{{ $famile->id }}">
+                                            <i class="ri-edit-line"></i> Modifier
+                                        </button>
                                        
                                         <button class="btn btn-sm btn-danger"
                                             onclick="toggle_confirmation({{ $famile->id }})">
@@ -66,6 +69,40 @@
             </div>
         </div>
     </div>
+
+
+    @foreach ($familles as $famile)
+    <!-- Modal pour modifier une famille -->
+    <div class="modal fade" id="editModal{{ $famile->id }}" tabindex="-1" aria-labelledby="editModalLabel{{ $famile->id }}" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel{{ $famile->id }}">Modifier la famille : {{ $famile->nom }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('famille.update', $famile->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="mb-3">
+                            <label for="nom" class="form-label">Nom de la famille</label>
+                            <input type="text" class="form-control" id="nom" name="nom" value="{{ $famile->nom }}" required>
+                        </div>
+
+                        <!-- Ajoutez d'autres champs si nécessaire -->
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="submit" class="btn btn-primary">Sauvegarder les modifications</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@endforeach
+
     <div class="col-sm-4">
         <div class="card radius-15">
             <div class="card-body">

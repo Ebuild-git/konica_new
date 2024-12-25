@@ -23,5 +23,6 @@ class Category extends Model
     {
         return $this->hasMany(Sous_category::class, 'categorie_id','id');
     }
+
     
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Famille;
 use App\Http\Requests\StoreFamilleRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateFamilleRequest;
 
 class FamilleController extends Controller
@@ -51,10 +52,24 @@ class FamilleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateFamilleRequest $request, Famille $famille)
+    public function update(Request $request, $id)
     {
-        //
+        $famille = Famille::findOrFail($id);
+        
+        // Valider les données
+        $validatedData = $request->validate([
+            'nom' => 'required|string|max:255',
+        ]);
+    
+        // Mettre à jour les données
+        $famille->update([
+            'nom' => $validatedData['nom'],
+        ]);
+    
+        // Rediriger avec un message de succès
+        return redirect()->route('familles')->with('success', 'La famille a été modifiée avec succès.');
     }
+    
 
     /**
      * Remove the specified resource from storage.

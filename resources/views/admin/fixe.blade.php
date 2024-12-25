@@ -169,14 +169,14 @@
                             <div class="parent-icon icon-color-3"> <i class="ri-list-ordered"></i>
                             </div>
                             <div class="menu-title">
-                                Les sous categories
+                                Les Rayons
                             </div>
                         </a>
                         <ul>
                             <li>
                                 <a href="{{ route('sous_categories') }}">
                                     <i class="bx bx-right-arrow-alt"></i>
-                                    Liste des sous categories
+                                    Liste des rayons
                                 </a>
                             </li>
                            {{--  <li>

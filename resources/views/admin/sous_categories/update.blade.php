@@ -1,4 +1,4 @@
-@section('titre', $sous_category->titre )
+@section('titre', $sous_category->nom )
 @extends('admin.fixe')
 
 @section('body')
@@ -16,10 +16,10 @@
                                     <a href="javascript: void(0);">{{ config('app.name') }}</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="{{ route('sous_categories') }}"> Sous Categories</a>
+                                    <a href="{{ route('sous_categories') }}"> Rayons</a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    {{ $sous_category->titre }}
+                                    {{ $sous_category->nom }}
                                 </li>
                             </ol>
                         </div>
@@ -33,14 +33,13 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="header-title">
-                                modification du sous categorie
+                                Modification du rayon
                             </h5>
                         </div>
                         <div class="card-body">
                            @livewire('SousCategories.AddSousCategories', ['sous_category' => $sous_category] ) 
  
-                       {{--    @livewire('SousCategories.UpdateSousCategories', ['sous_category' =>null] ) --}}
-
+                     
                         </div> <!-- end card body-->
                     </div> <!-- end card -->
                 </div><!-- end col-->

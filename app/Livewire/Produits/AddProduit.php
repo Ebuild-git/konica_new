@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Livewire\Produits;
-use App\Models\{produits, Category, Marque, Sous_category};
+use App\Models\{produits, Category, Marque, Sous_category, Famille};
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -11,11 +11,12 @@ class AddProduit extends Component
 {
     use WithFileUploads;
 
-    public $nom,$tags, $prix, $category_id,$categori_id,$photo, $photos, $prix_achat, $photo2, $photos2, $produit, $reference, $description,$marque_id ;
+    public $nom,$tags, $prix, $category_id, $categorie_id,$categori_id,$photo, $photos, $prix_achat, $photo2, $photos2, $produit, $reference, $description,$marque_id ;
 
 public $free_shipping, $sur_devis;
-public $meta_description, $sous_category_id;
+public $meta_description, $sous_category_id,$famille_id;
 public $sous_categories = array();
+public $familles = array();
 
 
 
@@ -30,7 +31,9 @@ public $sous_categories = array();
             $this->nom = $produit->nom;
             $this->tags = $produit->tags;
             $this->category_id = $produit->category_id;
+            $this->categorie_id = $produit->categorie_id;
             $this->sous_category_id = $produit->sous_category_id;
+            $this->famille_id = $produit->famille_id;
             $this->marque_id = $produit->marque_id;
             $this->reference = $produit->reference;
             $this->prix = $produit->prix;
@@ -42,6 +45,8 @@ public $sous_categories = array();
             $this->sur_devis = $produit->sur_devis ?? 0;
             $this->meta_description = $produit->meta_description;
             $this->sous_categories = Sous_category::where('categorie_id', $this->category_id)->get();
+            $this->familles = Famille::where('sous_category_id', $this->sous_category_id)->get();
+
      
 
         }
@@ -54,8 +59,8 @@ public $sous_categories = array();
     {
         $categories = Category::all();
         $marques = Marque::all();
-        $sous_categories = Sous_category::all();
-        return view('livewire.produits.add-produit', compact('categories','marques', 'sous_categories'));
+     
+        return view('livewire.produits.add-produit', compact('categories','marques'));
     }
 
     public function loadSubCategories()
@@ -65,7 +70,17 @@ public $sous_categories = array();
     
         $this->sous_categories = Sous_category::where('categorie_id', $this->category_id)->get();
     }
+
+
+    public function loadFamilles()
+    {
+
+        $this->famille_id = null;
     
+        $this->familles = Famille::where('sous_category_id', $this->sous_category_id)->get();
+    }
+    
+
 
 
 
@@ -76,8 +91,7 @@ public $sous_categories = array();
         $data =  $this->validate([
             'nom' => 'required|string',
             'description' => 'required|string|max:5000060',
-        //    'meta_description' => 'required|string|max:5000060',
-         //   'tags' => 'nullable|string|max:260',
+     
             'reference' => 'required|string|unique:produits,reference',
             'prix' => 'nullable|numeric|gt:prix_achat',
             'prix_achat' => 'nullable|numeric',
@@ -85,11 +99,12 @@ public $sous_categories = array();
             'photos.*' => 'nullable|image|mimes:jpg,jpeg,png,webp',
             'category_id' => 'required|integer|exists:categories,id',
             'sous_category_id' => 'nullable|integer|exists:sous_categories,id',
+            'famille_id' => 'nullable|integer|exists:familles,id',
             
-          //  'free_shipping' => 'nullable|boolean',
+          
             'sur_devis' => 'nullable|boolean',
          'marque_id' => 'nullable|integer|exists:marques,id',
-         //  'marque_id' => 'nullable|integer|exists:marques,id',
+        
         ]);
         ;[
             'reference.required' => ' La reference',
@@ -102,26 +117,29 @@ public $sous_categories = array();
 
         $categories = Category::findOrFail($data[('category_id')]);
         $sous_categories = Sous_category::findOrFail($data[('sous_category_id')]);
+        $famille = Famille::findOrFail($data[('famille_id')]);
 
-     //   dd($categories);
+  
 
         $produit = new produits();
         $produit->nom = $this->nom;
 
-     //   $produit->tags = $this->tags;
+
                 $produit->description = $this->description;
-             //   $produit->meta_description = $this->meta_description;
-            
+           
         $produit->reference = $this->reference;
         $produit->free_shipping = $this->free_shipping;
         $produit->sur_devis = $this->sur_devis ?? false;
-        // $produit->category = $this->category;
+   
 
         $produit->category_id = $this->category_id;
         $produit->marque_id = $this->marque_id;
         $produit->sous_category_id = $this->sous_category_id;
+        $produit->sous_category_id = $this->sous_category_id;
+        $produit->famille_id = $this->famille_id;
 
-
+        
+      
 
         $produit->prix = $this->prix;
         $produit->prix_achat = $this->prix_achat;
@@ -133,14 +151,11 @@ public $sous_categories = array();
             }
             $produit->photos = json_encode($photosPaths);
         }
-        // $produit->save();
+         $produit->save();
 
-        $categories->produits()->save($produit);
-
-        //reset input
         $this->reset();
 
-        //flash message
+    
         session()->flash('success', 'Produit ajouté avec succès');
     }
 
@@ -159,21 +174,28 @@ public $sous_categories = array();
                 'category_id' => 'required|integer|exists:categories,id',
                 'free_shipping' => 'nullable|boolean',
                 'sur_devis' => 'nullable|boolean',
+                'sous_category_id' => 'nullable|integer|exists:sous_categories,id',
+                'famille_id' => 'nullable|integer|exists:familles,id',
+                
             ]);
 
 
 
             $this->produit->nom = $this->nom;
             $this->produit->description = $this->description;
-           // $this->produit->meta_description = $this->meta_description;
+        
         
             $this->produit->prix = $this->prix;
             $this->produit->prix_achat = $this->prix_achat;
             $this->produit->marque_id = $this->marque_id;
             $this->produit->category_id = $this->category_id;
+            $this->produit->sous_category_id = $this->sous_category_id;
+            $this->produit->famille_id = $this->famille_id;
+
+            
             $this->produit->free_shipping = $this->free_shipping;
             $this->produit->sur_devis = $this->sur_devis ?? false;
-          //  $produit->category_id = $this->category_id;
+        
 
             if ($this->photo) {
                 //delete old photo
@@ -198,13 +220,6 @@ public $sous_categories = array();
             return redirect()->route('produits')->with('success', "Produit modifié avec succès");
         }
     }
-
-
-
-
-
-
-
 
 
 

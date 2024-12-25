@@ -52,7 +52,7 @@
 <body class="sticky-header overflow-md-visible">
  
     <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
-    <!-- Start Header -->
+  
     <header class="header axil-header header-style-7">
         <div class="axil-header-top">
             <div class="container-fluid">
@@ -148,6 +148,8 @@
                                 </a>
                             </div>
 
+                            
+
                             <ul class="mainmenu">
 
                                 
@@ -155,7 +157,7 @@
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" href="#" role="button"
                                         id="dropdown-header-menu" data-bs-toggle="dropdown" aria-expanded="false">
-                                       {{--   <i class="far fa-th-large"></i>  --}}
+                                     
                                        <i class="far fa-th-large" style="font-size: 22px; color:white;"></i>
 
                                         {{ \App\Helpers\TranslationHelper::TranslateText('Categories') }}
@@ -193,9 +195,12 @@
 
 
                                
-                            </ul>
+                            </ul> 
                         </nav>
-                    </div>
+                    </div> 
+
+
+                    
                     <div class="header-action">
                         <ul class="action-list">
 
@@ -299,13 +304,274 @@
                             </li>
                         </ul>
                     </div>
+
+                    
                 </div>
             </div>
         </div>
-        <!-- End Mainmenu Area -->
+        
     </header>
-    <!-- End Header -->
+ {{--    <header class="header axil-header header-style-2">
+       
+        <div class="axil-mainmenu aside-category-menu">
+            <div class="container">
+                <div class="header-navbar">
+                    <div class="header-nav-department">
+                        <aside class="header-department" >
+                     
+                            <nav class="department-nav-menu" >
+                           
+                                <ul class="nav-menu-list">
+                                    <li>
+                                        <a href="#" class="nav-link has-megamenu">
+                                            <span class="menu-icon"><img src="./assets/images/product/categories/cat-01.png" alt="Department"></span>
+                                            <span class="menu-text">Fashion</span>
+                                        </a>
+                                        <div class="department-megamenu">
+                                            <div class="department-megamenu-wrap">
+                                                <div class="department-submenu-wrap">
+                                                    <div class="department-submenu">
+                                                        <h3 class="submenu-heading">Men</h3>
+                                                        <ul>
+                                                            <li><a href="shop.html">T-shirts</a></li>
+                                                            <li><a href="shop-sidebar.html">Shirts</a></li>
+                                                            <li><a href="shop.html">Jeans</a></li>
+                                                        </ul>
+                                                        <h3 class="submenu-heading">Baby</h3>
+                                                        <ul>
+                                                            <li><a href="shop.html">Baby Cloths</a></li>
+                                                            <li><a href="shop-sidebar.html">Baby Gear</a></li>
+                                                            <li><a href="shop.html">Baby Toddler</a></li>
+                                                            <li><a href="shop-sidebar.html">Baby Toys</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="department-submenu">
+                                                        <h3 class="submenu-heading">Women</h3>
+                                                        <ul>
+                                                            <li><a href="shop.html">Jeans</a></li>
+                                                            <li><a href="shop-sidebar.html">T-shirts</a></li>
+                                                            <li><a href="shop.html">Shirts</a></li>
+                                                            <li><a href="shop.html">Tops</a></li>
+                                                            <li><a href="shop-sidebar.html">Jumpsuits</a></li>
+                                                            <li><a href="shop.html">Coats</a></li>
+                                                            <li><a href="shop-sidebar.html">Sweater</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="department-submenu">
+                                                        <h3 class="submenu-heading">Accessories</h3>
+                                                        <ul>
+                                                            <li><a href="shop.html">Handbag</a></li>
+                                                            <li><a href="shop.html">Shoes</a></li>
+                                                            <li><a href="shop.html">Wallets</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="featured-product">
+                                                    <h3 class="featured-heading">Featured</h3>
+                                                    <div class="product-list">
+                                                        <div class="item-product">
+                                                            <a href="#"><img src="./assets/images/product/product-feature1.png" alt="Featured Product"></a>
+                                                        </div>
+                                                        <div class="item-product">
+                                                            <a href="#"><img src="./assets/images/product/product-feature2.png" alt="Featured Product"></a>
+                                                        </div>
+                                                        <div class="item-product">
+                                                            <a href="#"><img src="./assets/images/product/product-feature3.png" alt="Featured Product"></a>
+                                                        </div>
+                                                        <div class="item-product">
+                                                            <a href="#"><img src="./assets/images/product/product-feature4.png" alt="Featured Product"></a>
+                                                        </div>
+                                                    </div>
+                                                    <a href="#" class="axil-btn btn-bg-primary">See All Offers</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav-link has-megamenu">
+                                            <span class="menu-icon"><img src="./assets/images/product/categories/cat-02.png" alt="Department"></span>
+                                            <span class="menu-text">Electronics</span>
+                                        </a>
+                                        <div class="department-megamenu">
+                                            <div class="department-megamenu-wrap">
+                                                <div class="department-submenu-wrap">
+                                                    <div class="department-submenu">
+                                                        <h3 class="submenu-heading">Men</h3>
+                                                        <ul>
+                                                            <li><a href="shop.html">T-shirts</a></li>
+                                                            <li><a href="shop-sidebar.html">Shirts</a></li>
+                                                            <li><a href="shop.html">Jeans</a></li>
+                                                        </ul>
+                                                        <h3 class="submenu-heading">Baby</h3>
+                                                        <ul>
+                                                            <li><a href="shop.html">Baby Cloths</a></li>
+                                                            <li><a href="shop-sidebar.html">Baby Gear</a></li>
+                                                            <li><a href="shop.html">Baby Toddler</a></li>
+                                                            <li><a href="shop-sidebar.html">Baby Toys</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="department-submenu">
+                                                        <h3 class="submenu-heading">Women</h3>
+                                                        <ul>
+                                                            <li><a href="shop.html">Jeans</a></li>
+                                                            <li><a href="shop-sidebar.html">T-shirts</a></li>
+                                                            <li><a href="shop.html">Shirts</a></li>
+                                                            <li><a href="shop.html">Tops</a></li>
+                                                            <li><a href="shop-sidebar.html">Jumpsuits</a></li>
+                                                            <li><a href="shop.html">Coats</a></li>
+                                                            <li><a href="shop-sidebar.html">Sweater</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="department-submenu">
+                                                        <h3 class="submenu-heading">Accessories</h3>
+                                                        <ul>
+                                                            <li><a href="shop.html">Handbag</a></li>
+                                                            <li><a href="shop.html">Shoes</a></li>
+                                                            <li><a href="shop.html">Wallets</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="featured-product">
+                                                    <h3 class="featured-heading">Featured</h3>
+                                                    <div class="product-list">
+                                                        <div class="item-product">
+                                                            <a href="#"><img src="./assets/images/product/product-feature1.png" alt="Featured Product"></a>
+                                                        </div>
+                                                        <div class="item-product">
+                                                            <a href="#"><img src="./assets/images/product/product-feature2.png" alt="Featured Product"></a>
+                                                        </div>
+                                                        <div class="item-product">
+                                                            <a href="#"><img src="./assets/images/product/product-feature3.png" alt="Featured Product"></a>
+                                                        </div>
+                                                        <div class="item-product">
+                                                            <a href="#"><img src="./assets/images/product/product-feature4.png" alt="Featured Product"></a>
+                                                        </div>
+                                                    </div>
+                                                    <a href="#" class="axil-btn btn-bg-primary">See All Offers</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav-link has-megamenu">
+                                            <span class="menu-icon"><img src="./assets/images/product/categories/cat-03.png" alt="Department"></span>
+                                            <span class="menu-text">Home Decor</span>
+                                        </a>
+                                       
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav-link has-megamenu">
+                                            <span class="menu-icon"><img src="./assets/images/product/categories/cat-04.png" alt="Department"></span>
+                                            <span class="menu-text">Medicine</span>
+                                        </a>
+                                      
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav-link">
+                                            <span class="menu-icon"><img src="./assets/images/product/categories/cat-05.png" alt="Department"></span>
+                                            <span class="menu-text">Furniture</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav-link">
+                                            <span class="menu-icon"><img src="./assets/images/product/categories/cat-06.png" alt="Department"></span>
+                                            <span class="menu-text">Crafts</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav-link">
+                                            <span class="menu-icon"><img src="./assets/images/product/categories/cat-07.png" alt="Department"></span>
+                                            <span class="menu-text">Accessories</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav-link">
+                                            <span class="menu-icon"><img src="./assets/images/product/categories/cat-08.png" alt="Department"></span>
+                                            <span class="menu-text">Camera</span>
+                                        </a>
+                                        
+                                    </li>
 
+                                </ul>
+                            </nav>
+                        </aside>
+                    </div>
+
+
+                  
+                </div>
+            </div>
+        </div>
+    
+    </header>
+ --}}
+<style>
+
+    /* Centrer le menu */
+.axil-mainmenu {
+    display: flex;
+    justify-content: center;  /* Centrer horizontalement */
+    align-items: center;      /* Centrer verticalement */
+    width: 100%;
+}
+
+
+/* Menu sous forme de hamburger */
+.hamburger-menu {
+    display: none; /* Cacher par défaut */
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+}
+
+/* Menu active (mobile) */
+.header-navbar.active .nav-menu-list {
+    display: block;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+    
+    .header-department .nav-menu-list {
+    display: flex; /* Utiliser flexbox pour le conteneur */
+    flex-direction: row; /* Aligner les éléments horizontalement */
+    padding: 0; /* Supprimer le padding par défaut */
+    margin: 0; /* Supprimer la marge par défaut */
+    list-style: none; /* Supprimer les puces */
+}
+
+.header-department .nav-menu-list li {
+    margin: 0 15px; /* Espacement entre les éléments */
+}
+
+.header-department .nav-menu-list li a {
+    display: block; /* Rendre le lien cliquable sur toute la largeur */
+    padding: 10px; /* Ajouter du padding pour le confort */
+    text-decoration: none; /* Supprimer le soulignement */
+    color: #000; /* Couleur du texte */
+}
+
+.header-department .nav-menu-list li a:hover {
+    background-color: #f0f0f0; /* Couleur de fond au survol */
+}
+</style>
+
+<script>
+
+    // JavaScript pour le menu hamburger
+document.querySelector('.hamburger-menu').addEventListener('click', function() {
+    document.querySelector('.header-navbar').classList.toggle('active');
+});
+
+</script>
 
 
     <main>

@@ -1,4 +1,4 @@
-@section('titre', 'Liste des sous categories')
+@section('titre', 'Liste des rayons')
 @extends('admin.fixe')
 
 @section('body')
@@ -16,7 +16,7 @@
                                     <a href="javascript: void(0);">{{ config('app.name') }}</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="{{ route('sous_categories') }}">Les sous categories</a>
+                                    <a href="{{ route('sous_categories') }}">Les rayons</a>
                                 </li>
                                 <li class="breadcrumb-item active">Liste</li>
                             </ol>
@@ -33,7 +33,7 @@
                         <div class="col-sm-6">
                             <div class="card-title">
                                 <h5 class="mb-0 my-auto">
-                                    Liste des sous  categories
+                                    Liste des rayons
                                 </h5>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                               
                               
                                     <button class="btn btn-primary btn-sm  px-5" onclick="url('{{ route('sous_category.add') }}')">
-                                        Ajouter une sous categorie
+                                        Ajouter un rayon
                                     </button>
                               
                             </div>

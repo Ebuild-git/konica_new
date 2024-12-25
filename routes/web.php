@@ -11,6 +11,7 @@ use App\Http\Controllers\favoris_client;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\MyAccountController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\FamilleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\{
 
@@ -172,7 +173,10 @@ Route::middleware(['auth'])->group(function () {
         ///////////////////Familless/////////////////
         Route::get('/admin/familles', [AdminController::class, 'familles'])
             ->name('familles');
+
     Route::get('/admin/familles/add', [AdminController::class, 'famille_add']);
+Route::resource('famille', FamilleController::class);
+
 
     ///////////////////Transports/////////////////
     Route::get('/admin/transports', [AdminController::class, 'transports'])

@@ -107,8 +107,9 @@ class produits extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
-    public function sous_categories(){
-        return $this->belongsTo(Sous_category::class,'sous_category_id', 'id');
+    public function sous_categories()
+    {
+        return $this->belongsTo(Sous_category::class, 'sous_category_id');
     }
 
 
