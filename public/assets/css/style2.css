@@ -41,7 +41,7 @@ width: 100%;
     position: fixed; /* Fixed positioning to stretch across the screen */
     top: 100%; /* Position it right below the navbar */
     left: 0; /* Start from the left edge of the viewport */
-    width: 100vw; /* Full viewport width */
+    width: 99vw; /* Full viewport width */
     background-color: #fff; /* Background color */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow for visibility */
     border-top: 1px solid #ccc; /* A subtle top border */
@@ -178,19 +178,19 @@ list-style: none; /* Supprimer les puces */
 
 /* Custom scrollbar styling */
 .custom-scroll::-webkit-scrollbar {
-    width: 8px; /* Scrollbar width */
+    width: 5px; /* Scrollbar width */
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-    background: #c71f2e; /* Scrollbar thumb color */
-    border-radius: 4px; /* Rounded corners for thumb */
+    background: #0162B1; /* Scrollbar thumb color */
+    border-radius: 2px; /* Rounded corners for thumb */
 }
 
 .custom-scroll::-webkit-scrollbar-thumb:hover {
-    background: #a81a25; /* Darker color on hover */
+    background: #0162B1; /* Darker color on hover */
 }
 
 .custom-scroll::-webkit-scrollbar-track {
     background: #f1f1f1; /* Track color */
-    border-radius: 4px; /* Rounded corners for track */
+    border-radius: 2px; /* Rounded corners for track */
 }
