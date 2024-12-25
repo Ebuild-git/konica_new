@@ -171,7 +171,7 @@ list-style: none; /* Supprimer les puces */
     text-decoration: underline; /* Optional: underline on hover */
 }
 .custom-scroll {
-    max-height: 300px; /* Adjust height as needed */
+    max-height: 250px; /* Adjust height as needed */
     overflow-y: auto; /* Enables vertical scrolling */
     overflow-x: hidden; /* Prevents horizontal scrolling */
 }
