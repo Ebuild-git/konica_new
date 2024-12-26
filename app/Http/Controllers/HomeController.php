@@ -174,19 +174,42 @@ class HomeController extends Controller
 
 
 
+    // public function produits($id)
+    // {
+    //     $categories = Category::with('produits')->get();
+    //     $current_category = Category::with('produits')->findOrFail($id);
+    //     $produits = $current_category->produits()->paginate(10);
+
+    //     $marques = Marque::with('produits')->get();
+    //     $current_marque = Marque::with('produits')->findOrFail($id);
+    //     $produits = $current_marque->produits()->paginate(10);
+
+
+    //     //dd($produits);
+    //     return view('front.shop.index', compact('current_category','current_marque','marques', 'categories', 'produits'));
+    // }
     public function produits($id)
     {
+        // Retrieve all categories with their products
         $categories = Category::with('produits')->get();
-        $current_category = Category::with('produits')->findOrFail($id);
-        $produits = $current_category->produits()->paginate(10);
 
+        // Retrieve all marques with their products
         $marques = Marque::with('produits')->get();
-        $current_marque = Marque::with('produits')->findOrFail($id);
-        $produits = $current_marque->produits()->paginate(10);
 
+        // Check if the current ID matches a marque first
+        $current_marque = Marque::with('produits')->find($id);
+        $current_category = null; // Initialize in case no category matches
 
-        //dd($produits);
-        return view('front.shop.index', compact('current_category','current_marque','marques', 'categories', 'produits'));
+        if ($current_marque) {
+            // If a marque matches, filter products by marque
+            $produits = $current_marque->produits()->paginate(10);
+        } else {
+            // If not a marque, try matching the ID as a category
+            $current_category = Category::with('produits')->findOrFail($id);
+            $produits = $current_category->produits()->paginate(10);
+        }
+
+        return view('front.shop.index', compact('current_category', 'current_marque', 'marques', 'categories', 'produits'));
     }
 
     public function details($id){
