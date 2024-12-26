@@ -233,6 +233,21 @@ class HomeController extends Controller
         return view('front.shop.index', compact('current_category', 'users', 'categories', 'produits'));
     }
 
+    public function fetchBySubcategory($id)
+    {
+        $subcategory = Sous_category::with('produits')->findOrFail($id);
+        $produits = $subcategory->produits()->paginate(10);
+
+        return view('front.shop.index', compact('subcategory', 'produits'));
+    }
+
+    public function fetchByFamily($id)
+    {
+        $family = Famille::with('produits')->findOrFail($id);
+        $produits = $family->produits()->paginate(10);
+
+        return view('front.shop.index', compact('family', 'produits'));
+    }
 
 
     ///////////Login///////////////////////////////////////////////////

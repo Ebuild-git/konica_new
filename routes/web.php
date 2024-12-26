@@ -62,6 +62,8 @@ Route::get('/marque/{id}', [HomeController::class, 'produits'])->where('id', '[0
 Route::get('/details-produits/{id}/{slug}', [HomeController::class, 'details'])->name('details-produits');
 Route::get('/details-services/{id}/{slug}', [HomeController::class, 'detailsServices'])->name('details-services');
 
+Route::get('/subcategory/{id}/products', [HomeController::class, 'fetchBySubcategory'])->where('id', '[0-9]+');
+Route::get('/family/{id}/products', [HomeController::class, 'fetchByFamily'])->where('id', '[0-9]+');
 
  ///gestion boutique
 Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
@@ -159,13 +161,13 @@ Route::middleware(['auth'])->group(function () {
         ->name('categories.update')
         ->middleware('permission:category_edit');
 
-       
+
         /////////sous_categories/////////////////////////
         Route::get('/admin/sous_categories', [AdminController::class,'sous_categories'])
         ->name('sous_categories');
 
     Route::get('/admin/sous_category/{id}/update', [AdminController::class,'sous_categories_update'])->name('sous_categories.update');
-        
+
     Route::get('/admin/sous_category_add', [AdminController::class,'sous_category_add']) ->name('sous_category.add');
 
 
@@ -198,12 +200,12 @@ Route::resource('famille', FamilleController::class);
         ///////////////////Les coupons////////////////////////////////////////////////
         Route::get('/admin/coupons', [AdminController::class, 'coupons'])
             ->name('coupons');
-            
+
     Route::post('/savecoupon', [CouponController::class, 'savecoupon'])->name('savecoupon');
     Route::get('/updatecoupon/{id}', [CouponController::class, 'updatecoupon'])->name('updatecoupon');
     Route::delete('/deletecoupon/{id}', [CouponController::class, 'destroy'])->name('coupon.destroy');
     Route::get('/putcoupon/{id}', [CouponController::class, 'putcoupon'])->name('putcoupon');
-   
+
     Route::resource('/coupons', CouponController::class);
 
 
@@ -218,13 +220,13 @@ Route::resource('famille', FamilleController::class);
 
 
    // Route::resource('/coupon', CouponController::class);
-            
+
         Route::get('/admin/coupon/add', [AdminController::class, 'coupon_add'])
             ->name('coupon.add');
-           
+
        // Route::get('/admin/coupon/{id}/update', [AdminController::class, 'coupon_update'])
         //    ->name('coupon.update');
-         
+
 
     ///////////////////Les produits////////////////////////////
 
@@ -262,12 +264,12 @@ Route::post('import', [CustomerController::class, 'importExcelData']);
 ////////////devis/////////
             Route::get('/devisclients', [AdminController::class, 'devisclients'])
             ->name('devisclients')
-        
+
             ->middleware('permission:order_view');
 
             Route::get('admin/new_devis', [AdminController::class, 'new_devis'])
             ->name('new_devis');
-           
+
              Route::get('/admin/devis/{id}/edit_devis', [AdminController::class, 'edit_devis'])->name('edit_devis');
 
 
@@ -293,8 +295,8 @@ Route::post('import', [CustomerController::class, 'importExcelData']);
 
 
 
-    
-    
+
+
 
     Route::get('clients', [AdminController::class, 'clients'])
         ->name('clients')

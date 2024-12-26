@@ -4,36 +4,73 @@
     $service = DB::table('services')->get();
     $produit = DB::table('produits')->get();
 
-    $categories = DB::table('categories')
-        ->select(
-            'categories.id as category_id',
-            'categories.nom as category_name',
-            'sous_categories.id as subcategory_id',
-            'sous_categories.nom as subcategory_name',
-            'familles.id as family_id',
-            'familles.nom as family_name'
-        )
-        ->leftJoin('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
-        ->leftJoin('familles', 'sous_categories.id', '=', 'familles.sous_category_id')
-        ->get();
+    // $categories = DB::table('categories')
+    //     ->select(
+    //         'categories.id as category_id',
+    //         'categories.nom as category_name',
+    //         'sous_categories.id as subcategory_id',
+    //         'sous_categories.nom as subcategory_name',
+    //         'familles.id as family_id',
+    //         'familles.nom as family_name'
+    //     )
+    //     ->leftJoin('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
+    //     ->leftJoin('familles', 'sous_categories.id', '=', 'familles.sous_category_id')
+    //     ->get();
 
-    // Group and nest data for hierarchical display
-    $groupedCategories = $categories->groupBy('category_id')->map(function ($categoryGroup) {
-        return [
-            'category_name' => $categoryGroup->first()->category_name,
-            'subcategories' => $categoryGroup->groupBy('subcategory_id')->map(function ($subcategoryGroup) {
-                return [
-                    'subcategory_name' => $subcategoryGroup->first()->subcategory_name,
-                    'families' => $subcategoryGroup->map(function ($family) {
-                        return [
-                            'family_id' => $family->family_id,
-                            'family_name' => $family->family_name,
-                        ];
-                    })->filter(),
-                ];
-            })->filter(),
-        ];
-    });
+    // // Group and nest data for hierarchical display
+    // $groupedCategories = $categories->groupBy('category_id')->map(function ($categoryGroup) {
+    //     return [
+    //         'category_name' => $categoryGroup->first()->category_name,
+    //         'subcategories' => $categoryGroup->groupBy('subcategory_id')->map(function ($subcategoryGroup) {
+    //             return [
+    //                 'subcategory_name' => $subcategoryGroup->first()->subcategory_name,
+    //                 'families' => $subcategoryGroup->map(function ($family) {
+    //                     return [
+    //                         'family_id' => $family->family_id,
+    //                         'family_name' => $family->family_name,
+    //                     ];
+    //                 })->filter(),
+    //             ];
+    //         })->filter(),
+    //     ];
+    // });
+    $categories = DB::table('categories')
+    ->select(
+        'categories.id as category_id',
+        'categories.nom as category_name',
+        'sous_categories.id as subcategory_id',
+        'sous_categories.nom as subcategory_name',
+        'familles.id as family_id',
+        'familles.nom as family_name'
+    )
+    ->leftJoin('sous_categories', 'categories.id', '=', 'sous_categories.categorie_id')
+    ->leftJoin('familles', 'sous_categories.id', '=', 'familles.sous_category_id')
+    ->get();
+
+// Group and nest data for hierarchical display
+$groupedCategories = $categories->groupBy('category_id')->map(function ($categoryGroup) {
+    return [
+        'category_name' => $categoryGroup->first()->category_name,
+        'subcategories' => $categoryGroup->filter(function ($item) {
+            return $item->subcategory_id !== null; // Ensure subcategories exist
+        })->groupBy('subcategory_id')->map(function ($subcategoryGroup) {
+            return [
+                'subcategory_id' => $subcategoryGroup->first()->subcategory_id, // Include subcategory_id
+                'subcategory_name' => $subcategoryGroup->first()->subcategory_name,
+                'families' => $subcategoryGroup->filter(function ($item) {
+                    return $item->family_id !== null; // Ensure families exist
+                })->map(function ($family) {
+                    return [
+                        'family_id' => $family->family_id, // Include family_id
+                        'family_name' => $family->family_name,
+                    ];
+                })->values(), // Reset collection keys
+            ];
+        })->values(), // Reset collection keys
+    ];
+})->values(); // Reset collection keys for categories
+
+
 @endphp
 
 <!doctype html>
@@ -335,11 +372,19 @@ $(document).ready(function() {
                             @if($category['subcategories']->isNotEmpty())
                                 @foreach($category['subcategories'] as $subcategory)
                                 <li class="dropdown-item">
-                                    <span style="text-decoration: underline;">{{ $subcategory['subcategory_name'] }}</span>
+                                    {{-- <span style="text-decoration: underline;">{{ $subcategory['subcategory_name'] }}</span> --}}
+                                    <a href="{{ url('/subcategory/' . $subcategory['subcategory_id'] . '/products') }}" style="text-decoration: underline;color:#000;font-size:14px;">
+                                        {{ $subcategory['subcategory_name'] }}
+                                    </a>
                                     @if($subcategory['families']->isNotEmpty())
                                         <ul class="submenu">
                                             @foreach($subcategory['families'] as $family)
-                                                <li><span style="font-weight:400;text-decoration: underline;">{{ $family['family_name'] }}</span></li>
+                                                <li>
+                                                    {{-- <span style="font-weight:400;text-decoration: underline;">{{ $family['family_name'] }}</span> --}}
+                                                    <a href="{{ url('/family/' . $family['family_id'] . '/products') }}" style="font-weight:400;text-decoration: underline;color:#000;font-size:14px;">
+                                                        {{ $family['family_name'] }}
+                                                    </a>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     @endif
