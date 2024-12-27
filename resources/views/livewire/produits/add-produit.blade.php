@@ -10,20 +10,20 @@
 
     <div class="row">
         <div class="col-sm-8">
-<br>
-<div class="col-sm-8">
-    <div class="form-check form-switch">
+    <br>
+    <div class="col-sm-8">
+        <div class="form-check form-switch">
 
-        <input name="sur_devis" class="form-check-input"  class="switch"   type="checkbox" id="sur_devis" wire:model.lazy="sur_devis"
-           wire:click="sur_devis">
-        <label class="form-check-label" for="flexSwitchCheckDefault">Produit sur devis</label>
-        @error('sur_devis')
-            <span class="text-danger small"> {{ $message }} </span>
-        @enderror
+            <input name="sur_devis" class="form-check-input"  class="switch"   type="checkbox" id="sur_devis" wire:model.lazy="sur_devis"
+            wire:click="sur_devis">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Produit sur devis</label>
+            @error('sur_devis')
+                <span class="text-danger small"> {{ $message }} </span>
+            @enderror
+        </div>
     </div>
-</div>
-<br>
-<br>
+    <br>
+    <br>
             <div class="mb-3">
                 <label for="">Nom du produit</label>
                 <input type="text" name="nom" class="form-control" wire:model="nom">
@@ -61,7 +61,7 @@
                         <span class="text-danger small"> {{ $message }} </span>
                     @enderror
                 </div>
-                
+
                 <div class="col-sm-6 mb-3">
                     <label for="sub_category">Rayon :</label>
                     <select wire:model="sous_category_id"  wire:change="loadFamilles" id="sub_category" class="form-control @error('sous_category_id') is-invalid @enderror">
@@ -100,9 +100,9 @@
                     @error('category_id')
                         <span class="text-danger small"> {{ $message }} </span>
                     @enderror
-                </div> 
-         
-               
+                </div>
+
+
                 @if (!$sur_devis)
                     <div class="col-sm-6">
                         <div class="mb-3">
@@ -169,7 +169,13 @@
                     <span class="text-danger small"> {{ $message }} </span>
                 @enderror
             </div>
-
+            <div class="mb-3">
+                <label for="">Brochures(optionnel)</label>
+                <input type="file" name="brochures" accept="image/*,application/pdf" class="form-control" wire:model="brochures">
+                @error('brochures')
+                    <span class="text-danger small"> {{ $message }} </span>
+                @enderror
+            </div>
         </div>
     </div>
     <div style="text-align: right;">

@@ -9,13 +9,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class produits extends Model
 {
     use HasFactory,SoftDeletes;
-  
+
     protected $fillable = [
-    
+
     'nom',
     'description',
    'reference',
-'prix', 
+'prix',
    'prix_achat',
     'photo',
    'id_promotion',
@@ -37,7 +37,7 @@ class produits extends Model
     protected $casts = [
         'photos' => 'json',
     ];
-    
+
 
    public function vendus()
     {
@@ -87,7 +87,7 @@ class produits extends Model
         $this->stock += $quantite;
         $this->save();
     }
-    
+
 
     public function historique_stock(){
         return $this->hasMany(historiques_stock::class, 'id_produit');
@@ -100,7 +100,7 @@ class produits extends Model
     }
 
 
-   
+
 
     public function categories()
     {
@@ -122,6 +122,9 @@ class produits extends Model
         return $this->belongsTo(Famille::class,'famille_id', 'id');
     }
 
-
+    public function getBrochureUrl()
+    {
+        return $this->brochure ? Storage::url($this->brochure) : null;
+    }
 
 }

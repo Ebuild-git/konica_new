@@ -325,3 +325,35 @@ list-style: none; /* Supprimer les puces */
     }
 }
 
+.modern-download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #0162B1;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px; /* Rounded button */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.modern-download-btn:hover {
+    background-color: #014a8a;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    color: white;
+}
+
+.modern-download-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.modern-download-btn i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}

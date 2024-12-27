@@ -30,10 +30,6 @@
 
 <main>
 
-    <style>
-
-    </style>
-
     <main class="main-wrapper">
         <!-- Start Shop Area  -->
         <div class="axil-single-product-area axil-section-gap pb--0 bg-color-white">
@@ -95,10 +91,6 @@
                                     mainImage.style.transform = "scale(1)";
                                 }
                             </script>
-
-
-
-
                         </div>
 
                         <div class="col-lg-5 mb--40">
@@ -138,10 +130,10 @@
                                     </div>
                                     <ul class="product-meta">
                                         @if ($produit->statut == 'disponible' )
-                                            <label class="badge btn-bg-primary2">
+                                            <label class="badge btn-bg-primary2" style="font-size:12px;">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Stock disponible') }}</label>
                                         @else
-                                            <label class="badge bg-danger">
+                                            <label class="badge bg-danger" style="font-size:12px;">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Stock en cours d\'approvisionnement') }}</label>
                                         @endif
                                         <br><br>
@@ -185,6 +177,13 @@
 
                                         {!! \App\Helpers\TranslationHelper::TranslateText(Str::limit($produit->description, 100)) !!}
                                     </p>
+                                    <div class="product-action-wrapper d-flex-center">
+                                        @if ($produit->brochures)
+                                            <a href="{{ Storage::url($produit->brochures) }}" class="modern-download-btn" target="_blank" download>
+                                                <i class="fas fa-download"></i> {{ \App\Helpers\TranslationHelper::TranslateText('Télécharger la brochure') }}
+                                            </a>
+                                        @endif
+                                    </div>
 
                                     <div class="product-variations-wrapper">
 
