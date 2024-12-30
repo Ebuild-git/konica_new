@@ -643,7 +643,7 @@
                 <div class="axil-google-map-wrap axil-section-gap pb--0">
                     <div class="mapouter">
                         <div class="gmap_canvas">
-                            <iframe width="1080" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Konica&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                            <iframe width="1080" height="500" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12789.203038416284!2d10.304916246891421!3d36.73935130622774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd499cebe99f5f%3A0x3cf086804d4b8482!2sKonica%20Tunisie!5e0!3m2!1sen!2stn!4v1735553747367!5m2!1sen!2stn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
